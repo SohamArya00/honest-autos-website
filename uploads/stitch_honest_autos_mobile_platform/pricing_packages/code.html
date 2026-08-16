@@ -1,0 +1,207 @@
+<!DOCTYPE html><html class="scroll-smooth" lang="en" style=""><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>Honest Autos - Pricing Tiers</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com" rel="preconnect">
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect">
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&amp;family=Roboto+Flex:opsz,wght@8..144,400;500;600&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "primary-container": "#1c1b1b",
+                        "on-secondary-container": "#003370",
+                        "on-tertiary-container": "#818488",
+                        "on-tertiary-fixed-variant": "#44474a",
+                        "on-primary-container": "#858383",
+                        "on-error": "#ffffff",
+                        "secondary": "#115cb9",
+                        "on-secondary-fixed": "#001a40",
+                        "on-primary-fixed-variant": "#474746",
+                        "inverse-primary": "#c8c6c5",
+                        "secondary-fixed": "#d7e2ff",
+                        "surface-dim": "#dadada",
+                        "on-surface-variant": "#444748",
+                        "outline": "#747878",
+                        "tertiary-container": "#191c1f",
+                        "tertiary-fixed": "#e0e2e6",
+                        "on-background": "#1a1c1c",
+                        "on-tertiary-fixed": "#191c1f",
+                        "secondary-container": "#659dfe",
+                        "on-secondary-fixed-variant": "#004491",
+                        "background": "#f9f9f9",
+                        "on-primary": "#ffffff",
+                        "surface-container-high": "#e8e8e8",
+                        "surface-container-highest": "#e2e2e2",
+                        "inverse-on-surface": "#f0f1f1",
+                        "inverse-surface": "#2f3131",
+                        "surface-container-low": "#f3f3f4",
+                        "outline-variant": "#c4c7c7",
+                        "error": "#ba1a1a",
+                        "surface-variant": "#e2e2e2",
+                        "tertiary": "#000000",
+                        "surface": "#f9f9f9",
+                        "error-container": "#ffdad6",
+                        "on-tertiary": "#ffffff",
+                        "tertiary-fixed-dim": "#c4c7ca",
+                        "secondary-fixed-dim": "#acc7ff",
+                        "primary": "#000000",
+                        "surface-container": "#eeeeee",
+                        "primary-fixed": "#e5e2e1",
+                        "surface-bright": "#f9f9f9",
+                        "on-surface": "#1a1c1c",
+                        "on-error-container": "#93000a",
+                        "on-secondary": "#ffffff",
+                        "surface-tint": "#5f5e5e",
+                        "surface-container-lowest": "#ffffff",
+                        "on-primary-fixed": "#1c1b1b",
+                        "primary-fixed-dim": "#c8c6c5"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "container-max": "1280px",
+                        "gutter": "24px",
+                        "margin-desktop": "48px",
+                        "base": "8px",
+                        "margin-mobile": "16px"
+                    },
+                    "fontFamily": {
+                        "body-md": ["Roboto Flex"],
+                        "headline-lg": ["Oswald"],
+                        "headline-lg-mobile": ["Oswald"],
+                        "body-lg": ["Roboto Flex"],
+                        "headline-md": ["Oswald"],
+                        "label-sm": ["Roboto Flex"],
+                        "display-lg": ["Oswald"]
+                    },
+                    "fontSize": {
+                        "body-md": ["16px", { "lineHeight": "1.5", "fontWeight": "400" }],
+                        "headline-lg": ["32px", { "lineHeight": "1.2", "letterSpacing": "0.01em", "fontWeight": "600" }],
+                        "headline-lg-mobile": ["28px", { "lineHeight": "1.2", "fontWeight": "600" }],
+                        "body-lg": ["18px", { "lineHeight": "1.6", "fontWeight": "400" }],
+                        "headline-md": ["24px", { "lineHeight": "1.3", "fontWeight": "500" }],
+                        "label-sm": ["12px", { "lineHeight": "1", "letterSpacing": "0.05em", "fontWeight": "600" }],
+                        "display-lg": ["48px", { "lineHeight": "1.1", "letterSpacing": "0.02em", "fontWeight": "700" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .material-symbols-outlined.fill {
+            font-variation-settings: 'FILL' 1, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+    </style>
+</head>
+<body class="bg-background text-on-background font-body-md antialiased selection:bg-secondary selection:text-on-secondary">
+<!-- TopAppBar -->
+<header class="bg-surface dark:bg-primary-container docked full-width top-0 sticky z-50 border-b border-outline-variant dark:border-on-tertiary-fixed-variant flat no shadows transition-all duration-300" id="top-nav"><div class="flex justify-between items-center px-margin-mobile md:px-margin-desktop py-4 max-w-container-max mx-auto">
+    <div class="flex items-center gap-4">
+        <img alt="Honest Autos Logo" class="h-10 w-10 object-contain rounded-full border border-outline-variant p-0.5" src="https://lh3.googleusercontent.com/aida-public/AB6AXuADq2Qerp9WoKrQVe9y3UxWyrLcJLnbS6Nbg4CQ6FXH3SebJK07zm-bhSM5Spgj7wD-lwFKmA3rVarn624lQ4qD1JN6p8QTJvvxh2QYd8tPY-mLIEyXDjeXQ1dv-NnNuxIqvd-OoGNlykzBP5465wL3ccK_kol6KY6cc_3MHhPxTU9HiA0YrM1qmsfiyHAjU5WubVIfAE-xQhYn5GrS_qAVZ114yOIcKayDJEEV-ekWqaQz8nJk8ewEQYk9Gbyuy9cRK8I">
+        <span class="font-headline-md text-headline-md font-bold text-primary dark:text-primary-fixed uppercase tracking-wider">Honest Autos</span>
+    </div>
+    <nav class="hidden md:flex gap-8 items-center">
+        <a class="font-label-sm text-label-sm uppercase text-on-surface-variant dark:text-on-tertiary-container hover:text-secondary transition-colors duration-200" href="#">Home</a>
+        <a class="font-label-sm text-label-sm uppercase text-on-surface-variant dark:text-on-tertiary-container hover:text-secondary transition-colors duration-200" href="#">Services</a>
+        <a class="font-label-sm text-label-sm uppercase text-secondary dark:text-secondary-container hover:text-secondary transition-colors duration-200" href="#">Pricing</a>
+        <a class="font-label-sm text-label-sm uppercase text-on-surface-variant dark:text-on-tertiary-container hover:text-secondary transition-colors duration-200" href="#">Gallery</a>
+        <a class="font-label-sm text-label-sm uppercase text-on-surface-variant dark:text-on-tertiary-container hover:text-secondary transition-colors duration-200" href="#">About</a>
+    </nav>
+    <div class="flex items-center gap-4">
+        <button class="bg-primary text-on-primary font-headline-md text-headline-md uppercase px-6 py-2 rounded hover:bg-secondary transition-colors duration-300 hidden md:block text-sm tracking-widest">
+            BOOK NOW
+        </button>
+        <button class="md:hidden text-primary">
+            <span class="material-symbols-outlined text-3xl">menu</span>
+        </button>
+    </div>
+</div></header>
+<!-- Main Content -->
+<main class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop py-20 pb-40 md:pb-24">
+<!-- Header Section -->
+<div class="text-center mb-20 max-w-3xl mx-auto">
+<h1 class="font-display-lg text-display-lg text-primary uppercase mb-6 tracking-tight">Transparency First</h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant">We believe in honest pricing for exceptional results. Choose a tier that fits your vehicle's needs, from essential refreshes to maximum restoration. No hidden fees, just precision detailing.</p>
+</div>
+<!-- Pricing Tiers Grid -->
+<div class="mb-12 p-8 bg-surface-container rounded-xl border border-outline-variant max-w-2xl mx-auto">
+    <h2 class="font-headline-md text-headline-md text-primary uppercase mb-4 text-center">Find Your Vehicle's Price</h2>
+    <p class="font-body-md text-body-md text-on-surface-variant text-center mb-6">Enter your registration to determine your vehicle size and see the corresponding ceramic coating price.</p>
+    <div class="flex flex-col md:flex-row gap-4">
+        <input type="text" placeholder="ENTER REGISTRATION (E.G. ABC 123)" class="flex-grow px-4 py-3 border-2 border-outline-variant rounded font-headline-md uppercase focus:border-primary outline-none transition-colors">
+        <button class="bg-primary text-on-primary font-headline-md text-headline-md uppercase px-8 py-3 rounded hover:bg-secondary transition-colors duration-300 tracking-widest">
+            Find My Vehicle
+        </button>
+    </div>
+    <div id="search-result" class="hidden mt-6 p-4 bg-surface-container-lowest border border-primary rounded text-center">
+        <p class="font-body-lg text-body-lg text-primary font-bold uppercase">Vehicle Found: <span id="vehicle-size-display" class="">Medium SUV</span></p>
+        <p class="font-body-md text-body-md text-on-surface-variant">Your Recommended Tier: <span class="text-secondary font-bold">Showroom Ready ($499)</span></p>
+    </div>
+</div><div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+<!-- Tier 1: Quick Flip -->
+<div class="bg-surface-container-lowest border border-outline-variant p-8 flex flex-col hover:-translate-y-2 transition-transform duration-300 shadow-sm hover:shadow-lg relative overflow-hidden group"><div class="absolute top-0 left-0 w-full h-1 bg-outline-variant group-hover:bg-primary transition-colors duration-300"></div><div class="mb-8"><div class="flex justify-between items-start"><h3 class="font-headline-md text-headline-md text-primary uppercase mb-2">Quick Flip</h3><span class="bg-error text-on-error text-[10px] font-bold px-2 py-0.5 rounded uppercase tracking-wider">Sale</span></div><p class="font-body-md text-body-md text-on-surface-variant h-12">Small Vehicle Refresh<br>Essential shine restoration.</p></div><div class="mb-8"><span class="font-label-sm text-label-sm uppercase text-on-surface-variant tracking-widest">Starting From</span><div class="flex items-baseline gap-2 mt-1"><span class="font-display-lg text-display-lg text-primary">$399</span><span class="text-on-surface-variant line-through text-sm">$499</span></div></div><ul class="space-y-4 mb-8 flex-grow"><li class="flex items-start gap-3"><span class="material-symbols-outlined text-secondary text-lg">check_circle</span><span class="font-body-md text-body-md text-on-background">Thorough Exterior Wash</span></li><li class="flex items-start gap-3"><span class="material-symbols-outlined text-secondary text-lg">check_circle</span><span class="font-body-md text-body-md text-on-background">Basic Interior Vacuum &amp; Wipe Down</span></li><li class="flex items-start gap-3"><span class="material-symbols-outlined text-secondary text-lg">check_circle</span><span class="font-body-md text-body-md text-on-background">Window Cleaning (Inside/Out)</span></li><li class="flex items-start gap-3"><span class="material-symbols-outlined text-secondary text-lg">check_circle</span><span class="font-body-md text-body-md text-on-background">Tire Shine Application</span></li></ul><button class="w-full border-2 border-primary text-primary font-headline-md text-headline-md uppercase text-sm tracking-widest py-3 hover:bg-primary hover:text-on-primary transition-colors duration-300 mt-auto">Select Quick Flip</button></div>
+<!-- Tier 2: Showroom Ready (Highlighted) -->
+<div class="bg-primary text-on-primary border border-primary p-8 flex flex-col hover:-translate-y-2 transition-transform duration-300 shadow-md relative overflow-hidden group scale-105 md:scale-110 z-10"><div class="absolute top-0 right-0 bg-secondary text-on-secondary font-label-sm text-label-sm uppercase px-3 py-1 transform rotate-45 translate-x-6 translate-y-4 shadow-sm w-32 text-center tracking-wider">Popular</div><div class="mb-8 mt-2"><div class="flex justify-between items-start"><h3 class="font-headline-md text-headline-md text-on-primary uppercase mb-2">Showroom Ready</h3><span class="bg-on-primary text-primary text-[10px] font-bold px-2 py-0.5 rounded uppercase tracking-wider">Sale</span></div><p class="font-body-md text-body-md text-inverse-primary h-12">Medium Vehicle Detail<br>Deep detail &amp; enduring protection.</p></div><div class="mb-8"><span class="font-label-sm text-label-sm uppercase text-inverse-primary tracking-widest">Starting From</span><div class="flex items-baseline gap-2 mt-1"><span class="font-display-lg text-display-lg text-on-primary">$499</span><span class="text-inverse-primary line-through text-sm">$599</span></div></div><ul class="space-y-4 mb-8 flex-grow"><li class="flex items-start gap-3"><span class="material-symbols-outlined text-secondary-fixed text-lg">check_circle</span><span class="font-body-md text-body-md text-on-primary">Everything in Quick Flip</span></li><li class="flex items-start gap-3"><span class="material-symbols-outlined text-secondary-fixed text-lg">check_circle</span><span class="font-body-md text-body-md text-on-primary">Clay Bar Treatment &amp; Decontamination</span></li><li class="flex items-start gap-3"><span class="material-symbols-outlined text-secondary-fixed text-lg">check_circle</span><span class="font-body-md text-body-md text-on-primary">Single Stage Paint Enhancement Polish</span></li><li class="flex items-start gap-3"><span class="material-symbols-outlined text-secondary-fixed text-lg">check_circle</span><span class="font-body-md text-body-md text-on-primary">Premium 6-Month Ceramic Sealant</span></li><li class="flex items-start gap-3"><span class="material-symbols-outlined text-secondary-fixed text-lg">check_circle</span><span class="font-body-md text-body-md text-on-primary">Deep Carpet Extraction &amp; Leather Conditioning</span></li></ul><button class="w-full bg-secondary text-on-secondary font-headline-md text-headline-md uppercase text-sm tracking-widest py-3 hover:bg-secondary-fixed hover:text-on-secondary-fixed transition-colors duration-300 mt-auto">Select Showroom Ready</button></div>
+<!-- Tier 3: Top Dollar Value -->
+<div class="bg-surface-container-lowest border border-outline-variant p-8 flex flex-col hover:-translate-y-2 transition-transform duration-300 shadow-sm hover:shadow-lg relative overflow-hidden group"><div class="absolute top-0 left-0 w-full h-1 bg-outline-variant group-hover:bg-primary transition-colors duration-300"></div><div class="mb-8"><div class="flex justify-between items-start"><h3 class="font-headline-md text-headline-md text-primary uppercase mb-2">Top Dollar</h3><span class="bg-error text-on-error text-[10px] font-bold px-2 py-0.5 rounded uppercase tracking-wider">Sale</span></div><p class="font-body-md text-body-md text-on-surface-variant h-12">Large Vehicle Restoration<br>Maximum restoration &amp; coating.</p></div><div class="mb-8"><span class="font-label-sm text-label-sm uppercase text-on-surface-variant tracking-widest">Starting From</span><div class="flex items-baseline gap-2 mt-1"><span class="font-display-lg text-display-lg text-primary">$799</span><span class="text-on-surface-variant line-through text-sm">$899</span></div></div><ul class="space-y-4 mb-8 flex-grow"><li class="flex items-start gap-3"><span class="material-symbols-outlined text-secondary text-lg">check_circle</span><span class="font-body-md text-body-md text-on-background">Everything in Showroom Ready</span></li><li class="flex items-start gap-3"><span class="material-symbols-outlined text-secondary text-lg">check_circle</span><span class="font-body-md text-body-md text-on-background">Multi-Stage Paint Correction</span></li><li class="flex items-start gap-3"><span class="material-symbols-outlined text-secondary text-lg">check_circle</span><span class="font-body-md text-body-md text-on-background">3-5 Year Ceramic Coating</span></li><li class="flex items-start gap-3"><span class="material-symbols-outlined text-secondary text-lg">check_circle</span><span class="font-body-md text-body-md text-on-background">Engine Bay Detailing &amp; Dressing</span></li><li class="flex items-start gap-3"><span class="material-symbols-outlined text-secondary text-lg">check_circle</span><span class="font-body-md text-body-md text-on-background">Headlight Restoration</span></li></ul><button class="w-full border-2 border-primary text-primary font-headline-md text-headline-md uppercase text-sm tracking-widest py-3 hover:bg-primary hover:text-on-primary transition-colors duration-300 mt-auto">Select Top Dollar</button></div>
+</div>
+<!-- Disclaimer -->
+<div class="mt-16 text-center max-w-2xl mx-auto flex items-center justify-center gap-2 text-on-surface-variant border-t border-outline-variant pt-8">
+<span class="material-symbols-outlined text-xl">info</span>
+<p class="font-body-md text-body-md italic">Custom quotes available for Extra Large, Fleet, complex restorations, or unique vehicles.</p>
+</div>
+</main>
+<!-- BottomNavBar (Mobile Only) -->
+<nav class="md:hidden fixed bottom-0 left-0 w-full z-50 flex justify-around items-center bg-surface-container dark:bg-tertiary-container px-2 pb-safe border-t border-outline-variant dark:border-on-tertiary-fixed-variant shadow-lg rounded-t-lg pt-2">
+<a class="flex flex-col items-center justify-center text-on-surface-variant dark:text-on-tertiary-container p-2 hover:bg-surface-variant dark:hover:bg-on-tertiary-fixed-variant rounded-xl transition-colors w-16" href="#">
+<span class="material-symbols-outlined text-2xl mb-1">home</span>
+<span class="font-label-sm text-[10px] uppercase">Home</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant dark:text-on-tertiary-container p-2 hover:bg-surface-variant dark:hover:bg-on-tertiary-fixed-variant rounded-xl transition-colors w-16" href="#">
+<span class="material-symbols-outlined text-2xl mb-1">minor_crash</span>
+<span class="font-label-sm text-[10px] uppercase">Services</span>
+</a>
+<a class="flex flex-col items-center justify-center bg-primary dark:bg-primary-fixed text-on-primary dark:text-on-primary-fixed rounded-xl p-2 scale-90 duration-150 w-16 shadow-md" href="#">
+<span class="material-symbols-outlined text-2xl mb-1 fill">payments</span>
+<span class="font-label-sm text-[10px] uppercase">Pricing</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant dark:text-on-tertiary-container p-2 hover:bg-surface-variant dark:hover:bg-on-tertiary-fixed-variant rounded-xl transition-colors w-16" href="#">
+<span class="material-symbols-outlined text-2xl mb-1">photo_library</span>
+<span class="font-label-sm text-[10px] uppercase">Gallery</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant dark:text-on-tertiary-container p-2 hover:bg-surface-variant dark:hover:bg-on-tertiary-fixed-variant rounded-xl transition-colors w-16" href="#">
+<span class="material-symbols-outlined text-2xl mb-1">info</span>
+<span class="font-label-sm text-[10px] uppercase">About</span>
+</a>
+</nav>
+<script>
+        // Simple scroll shadow for top nav
+        window.addEventListener('scroll', () => {
+            const nav = document.getElementById('top-nav');
+            if (window.scrollY > 10) {
+                nav.classList.add('shadow-md');
+                nav.classList.remove('no');
+                nav.classList.remove('shadows');
+            } else {
+                nav.classList.remove('shadow-md');
+                nav.classList.add('no');
+                nav.classList.add('shadows');
+            }
+        });
+    </script>
+
+
+</body></html>

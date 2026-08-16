@@ -1,0 +1,292 @@
+<!DOCTYPE html><html lang="en"><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>Booking Enquiry - Honest Autos</title>
+<link href="https://fonts.googleapis.com" rel="preconnect">
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect">
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;600;700&amp;family=Roboto+Flex:wght@400;600&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "primary-container": "#1c1b1b",
+                      "on-secondary-container": "#003370",
+                      "on-tertiary-container": "#818488",
+                      "on-tertiary-fixed-variant": "#44474a",
+                      "on-primary-container": "#858383",
+                      "on-error": "#ffffff",
+                      "secondary": "#115cb9",
+                      "on-secondary-fixed": "#001a40",
+                      "on-primary-fixed-variant": "#474746",
+                      "inverse-primary": "#c8c6c5",
+                      "secondary-fixed": "#d7e2ff",
+                      "surface-dim": "#dadada",
+                      "on-surface-variant": "#444748",
+                      "outline": "#747878",
+                      "tertiary-container": "#191c1f",
+                      "tertiary-fixed": "#e0e2e6",
+                      "on-background": "#1a1c1c",
+                      "on-tertiary-fixed": "#191c1f",
+                      "secondary-container": "#659dfe",
+                      "on-secondary-fixed-variant": "#004491",
+                      "background": "#f9f9f9",
+                      "on-primary": "#ffffff",
+                      "surface-container-high": "#e8e8e8",
+                      "surface-container-highest": "#e2e2e2",
+                      "inverse-on-surface": "#f0f1f1",
+                      "inverse-surface": "#2f3131",
+                      "surface-container-low": "#f3f3f4",
+                      "outline-variant": "#c4c7c7",
+                      "error": "#ba1a1a",
+                      "surface-variant": "#e2e2e2",
+                      "tertiary": "#000000",
+                      "surface": "#f9f9f9",
+                      "error-container": "#ffdad6",
+                      "on-tertiary": "#ffffff",
+                      "tertiary-fixed-dim": "#c4c7ca",
+                      "secondary-fixed-dim": "#acc7ff",
+                      "primary": "#000000",
+                      "surface-container": "#eeeeee",
+                      "primary-fixed": "#e5e2e1",
+                      "surface-bright": "#f9f9f9",
+                      "on-surface": "#1a1c1c",
+                      "on-error-container": "#93000a",
+                      "on-secondary": "#ffffff",
+                      "surface-tint": "#5f5e5e",
+                      "surface-container-lowest": "#ffffff",
+                      "on-primary-fixed": "#1c1b1b",
+                      "primary-fixed-dim": "#c8c6c5"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0.25rem",
+                      "lg": "0.5rem",
+                      "xl": "0.75rem",
+                      "full": "9999px"
+              },
+              "spacing": {
+                      "container-max": "1280px",
+                      "gutter": "24px",
+                      "margin-desktop": "48px",
+                      "base": "8px",
+                      "margin-mobile": "16px"
+              },
+              "fontFamily": {
+                      "body-md": [
+                              "Roboto Flex"
+                      ],
+                      "headline-lg": [
+                              "Oswald"
+                      ],
+                      "headline-lg-mobile": [
+                              "Oswald"
+                      ],
+                      "body-lg": [
+                              "Roboto Flex"
+                      ],
+                      "headline-md": [
+                              "Oswald"
+                      ],
+                      "label-sm": [
+                              "Roboto Flex"
+                      ],
+                      "display-lg": [
+                              "Oswald"
+                      ]
+              },
+              "fontSize": {
+                      "body-md": [
+                              "16px",
+                              {
+                                      "lineHeight": "1.5",
+                                      "fontWeight": "400"
+                              }
+                      ],
+                      "headline-lg": [
+                              "32px",
+                              {
+                                      "lineHeight": "1.2",
+                                      "letterSpacing": "0.01em",
+                                      "fontWeight": "600"
+                              }
+                      ],
+                      "headline-lg-mobile": [
+                              "28px",
+                              {
+                                      "lineHeight": "1.2",
+                                      "fontWeight": "600"
+                              }
+                      ],
+                      "body-lg": [
+                              "18px",
+                              {
+                                      "lineHeight": "1.6",
+                                      "fontWeight": "400"
+                              }
+                      ],
+                      "headline-md": [
+                              "24px",
+                              {
+                                      "lineHeight": "1.3",
+                                      "fontWeight": "500"
+                              }
+                      ],
+                      "label-sm": [
+                              "12px",
+                              {
+                                      "lineHeight": "1",
+                                      "letterSpacing": "0.05em",
+                                      "fontWeight": "600"
+                              }
+                      ],
+                      "display-lg": [
+                              "48px",
+                              {
+                                      "lineHeight": "1.1",
+                                      "letterSpacing": "0.02em",
+                                      "fontWeight": "700"
+                              }
+                      ]
+              }
+      },
+          },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .input-underline {
+            border: none;
+            border-bottom: 1px solid #94A3B8;
+            border-radius: 0;
+            padding-left: 0;
+            padding-right: 0;
+            background-color: transparent;
+            transition: border-color 0.3s ease;
+        }
+        .input-underline:focus {
+            outline: none;
+            box-shadow: none;
+            border-bottom: 2px solid #000000;
+        }
+        .glass-card {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+        }
+    </style>
+</head>
+<body class="bg-surface text-on-surface font-body-md antialiased flex flex-col min-h-screen">
+<!-- TopAppBar: Transactional Page so minimal nav -->
+<header class="bg-surface docked full-width top-0 sticky z-50 flex justify-between items-center px-margin-mobile md:px-margin-desktop py-4 max-w-container-max mx-auto w-full">
+<div class="flex items-center gap-4">
+<a class="flex items-center gap-2 group" href="/">
+<img alt="Honest Autos Logo EST 2024" class="h-12 w-12 object-contain group-hover:opacity-80 transition-opacity" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCjrb2lHsxm48kWmqOO6B3E0Y4wlBUhrVIstE_KBflPf2nZV-gq9X8j9dYI0boCgmKE6mwsVWV8JubPX5p9Yfr1iOGqOamZ-pTqU8w4CAkbV4QU35TDLugzyRLQnpVFBHD7IFcsbYcqQ33UYGQN73GAdLERNCe-wymcrxXKqm_pHe6ZqoR_RLLt5iepQHw0SGbbUEkwXZz8y3JxjFprNiQyu0fiWTJob940KJEGwpDQmIP1SZi_jKW_OYnjMd8NigU4U_w">
+<span class="font-headline-md text-headline-md font-bold text-primary tracking-tight uppercase hidden sm:block">Honest Autos</span>
+</a>
+</div>
+<div class="flex items-center">
+<a class="text-on-surface-variant hover:text-primary transition-colors flex items-center gap-2" href="javascript:history.back()">
+<span class="material-symbols-outlined text-xl">close</span>
+<span class="font-label-sm text-label-sm uppercase hidden sm:inline">Cancel</span>
+</a>
+</div>
+</header>
+<!-- Main Content Canvas -->
+<main class="flex-grow w-full max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop py-12 md:py-24">
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-gutter lg:gap-12 items-start">
+<!-- Left Column: Context & Imagery -->
+<div class="lg:col-span-5 flex flex-col gap-8 lg:sticky lg:top-32">
+<div>
+<h1 class="font-display-lg text-display-lg text-primary uppercase mb-6 leading-tight">
+                        Secure Your Spot at the Honest Autos Workshop.
+                    </h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant max-w-md">
+                        Experience precision craftsmanship and uncompromising quality. Request a booking below and our detailing specialists will construct a customized plan for your vehicle.
+                    </p>
+</div>
+<!-- Decorative Image Bento -->
+<div class="hidden md:block w-full h-[400px] rounded-DEFAULT overflow-hidden relative shadow-lg">
+<img class="w-full h-full object-cover absolute inset-0" data-alt="A close-up, high-contrast photograph of a luxury car's glossy black exterior being expertly hand-polished in a pristine, brightly lit minimalist workshop setting. The lighting emphasizes the flawless reflection on the ceramic-coated paint. Monochromatic tones with subtle hints of professional blue." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDDBQ7yoZFuuu7o7vCysAPOnDgYtesRZpWxRv6KwukA1m5iGiSDj9edUV45VhNRDzimia4gr0cCiHac-_Pg1LRk6k4irBK8Ra1rifaU81dGmdz3dfg--tUR8GLEAZnAHIjeVzgg2IOS0xEbPtDMPsBgFg344pzEFkYtkFql7N4Up2cLfr8cws-dyGfrZgQKjD-BU9p32q0vzzoeWkGWIITBkAJvDBkMYwzaFpX7zw_m3sRRUSiHje1gQQ">
+<div class="absolute inset-0 bg-gradient-to-t from-primary/60 to-transparent"></div>
+<div class="absolute bottom-6 left-6 text-on-primary">
+<span class="inline-flex items-center gap-2 bg-white/20 backdrop-blur-md px-3 py-1 rounded-sm font-label-sm text-label-sm uppercase tracking-wider mb-2">
+<span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1;">verified</span>
+                            Premium Service
+                        </span>
+</div>
+</div>
+</div>
+<!-- Right Column: Booking Form -->
+<div class="lg:col-span-7">
+<div class="bg-white border border-outline-variant rounded-DEFAULT p-8 md:p-12 shadow-sm relative overflow-hidden">
+<!-- Decorative subtle accent -->
+<div class="absolute top-0 left-0 w-full h-1 bg-primary"></div>
+<form action="#" class="space-y-10" method="POST">
+<!-- Personal Details -->
+<div class="space-y-6">
+<h2 class="font-headline-md text-headline-md text-primary uppercase border-b border-surface-variant pb-2">Client Details</h2>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+<div class="relative">
+<label class="block font-label-sm text-label-sm uppercase text-on-surface-variant mb-2" for="name">Full Name</label>
+<input class="w-full input-underline font-body-md text-body-md text-primary placeholder-on-tertiary-container focus:ring-0" id="name" name="name" placeholder="John Doe" required="" type="text">
+</div>
+<div class="relative">
+<label class="block font-label-sm text-label-sm uppercase text-on-surface-variant mb-2" for="phone">Phone Number</label>
+<input class="w-full input-underline font-body-md text-body-md text-primary placeholder-on-tertiary-container focus:ring-0" id="phone" name="phone" placeholder="+64 21 000 0000" required="" type="tel">
+</div>
+</div>
+<div class="relative">
+<label class="block font-label-sm text-label-sm uppercase text-on-surface-variant mb-2" for="email">Email Address</label>
+<input class="w-full input-underline font-body-md text-body-md text-primary placeholder-on-tertiary-container focus:ring-0" id="email" name="email" placeholder="john@example.com" required="" type="email">
+</div>
+</div>
+<!-- Vehicle & Service -->
+<div class="space-y-6 pt-4">
+<h2 class="font-headline-md text-headline-md text-primary uppercase border-b border-surface-variant pb-2">Vehicle Profile</h2>
+<div class="relative">
+<label class="block font-label-sm text-label-sm uppercase text-on-surface-variant mb-2" for="vehicle">Vehicle Make &amp; Model</label>
+<input class="w-full input-underline font-body-md text-body-md text-primary placeholder-on-tertiary-container focus:ring-0" id="vehicle" name="vehicle" placeholder="e.g. Porsche 911 GT3" required="" type="text">
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+<div class="relative">
+<label class="block font-label-sm text-label-sm uppercase text-on-surface-variant mb-2" for="service">Service Interested In</label>
+<select class="w-full input-underline font-body-md text-body-md text-primary focus:ring-0 appearance-none bg-transparent cursor-pointer" id="service" name="service" required="">
+<option class="text-on-tertiary-container" disabled="" selected="" value="">Select a service...</option>
+<option value="ceramic">Ceramic Coating</option>
+<option value="detail">Full Detailing</option>
+<option value="restoration">Paint Restoration</option>
+</select>
+<span class="material-symbols-outlined absolute right-0 bottom-3 pointer-events-none text-on-surface-variant">arrow_drop_down</span>
+</div>
+<div class="relative">
+<label class="block font-label-sm text-label-sm uppercase text-on-surface-variant mb-2" for="date">Preferred Date</label>
+<input class="w-full input-underline font-body-md text-body-md text-primary focus:ring-0 bg-transparent cursor-pointer" id="date" name="date" type="date">
+</div>
+</div>
+</div>
+<!-- Action Area -->
+<div class="pt-8 flex flex-col items-start gap-6 border-t border-surface-variant">
+<div class="flex items-start gap-3 bg-surface-container-low p-4 rounded-DEFAULT w-full">
+<span class="material-symbols-outlined text-secondary mt-0.5">info</span>
+<p class="font-body-md text-sm text-on-surface-variant m-0">
+<strong>Note:</strong> We will contact you within 24 hours to confirm your booking date and discuss vehicle specifics.
+                                </p>
+</div>
+<div class="flex items-center gap-4 mb-2"><div class="flex items-center gap-2 text-on-tertiary-container font-label-sm uppercase tracking-widest"><span class="material-symbols-outlined text-sm">verified</span><span class="">Authorized Installer: Fireball &amp; Autostolz</span></div></div><button class="bg-primary text-on-primary font-headline-md text-headline-md uppercase tracking-wide py-4 px-10 rounded-sm hover:bg-secondary transition-colors duration-300 w-full md:w-auto flex justify-center items-center gap-3" type="submit">
+                                SUBMIT ENQUIRY
+                                <span class="material-symbols-outlined text-lg">arrow_forward</span>
+</button>
+</div>
+</form>
+</div>
+</div>
+</div>
+</main>
+
+
+<footer class="bg-surface-container-low border-t border-outline-variant py-8 px-margin-mobile md:px-margin-desktop mt-auto"><div class="max-w-container-max mx-auto flex flex-col md:flex-row justify-between items-center gap-4 text-on-surface-variant font-label-sm uppercase tracking-wider"><div class="">11B Riverside Road, Orewa</div><div class="">codi@honest-autos.co.nz</div><div class="">© 2024 Honest Autos</div></div></footer></body></html>
