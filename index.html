@@ -78,7 +78,7 @@
 </div>
 </sc-if>
 
-<div style="flex:1;overflow-y:auto;">
+<div style="flex:1;overflow-y:auto;" id="honest-autos-content">
 
 <sc-if value="{{isHome}}" hint-placeholder-val="{{true}}">
 <div>
@@ -209,7 +209,7 @@
 <p style="font-family:'Roboto Flex',Arial,sans-serif;font-size:13px;color:#444748;line-height:1.5;margin:0 0 28px;">Precision automotive detailing and restoration for those who demand showroom quality.</p>
 <div style="{{servicesGridStyle}}">
 <sc-for list="{{services}}" as="svc" hint-placeholder-count="4">
-<div style="{{servicesCardStyle}}" style-hover="border-color:#115cb9;">
+<div onclick="{{svc.onClick}}" style="{{servicesCardStyle}}" style-hover="border-color:#115cb9;">
 <div style="position:relative;">
 <sc-if value="{{svc.img}}" hint-placeholder-val="{{false}}">
 <div style="aspect-ratio:3/4;overflow:hidden;">
@@ -711,9 +711,9 @@
 </div>
 
 <sc-if value="{{hasProjects}}" hint-placeholder-val="{{true}}">
-<div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(170px,1fr));gap:14px;">
+<div style="{{galleryGridStyle}}">
 <sc-for list="{{galleryCards}}" as="item" hint-placeholder-count="6">
-<div onclick="{{item.onClick}}" style="border:1px solid #c4c7c7;overflow:hidden;background:#fff;cursor:pointer;">
+<div onclick="{{item.onClick}}" style="{{galleryCardStyle}}">
 <div style="position:relative;">
 <img src="{{item.img}}" alt="{{item.title}}" loading="lazy" style="width:100%;height:130px;object-fit:cover;display:block;">
 <span style="position:absolute;top:8px;left:8px;background:rgba(17,92,185,0.92);color:#fff;font-family:'Roboto Flex',Arial,sans-serif;font-size:9px;font-weight:700;text-transform:uppercase;letter-spacing:0.04em;padding:3px 7px;">{{item.era}}</span>
@@ -1187,11 +1187,12 @@ Data © <a href="https://www.openstreetmap.org/copyright" target="_blank" style=
 </sc-if>
 
 <sc-if value="{{lightboxOpen}}" hint-placeholder-val="{{false}}">
-<div style="position:absolute;inset:0;background:#000;z-index:100;display:flex;align-items:center;justify-content:center;">
+<div ontouchstart="{{onLightboxTouchStart}}" ontouchend="{{onLightboxTouchEnd}}" style="position:absolute;inset:0;background:#000;z-index:100;display:flex;align-items:center;justify-content:center;">
 <button onclick="{{closeLightbox}}" style="position:absolute;top:14px;right:14px;width:38px;height:38px;border:none;background:rgba(255,255,255,0.18);color:#fff;display:flex;align-items:center;justify-content:center;cursor:pointer;z-index:2;">
 <span style="font-family:'Material Symbols Outlined';font-size:22px;">close</span>
 </button>
 <div style="position:absolute;top:16px;left:16px;color:#fff;font-family:'Roboto Flex',Arial,sans-serif;font-size:11px;font-weight:600;background:rgba(255,255,255,0.18);padding:5px 10px;z-index:2;">{{lightboxCounter}}</div>
+<sc-if value="{{lightboxShowArrows}}" hint-placeholder-val="{{true}}">
 <sc-if value="{{lightboxHasPrev}}" hint-placeholder-val="{{true}}">
 <button onclick="{{prevLightboxPhoto}}" style="position:absolute;left:10px;top:50%;transform:translateY(-50%);width:44px;height:44px;border:none;background:rgba(255,255,255,0.18);color:#fff;display:flex;align-items:center;justify-content:center;cursor:pointer;z-index:2;">
 <span style="font-family:'Material Symbols Outlined';font-size:24px;">chevron_left</span>
@@ -1201,6 +1202,7 @@ Data © <a href="https://www.openstreetmap.org/copyright" target="_blank" style=
 <button onclick="{{nextLightboxPhoto}}" style="position:absolute;right:10px;top:50%;transform:translateY(-50%);width:44px;height:44px;border:none;background:rgba(255,255,255,0.18);color:#fff;display:flex;align-items:center;justify-content:center;cursor:pointer;z-index:2;">
 <span style="font-family:'Material Symbols Outlined';font-size:24px;">chevron_right</span>
 </button>
+</sc-if>
 </sc-if>
 <img src="{{lightboxSrc}}" alt="{{lightboxAlt}}" style="max-width:100%;max-height:100%;width:auto;height:auto;object-fit:contain;">
 </div>
@@ -1246,8 +1248,10 @@ class Component extends DCLogic {
 
   nav = (screen) => {
     this.setState({ screen });
-    const el = document.getElementById('honest-autos-root');
-    if (el) el.scrollTop = 0;
+    const content = document.getElementById('honest-autos-content');
+    if (content) content.scrollTop = 0;
+    const root = document.getElementById('honest-autos-root');
+    if (root) root.scrollTop = 0;
     window.scrollTo(0, 0);
   };
   setFilter = (f) => this.setState({ galleryFilter: f });
@@ -1262,6 +1266,14 @@ class Component extends DCLogic {
   closeLightbox = () => this.setState({ lightbox: null });
   prevLightboxPhoto = () => this.setState((s) => ({ lightbox: s.lightbox && s.lightbox.index > 0 ? { ...s.lightbox, index: s.lightbox.index - 1 } : s.lightbox }));
   nextLightboxPhoto = () => this.setState((s) => ({ lightbox: s.lightbox && s.lightbox.index < s.lightbox.list.length - 1 ? { ...s.lightbox, index: s.lightbox.index + 1 } : s.lightbox }));
+  onLightboxTouchStart = (e) => { this._lbTouchX = e.changedTouches[0].clientX; };
+  onLightboxTouchEnd = (e) => {
+    if (this._lbTouchX == null) return;
+    const dx = e.changedTouches[0].clientX - this._lbTouchX;
+    if (dx > 50) this.prevLightboxPhoto();
+    else if (dx < -50) this.nextLightboxPhoto();
+    this._lbTouchX = null;
+  };
   setReg = (e) => this.setState({ reg: e.target.value });
   setVehicleSize = (size) => this.setState({ vehicleSize: size, vehicleModelQuery: '' });
 
@@ -2335,9 +2347,18 @@ class Component extends DCLogic {
       lightboxCounter: lb ? `${lb.index + 1} / ${lb.list.length}` : '',
       lightboxHasPrev: lb ? lb.index > 0 : false,
       lightboxHasNext: lb ? lb.index < lb.list.length - 1 : false,
+      lightboxShowArrows: s.viewMode !== 'mobile',
+      galleryGridStyle: s.viewMode === 'mobile'
+        ? 'display:flex;overflow-x:auto;scroll-snap-type:x mandatory;gap:14px;margin:0 -20px;padding:0 20px 4px;-webkit-overflow-scrolling:touch;'
+        : 'display:grid;grid-template-columns:repeat(auto-fill,minmax(170px,1fr));gap:14px;',
+      galleryCardStyle: s.viewMode === 'mobile'
+        ? 'border:1px solid #c4c7c7;overflow:hidden;background:#fff;cursor:pointer;flex:0 0 85%;scroll-snap-align:center;'
+        : 'border:1px solid #c4c7c7;overflow:hidden;background:#fff;cursor:pointer;',
       closeLightbox: this.closeLightbox,
       prevLightboxPhoto: this.prevLightboxPhoto,
       nextLightboxPhoto: this.nextLightboxPhoto,
+      onLightboxTouchStart: this.onLightboxTouchStart,
+      onLightboxTouchEnd: this.onLightboxTouchEnd,
       backToGallery: this.backToGallery,
 
       pricingTiers,
