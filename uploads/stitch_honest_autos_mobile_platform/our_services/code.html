@@ -1,0 +1,264 @@
+<!DOCTYPE html><html lang="en" style=""><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>Honest Autos - Services</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com" rel="preconnect">
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect">
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;600;700&amp;family=Roboto+Flex:wght@400;600&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "primary-container": "#1c1b1b",
+                      "on-secondary-container": "#003370",
+                      "on-tertiary-container": "#818488",
+                      "on-tertiary-fixed-variant": "#44474a",
+                      "on-primary-container": "#858383",
+                      "on-error": "#ffffff",
+                      "secondary": "#115cb9",
+                      "on-secondary-fixed": "#001a40",
+                      "on-primary-fixed-variant": "#474746",
+                      "inverse-primary": "#c8c6c5",
+                      "secondary-fixed": "#d7e2ff",
+                      "surface-dim": "#dadada",
+                      "on-surface-variant": "#444748",
+                      "outline": "#747878",
+                      "tertiary-container": "#191c1f",
+                      "tertiary-fixed": "#e0e2e6",
+                      "on-background": "#1a1c1c",
+                      "on-tertiary-fixed": "#191c1f",
+                      "secondary-container": "#659dfe",
+                      "on-secondary-fixed-variant": "#004491",
+                      "background": "#f9f9f9",
+                      "on-primary": "#ffffff",
+                      "surface-container-high": "#e8e8e8",
+                      "surface-container-highest": "#e2e2e2",
+                      "inverse-on-surface": "#f0f1f1",
+                      "inverse-surface": "#2f3131",
+                      "surface-container-low": "#f3f3f4",
+                      "outline-variant": "#c4c7c7",
+                      "error": "#ba1a1a",
+                      "surface-variant": "#e2e2e2",
+                      "tertiary": "#000000",
+                      "surface": "#f9f9f9",
+                      "error-container": "#ffdad6",
+                      "on-tertiary": "#ffffff",
+                      "tertiary-fixed-dim": "#c4c7ca",
+                      "secondary-fixed-dim": "#acc7ff",
+                      "primary": "#000000",
+                      "surface-container": "#eeeeee",
+                      "primary-fixed": "#e5e2e1",
+                      "surface-bright": "#f9f9f9",
+                      "on-surface": "#1a1c1c",
+                      "on-error-container": "#93000a",
+                      "on-secondary": "#ffffff",
+                      "surface-tint": "#5f5e5e",
+                      "surface-container-lowest": "#ffffff",
+                      "on-primary-fixed": "#1c1b1b",
+                      "primary-fixed-dim": "#c8c6c5"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0.25rem",
+                      "lg": "0.5rem",
+                      "xl": "0.75rem",
+                      "full": "9999px"
+              },
+              "spacing": {
+                      "container-max": "1280px",
+                      "gutter": "24px",
+                      "margin-desktop": "48px",
+                      "base": "8px",
+                      "margin-mobile": "16px"
+              },
+              "fontFamily": {
+                      "body-md": [
+                              "Roboto Flex"
+                      ],
+                      "headline-lg": [
+                              "Oswald"
+                      ],
+                      "headline-lg-mobile": [
+                              "Oswald"
+                      ],
+                      "body-lg": [
+                              "Roboto Flex"
+                      ],
+                      "headline-md": [
+                              "Oswald"
+                      ],
+                      "label-sm": [
+                              "Roboto Flex"
+                      ],
+                      "display-lg": [
+                              "Oswald"
+                      ]
+              },
+              "fontSize": {
+                      "body-md": [
+                              "16px",
+                              {
+                                      "lineHeight": "1.5",
+                                      "fontWeight": "400"
+                              }
+                      ],
+                      "headline-lg": [
+                              "32px",
+                              {
+                                      "lineHeight": "1.2",
+                                      "letterSpacing": "0.01em",
+                                      "fontWeight": "600"
+                              }
+                      ],
+                      "headline-lg-mobile": [
+                              "28px",
+                              {
+                                      "lineHeight": "1.2",
+                                      "fontWeight": "600"
+                              }
+                      ],
+                      "body-lg": [
+                              "18px",
+                              {
+                                      "lineHeight": "1.6",
+                                      "fontWeight": "400"
+                              }
+                      ],
+                      "headline-md": [
+                              "24px",
+                              {
+                                      "lineHeight": "1.3",
+                                      "fontWeight": "500"
+                              }
+                      ],
+                      "label-sm": [
+                              "12px",
+                              {
+                                      "lineHeight": "1",
+                                      "letterSpacing": "0.05em",
+                                      "fontWeight": "600"
+                              }
+                      ],
+                      "display-lg": [
+                              "48px",
+                              {
+                                      "lineHeight": "1.1",
+                                      "letterSpacing": "0.02em",
+                                      "fontWeight": "700"
+                              }
+                      ]
+              }
+      },
+          },
+        }
+    </script>
+</head>
+<body class="bg-surface text-on-surface font-body-md min-h-screen flex flex-col">
+<!-- TopAppBar (Web) -->
+<header class="hidden md:flex bg-surface text-primary border-b border-outline-variant full-width top-0 sticky z-50 justify-between items-center px-margin-desktop py-4 max-w-container-max mx-auto w-full">
+<div class="flex items-center gap-4">
+<img alt="Honest Autos Logo EST 2024" class="h-12 w-auto" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBEeK0wRssq86FqnR3tYI8xtYZxjnm5dEd0fOJwXejS1t4ovO46hUVNCtp4TBvhB5sqZwS1zooXPvBEkwRjaBz3ggaiI59UFFUe4Bx71EPqm1PIO75jlxIxFxB9N81cTi2jCHCklILTU4lf3r8lLE3CH8xPB767qTVxs7XTN3VZPjI648EwkxeLeELFaPaYobJXx-Il2Du10YIWSFVb8RLgx6KeQzqZQxoYCm4KpHi4ANCvGs2KaJXO64FXcPeLt7jZv2U">
+<h1 class="font-headline-md text-headline-md font-bold text-primary">Honest Autos</h1>
+</div>
+<nav class="flex items-center gap-8 font-label-sm text-label-sm uppercase">
+<a class="text-on-surface-variant hover:text-secondary transition-colors duration-200" href="#">Home</a>
+<a class="text-secondary opacity-80 scale-95 transition-all" href="#">Services</a>
+<a class="text-on-surface-variant hover:text-secondary transition-colors duration-200" href="#">Pricing</a>
+<a class="text-on-surface-variant hover:text-secondary transition-colors duration-200" href="#">Gallery</a>
+<a class="text-on-surface-variant hover:text-secondary transition-colors duration-200" href="#">About</a>
+</nav>
+<button class="bg-primary text-on-primary font-headline-md text-headline-md uppercase px-6 py-2 rounded hover:bg-secondary transition-colors duration-200">
+            BOOK NOW
+        </button>
+</header>
+<!-- TopAppBar (Mobile) -->
+<header class="md:hidden bg-surface text-primary border-b border-outline-variant full-width top-0 sticky z-50 flex justify-between items-center px-mobile py-4 w-full">
+<div class="flex items-center gap-3">
+<img alt="Honest Autos Logo EST 2024" class="h-10 w-auto" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB8j2tqYnx59ffNjip-915AwVbqRYXUIKKJ4Pq7Pb6BcjyUq0AHqPWnMbFOfVALFUKmYCqAN3qhd6DtqYtQ7pBL7gY1OHxAzV3R66cB4Q-xwm0N5PJLPdYpUmzWTwfWnW6OSLKj5je9jeR62UYAUFwUlV3xWhVyS-jI3ajVGbT69tVpoALDgMfTnsKHG3gD7nDZG3CbyyZUEMcWSAtUIqN-VBdQ-FvyVnrOLIEvvhpkR8j1HZUvCp5Ev9ZAxMrCoxvfu0w">
+<h1 class="font-headline-md text-headline-md font-bold text-primary">Honest Autos</h1>
+</div>
+</header>
+<!-- Main Content -->
+<main class="flex-grow w-full max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop py-[80px] md:py-[120px]">
+<div class="text-center mb-[80px]">
+<h2 class="font-display-lg text-display-lg text-primary uppercase mb-4">Our Services</h2>
+<p class="font-body-lg text-body-lg text-on-surface-variant max-w-2xl mx-auto">
+                Precision automotive detailing and restoration for those who demand showroom quality. Honest craftsmanship, uncompromised results.
+            </p>
+</div>
+<!-- Services Bento Grid -->
+<div class="grid grid-cols-1 md:grid-cols-12 gap-6 md:gap-gutter">
+<!-- Flagship: Ceramic Coating -->
+<div class="md:col-span-12 bg-white border border-outline-variant overflow-hidden group hover:shadow-lg transition-shadow duration-300">
+<div class="grid md:grid-cols-2">
+<div class="h-64 md:h-full min-h-[300px]" data-alt="A macro shot of water beading perfectly on a highly polished, deep black car hood, demonstrating a premium ceramic coating finish in a bright, modern studio light-mode aesthetic. High contrast, sharp details." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuCgxRC4-coDQ-vf4HDtwHKibfb6kFL33eBsCp-VlBG-e1dRrCuAVFHrHwOYZmmWOXCk4YySxMlgdDu2KrFxVxTXmKjAbrmbSWZ2bKnhCcuyKva4aqGErW0pXzVNwGQbiKLMb7susolQ-xPcelBbJpG5dAX7YuUqbPGL4cu1JjhlvQIljNHPmK_LovI6HF9mAkyO2iXyAt9QCbuCT00r74pwQ7dvqtlFELm7IJMd5JaIC54pBqPZQKvVaA')"></div>
+<div class="p-8 md:p-12 flex flex-col justify-center">
+<div class="flex items-center gap-2 mb-4">
+<span class="font-label-sm text-label-sm uppercase bg-surface-container-low text-on-surface px-3 py-1 rounded">Flagship Service</span>
+</div>
+<h3 class="font-headline-lg text-headline-lg-mobile md:text-headline-lg text-primary uppercase mb-4">Ceramic Coating</h3>
+<p class="font-body-md text-body-md text-on-surface-variant mb-8">Ultimate protection and unyielding gloss. Our professional-grade ceramic coatings bond with your vehicle's clear coat to provide years of resistance against environmental contaminants, UV rays, and minor scratches, making maintenance effortless.<br class=""><br class=""><span class="font-bold text-primary">Sale: Starting from $399 (Small Vehicles)</span></p>
+<a class="inline-flex items-center gap-2 text-primary font-headline-md text-headline-md uppercase hover:text-secondary transition-colors duration-200" href="#">
+                            Learn More <span class="material-symbols-outlined text-[20px]">arrow_forward</span>
+</a>
+</div>
+</div>
+</div>
+<!-- Professional Detailing -->
+<div class="md:col-span-6 bg-white border border-outline-variant overflow-hidden group hover:shadow-lg transition-shadow duration-300">
+<div class="h-56" data-alt="A professional detailer meticulously cleaning a pristine car interior, focusing on the leather steering wheel. The scene is brightly lit in a clean, modern garage setting. Light-mode aesthetic, sharp and precise." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuAIeNmZLd830_wrxJU-bILsIsQJwW-Al8VVY7CVgtzOz_tx-S0d-ESWdbyS1Ym_m1d_TFLd-s-5XVLDAh_Ss8ifLTRZ_X81tbqNxmhMVR4FqO39WSvQTlG21owg_xqIQlusKBAYXnSOx4aA270a6pyGum9O3VMjY3YafJzweBJNkLu2e85sK291BZIi2Xg2Mn1DoYXvP-H-EMWCy10v28f3-vAiwCTGkVigQq8gipItSQL3rmlKJyUYCA')"></div>
+<div class="p-8">
+<h3 class="font-headline-md text-headline-md text-primary uppercase mb-3">Professional Detailing</h3>
+<p class="font-body-md text-body-md text-on-surface-variant mb-6 min-h-[72px]">
+                        Comprehensive interior and exterior rejuvenation. From deep extraction upholstery cleaning to multi-stage paint correction, we restore your vehicle to a state often better than new.
+                    </p>
+<a class="inline-flex items-center gap-2 text-primary font-label-sm text-label-sm uppercase hover:text-secondary transition-colors duration-200" href="#">
+                        View Packages <span class="material-symbols-outlined text-[16px]">arrow_forward</span>
+</a>
+</div>
+</div>
+<!-- Classic Restoration -->
+<div class="md:col-span-6 bg-white border border-outline-variant overflow-hidden group hover:shadow-lg transition-shadow duration-300">
+<div class="h-56" data-alt="A vintage classic sports car undergoing careful restoration in a pristine, well-lit modern workshop. The contrast between the classic lines and modern minimalist garage environment highlights the high-end service." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuBlU9w5JJ-IOv0zIEcIR6CNEdrkr04_OLKJAPRGt_Feyhlxzu2kUu_yGmmW5o_qaj0VdrUe7-ZzLVng-FLViu4_awqb6MTSqYXqJ7aKOAdzyPkd5LzihTb-hX8nonImBV4JG5AVRfBhieTkN3x7n0eMAe9YU0jdrd4-WzO32Hc01I6tRbKnZqYdStzurevRsTZ8Mbe9_d9HVSYKjhY4eaAbWvLmp-OOcYkbniKvudp_8GBrRKy0qAP5OQ')"></div>
+<div class="p-8">
+<h3 class="font-headline-md text-headline-md text-primary uppercase mb-3">Classic Restoration &amp; Rescue</h3>
+<p class="font-body-md text-body-md text-on-surface-variant mb-6 min-h-[72px]">Specialized care for vintage and classic automobiles. Whether it's reviving a barn find's original single-stage paint or preparing a show car for concours judging, we treat automotive history with reverence.<br class=""><br class=""><span class="font-bold text-primary">Classic Vehicle Pricing: Starting from $0.00 (Enquire)</span></p>
+<a class="inline-flex items-center gap-2 text-primary font-label-sm text-label-sm uppercase hover:text-secondary transition-colors duration-200" href="#">
+                        Explore Restoration <span class="material-symbols-outlined text-[16px]">arrow_forward</span>
+</a>
+</div>
+</div>
+</div>
+</main>
+<!-- BottomNavBar (Mobile) -->
+<nav class="md:hidden fixed bottom-0 left-0 w-full z-50 flex justify-around items-center bg-surface-container px-2 pb-safe border-t border-outline-variant shadow-lg rounded-t-lg">
+<a class="flex flex-col items-center justify-center text-on-surface-variant p-2 hover:bg-surface-variant" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">home</span>
+<span class="font-label-sm text-label-sm uppercase mt-1">Home</span>
+</a>
+<a class="flex flex-col items-center justify-center bg-primary text-on-primary rounded-xl p-2 scale-90 duration-150" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">minor_crash</span>
+<span class="font-label-sm text-label-sm uppercase mt-1">Services</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant p-2 hover:bg-surface-variant" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">payments</span>
+<span class="font-label-sm text-label-sm uppercase mt-1">Pricing</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant p-2 hover:bg-surface-variant" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">photo_library</span>
+<span class="font-label-sm text-label-sm uppercase mt-1">Gallery</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant p-2 hover:bg-surface-variant" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">info</span>
+<span class="font-label-sm text-label-sm uppercase mt-1">About</span>
+</a>
+</nav>
+<!-- spacer for mobile nav -->
+<div class="h-20 md:hidden"></div>
+
+
+</body></html>
