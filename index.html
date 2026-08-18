@@ -41,11 +41,6 @@
 <span style="font-family:Oswald,Arial,sans-serif;font-weight:700;font-size:20px;text-transform:uppercase;letter-spacing:0.03em;white-space:nowrap;">Honest Autos</span>
 </div>
 <div style="display:flex;align-items:center;flex-wrap:wrap;gap:clamp(16px,3vw,52px);row-gap:12px;">
-<div style="background:#fff;border:1px solid #c4c7c7;padding:8px 14px;display:flex;align-items:center;gap:9px;">
-<img src="./assets/fireball-logo.png" alt="Fireball" style="height:18px;width:auto;object-fit:contain;display:block;">
-<span style="width:1px;height:14px;background:#c4c7c7;"></span>
-<span style="font-family:Oswald,Arial,sans-serif;font-size:10px;font-weight:700;color:#1a1c1c;text-transform:uppercase;letter-spacing:0.05em;white-space:nowrap;">Fireball Partner</span>
-</div>
 <sc-for list="{{navItems}}" as="nav" hint-placeholder-count="5">
 <button onclick="{{nav.onClick}}" style="background:none;border:none;border-bottom:{{nav.borderBottom}};padding:0 0 4px;font-family:Oswald,Arial,sans-serif;font-size:clamp(12px,1.2vw,15px);font-weight:700;text-transform:uppercase;letter-spacing:0.06em;color:{{nav.color}};cursor:pointer;white-space:nowrap;" style-hover="opacity:0.65;">{{nav.label}}</button>
 </sc-for>
@@ -87,7 +82,7 @@
 
 <sc-if value="{{isHome}}" hint-placeholder-val="{{true}}">
 <div>
-<div style="height:480px;position:relative;background:#0d0d0d;">
+<div style="height:min(60vw,480px);position:relative;background:#0d0d0d;">
 <img src="./assets/hero-blue-m3-bonnet.jpg" alt="Blue BMW M3 bonnet finished with Fireball hydrophobic ceramic coating" style="width:100%;height:100%;object-fit:cover;object-position:80% top;display:block;">
 <div style="position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,0.15) 0%,rgba(0,0,0,0.3) 40%,rgba(0,0,0,0.93) 100%);"></div>
 <div style="position:absolute;bottom:0;left:0;right:0;padding:24px 40px 34px;">
@@ -119,10 +114,45 @@
 <div style="width:24px;height:3px;background:#115cb9;"></div>
 <h2 style="font-family:Oswald,Arial,sans-serif;font-size:15px;font-weight:600;text-transform:uppercase;letter-spacing:0.04em;margin:0;">Precision Services</h2>
 </div>
+<sc-if value="{{isPhoneView}}" hint-placeholder-val="{{true}}">
+<div style="display:flex;overflow-x:auto;scroll-snap-type:x mandatory;gap:16px;margin:0 -20px;padding:0 20px 4px;-webkit-overflow-scrolling:touch;">
+<div onclick="{{goCeramic}}" style="background:#fff;border:1px solid #c4c7c7;cursor:pointer;overflow:hidden;flex:0 0 85%;scroll-snap-align:center;">
+<div style="aspect-ratio:3/4;overflow:hidden;">
+<img src="./assets/ceramic-coating-product.jpg" alt="Ceramic-coated paintwork reflection detail" loading="lazy" style="width:100%;height:100%;object-fit:cover;display:block;">
+</div>
+<div style="padding:18px;">
+<h3 style="font-family:Oswald,Arial,sans-serif;font-size:16px;font-weight:600;text-transform:uppercase;margin:0 0 6px;">Ceramic Coating Packages</h3>
+<p style="font-family:'Roboto Flex',Arial,sans-serif;font-size:13px;color:#444748;line-height:1.5;margin:0 0 8px;">Surface preparation, protection and shine from $399.</p>
+<span style="font-family:Oswald,Arial,sans-serif;font-size:12px;font-weight:600;color:#115cb9;text-transform:uppercase;">View Packages →</span>
+</div>
+</div>
+<div onclick="{{goPaintCorrection}}" style="background:#fff;border:1px solid #c4c7c7;cursor:pointer;overflow:hidden;flex:0 0 85%;scroll-snap-align:center;">
+<div style="aspect-ratio:3/4;overflow:hidden;">
+<img src="./assets/paint-correction-product.jpg" alt="Close-up of a corrected paint finish, red Ford Fiesta ST badge" loading="lazy" style="width:100%;height:100%;object-fit:cover;display:block;">
+</div>
+<div style="padding:18px;">
+<h3 style="font-family:Oswald,Arial,sans-serif;font-size:16px;font-weight:600;text-transform:uppercase;margin:0 0 6px;">Paint Correction</h3>
+<p style="font-family:'Roboto Flex',Arial,sans-serif;font-size:13px;color:#444748;line-height:1.5;margin:0 0 8px;">Swirl and scratch removal from $299.</p>
+<span style="font-family:Oswald,Arial,sans-serif;font-size:12px;font-weight:600;color:#115cb9;text-transform:uppercase;">View Details →</span>
+</div>
+</div>
+<div onclick="{{goDetailing}}" style="background:#fff;border:1px solid #c4c7c7;cursor:pointer;overflow:hidden;flex:0 0 85%;scroll-snap-align:center;">
+<div style="aspect-ratio:3/4;overflow:hidden;">
+<img src="./assets/detailing-product.jpg" alt="Freshly detailed Fiat 500 interior" loading="lazy" style="width:100%;height:100%;object-fit:cover;display:block;">
+</div>
+<div style="padding:18px;">
+<h3 style="font-family:Oswald,Arial,sans-serif;font-size:16px;font-weight:600;text-transform:uppercase;margin:0 0 6px;">Detailing Packages</h3>
+<p style="font-family:'Roboto Flex',Arial,sans-serif;font-size:13px;color:#444748;line-height:1.5;margin:0 0 8px;">Interior/Exterior/Engine Bay from $99.</p>
+<span style="font-family:Oswald,Arial,sans-serif;font-size:12px;font-weight:600;color:#115cb9;text-transform:uppercase;">Learn More →</span>
+</div>
+</div>
+</div>
+</sc-if>
+<sc-if value="{{isNotPhoneView}}" hint-placeholder-val="{{false}}">
 <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:20px;">
 <div onclick="{{goCeramic}}" style="background:#fff;border:1px solid #c4c7c7;cursor:pointer;overflow:hidden;" style-hover="border-color:#115cb9;">
 <div style="aspect-ratio:3/4;overflow:hidden;">
-<img src="./assets/ceramic-coating-product.jpg" alt="Ceramic-coated paintwork reflection detail" style="width:100%;height:100%;object-fit:cover;display:block;">
+<img src="./assets/ceramic-coating-product.jpg" alt="Ceramic-coated paintwork reflection detail" loading="lazy" style="width:100%;height:100%;object-fit:cover;display:block;">
 </div>
 <div style="padding:18px;">
 <h3 style="font-family:Oswald,Arial,sans-serif;font-size:16px;font-weight:600;text-transform:uppercase;margin:0 0 6px;">Ceramic Coating Packages</h3>
@@ -132,7 +162,7 @@
 </div>
 <div onclick="{{goPaintCorrection}}" style="background:#fff;border:1px solid #c4c7c7;cursor:pointer;overflow:hidden;" style-hover="border-color:#115cb9;">
 <div style="aspect-ratio:3/4;overflow:hidden;">
-<img src="./assets/paint-correction-product.jpg" alt="Close-up of a corrected paint finish, red Ford Fiesta ST badge" style="width:100%;height:100%;object-fit:cover;display:block;">
+<img src="./assets/paint-correction-product.jpg" alt="Close-up of a corrected paint finish, red Ford Fiesta ST badge" loading="lazy" style="width:100%;height:100%;object-fit:cover;display:block;">
 </div>
 <div style="padding:18px;">
 <h3 style="font-family:Oswald,Arial,sans-serif;font-size:16px;font-weight:600;text-transform:uppercase;margin:0 0 6px;">Paint Correction</h3>
@@ -142,7 +172,7 @@
 </div>
 <div onclick="{{goDetailing}}" style="background:#fff;border:1px solid #c4c7c7;cursor:pointer;overflow:hidden;" style-hover="border-color:#115cb9;">
 <div style="aspect-ratio:3/4;overflow:hidden;">
-<img src="./assets/detailing-product.jpg" alt="Freshly detailed Fiat 500 interior" style="width:100%;height:100%;object-fit:cover;display:block;">
+<img src="./assets/detailing-product.jpg" alt="Freshly detailed Fiat 500 interior" loading="lazy" style="width:100%;height:100%;object-fit:cover;display:block;">
 </div>
 <div style="padding:18px;">
 <h3 style="font-family:Oswald,Arial,sans-serif;font-size:16px;font-weight:600;text-transform:uppercase;margin:0 0 6px;">Detailing Packages</h3>
@@ -151,6 +181,7 @@
 </div>
 </div>
 </div>
+</sc-if>
 </div>
 </div>
 <div style="padding:64px 20px;text-align:center;background:#1a1c1c;">
@@ -176,13 +207,13 @@
 <div style="max-width:1280px;margin:0 auto;">
 <h1 style="font-family:Oswald,Arial,sans-serif;font-size:26px;font-weight:700;text-transform:uppercase;margin:0 0 8px;">Our Services</h1>
 <p style="font-family:'Roboto Flex',Arial,sans-serif;font-size:13px;color:#444748;line-height:1.5;margin:0 0 28px;">Precision automotive detailing and restoration for those who demand showroom quality.</p>
-<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:20px;">
+<div style="{{servicesGridStyle}}">
 <sc-for list="{{services}}" as="svc" hint-placeholder-count="4">
-<div style="background:#fff;border:1px solid #c4c7c7;overflow:hidden;" style-hover="border-color:#115cb9;">
+<div style="{{servicesCardStyle}}" style-hover="border-color:#115cb9;">
 <div style="position:relative;">
 <sc-if value="{{svc.img}}" hint-placeholder-val="{{false}}">
 <div style="aspect-ratio:3/4;overflow:hidden;">
-<img src="{{svc.img}}" alt="{{svc.title}}" style="width:100%;height:100%;object-fit:cover;display:block;">
+<img src="{{svc.img}}" alt="{{svc.title}}" loading="lazy" style="width:100%;height:100%;object-fit:cover;display:block;">
 </div>
 </sc-if>
 <sc-if value="{{svc.noImg}}" hint-placeholder-val="{{false}}">
@@ -684,7 +715,7 @@
 <sc-for list="{{galleryCards}}" as="item" hint-placeholder-count="6">
 <div onclick="{{item.onClick}}" style="border:1px solid #c4c7c7;overflow:hidden;background:#fff;cursor:pointer;">
 <div style="position:relative;">
-<img src="{{item.img}}" alt="{{item.title}}" style="width:100%;height:130px;object-fit:cover;display:block;">
+<img src="{{item.img}}" alt="{{item.title}}" loading="lazy" style="width:100%;height:130px;object-fit:cover;display:block;">
 <span style="position:absolute;top:8px;left:8px;background:rgba(17,92,185,0.92);color:#fff;font-family:'Roboto Flex',Arial,sans-serif;font-size:9px;font-weight:700;text-transform:uppercase;letter-spacing:0.04em;padding:3px 7px;">{{item.era}}</span>
 </div>
 <div style="padding:10px;">
@@ -708,7 +739,7 @@
 <div style="padding:16px 20px 0;">
 <button onclick="{{backToGallery}}" style="background:none;border:none;padding:0;font-family:'Roboto Flex',Arial,sans-serif;font-size:12px;font-weight:600;color:#115cb9;cursor:pointer;">&larr; Job Diary</button>
 </div>
-<img src="{{selectedProject.img}}" alt="{{selectedProject.title}}" style="width:100%;height:220px;object-fit:cover;display:block;margin-top:12px;">
+<img src="{{selectedProject.img}}" alt="{{selectedProject.title}}" loading="lazy" style="width:100%;height:220px;object-fit:cover;display:block;margin-top:12px;">
 <div style="padding:18px 20px 0;">
 <span style="font-family:'Roboto Flex',Arial,sans-serif;font-size:10px;font-weight:700;color:#115cb9;text-transform:uppercase;letter-spacing:0.06em;">{{selectedProject.era}}</span>
 <h1 style="font-family:Oswald,Arial,sans-serif;font-size:22px;font-weight:700;text-transform:uppercase;margin:6px 0 8px;line-height:1.15;">{{selectedProject.title}}</h1>
@@ -728,12 +759,12 @@
 <sc-if value="{{hasExteriorPhotos}}" hint-placeholder-val="{{false}}">
 <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:12px;margin-bottom:20px;">
 <sc-for list="{{exteriorPhotos}}" as="p" hint-placeholder-count="4">
-<img src="{{p.src}}" alt="{{p.alt}}" onclick="{{p.onOpen}}" style="width:100%;height:150px;object-fit:cover;display:block;cursor:pointer;">
+<img src="{{p.src}}" alt="{{p.alt}}" onclick="{{p.onOpen}}" loading="lazy" style="width:100%;height:150px;object-fit:cover;display:block;cursor:pointer;">
 </sc-for>
 </div>
 </sc-if>
 <sc-if value="{{noExteriorPhotos}}" hint-placeholder-val="{{true}}">
-<img src="{{selectedProject.img}}" alt="Exterior beauty shot" style="width:100%;height:220px;object-fit:cover;display:block;margin-bottom:10px;">
+<img src="{{selectedProject.img}}" alt="Exterior beauty shot" loading="lazy" style="width:100%;height:220px;object-fit:cover;display:block;margin-bottom:10px;">
 <div style="height:150px;background:repeating-linear-gradient(135deg,#3a3a3a,#3a3a3a 10px,#2c2c2c 10px,#2c2c2c 20px);display:flex;align-items:center;justify-content:center;margin-bottom:20px;">
 <span style="font-family:monospace;color:#cfcfcf;font-size:10px;">additional exterior angles: coming soon</span>
 </div>
@@ -744,7 +775,7 @@
 <sc-if value="{{hasInteriorPhotos}}" hint-placeholder-val="{{false}}">
 <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:12px;margin-bottom:20px;">
 <sc-for list="{{interiorPhotos}}" as="p" hint-placeholder-count="4">
-<img src="{{p.src}}" alt="{{p.alt}}" onclick="{{p.onOpen}}" style="width:100%;height:150px;object-fit:cover;display:block;cursor:pointer;">
+<img src="{{p.src}}" alt="{{p.alt}}" onclick="{{p.onOpen}}" loading="lazy" style="width:100%;height:150px;object-fit:cover;display:block;cursor:pointer;">
 </sc-for>
 </div>
 </sc-if>
@@ -759,7 +790,7 @@
 <sc-if value="{{hasEnginePhotos}}" hint-placeholder-val="{{false}}">
 <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:12px;margin-bottom:20px;">
 <sc-for list="{{enginePhotos}}" as="p" hint-placeholder-count="4">
-<img src="{{p.src}}" alt="{{p.alt}}" onclick="{{p.onOpen}}" style="width:100%;height:150px;object-fit:cover;display:block;cursor:pointer;">
+<img src="{{p.src}}" alt="{{p.alt}}" onclick="{{p.onOpen}}" loading="lazy" style="width:100%;height:150px;object-fit:cover;display:block;cursor:pointer;">
 </sc-for>
 </div>
 </sc-if>
@@ -1213,7 +1244,12 @@ class Component extends DCLogic {
     bookingSubmitted: false,
   };
 
-  nav = (screen) => this.setState({ screen });
+  nav = (screen) => {
+    this.setState({ screen });
+    const el = document.getElementById('honest-autos-root');
+    if (el) el.scrollTop = 0;
+    window.scrollTo(0, 0);
+  };
   setFilter = (f) => this.setState({ galleryFilter: f });
   setEraFilter = (e) => this.setState({ eraFilter: e });
   setSort = (v) => this.setState({ sortBy: v });
@@ -2231,6 +2267,12 @@ class Component extends DCLogic {
     return {
       isHome: s.screen === 'home',
       isServices: s.screen === 'services',
+      servicesGridStyle: s.viewMode === 'mobile'
+        ? 'display:flex;overflow-x:auto;scroll-snap-type:x mandatory;gap:16px;margin:0 -20px;padding:0 20px 4px;-webkit-overflow-scrolling:touch;'
+        : 'display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:20px;',
+      servicesCardStyle: s.viewMode === 'mobile'
+        ? 'background:#fff;border:1px solid #c4c7c7;overflow:hidden;flex:0 0 85%;scroll-snap-align:center;'
+        : 'background:#fff;border:1px solid #c4c7c7;overflow:hidden;',
       isPricing: s.screen === 'pricing',
       isCeramic: s.screen === 'ceramic',
       isCeramicMobileHeader: s.screen === 'ceramic' && s.viewMode === 'mobile',
