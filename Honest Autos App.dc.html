@@ -14,7 +14,7 @@
 <body>
 <x-dc>
 <helmet>
-<title>Honest Autos: Mobile Platform</title>
+<title>Honest-Autos: Mobile Platform</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
 <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;600;700&family=Roboto+Flex:wght@400;500;600;700&family=Material+Symbols+Outlined:opsz,wght,FILL@20..48,100..700,0..1&display=swap" rel="stylesheet">
@@ -35,22 +35,22 @@
 
 <sc-if value="{{isNotPhoneView}}" hint-placeholder-val="{{false}}">
 <sc-if value="{{isNotBookingModal}}" hint-placeholder-val="{{true}}">
-<div style="padding:16px 32px;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid #c4c7c7;background:#fff;">
-<div style="display:flex;align-items:center;gap:12px;">
-<img src="./assets/logo.png" alt="Honest Autos" style="width:32px;height:32px;object-fit:contain;">
-<span style="font-family:Oswald,Arial,sans-serif;font-weight:700;font-size:16px;text-transform:uppercase;letter-spacing:0.03em;">Honest Autos</span>
+<div style="padding:20px 40px;display:flex;align-items:center;justify-content:space-between;border-bottom:2px solid #1a1c1c;background:#fff;flex-wrap:wrap;row-gap:14px;column-gap:24px;">
+<div onclick="{{goHome}}" style="display:flex;align-items:center;gap:14px;flex-shrink:0;white-space:nowrap;cursor:pointer;">
+<img src="./assets/logo.png" alt="Honest Autos" style="width:42px;height:42px;object-fit:contain;flex-shrink:0;">
+<span style="font-family:Oswald,Arial,sans-serif;font-weight:700;font-size:20px;text-transform:uppercase;letter-spacing:0.03em;white-space:nowrap;">Honest-Autos</span>
 </div>
-<div style="display:flex;align-items:center;gap:26px;">
+<div style="display:flex;align-items:center;flex-wrap:wrap;gap:clamp(16px,3vw,52px);row-gap:12px;">
 <sc-for list="{{navItems}}" as="nav" hint-placeholder-count="5">
-<button onclick="{{nav.onClick}}" style="background:none;border:none;padding:0;font-family:Oswald,Arial,sans-serif;font-size:12px;font-weight:600;text-transform:uppercase;letter-spacing:0.03em;color:{{nav.color}};cursor:pointer;">{{nav.label}}</button>
+<button onclick="{{nav.onClick}}" style="background:none;border:none;border-bottom:{{nav.borderBottom}};padding:0 0 4px;font-family:Oswald,Arial,sans-serif;font-size:clamp(12px,1.2vw,15px);font-weight:700;text-transform:uppercase;letter-spacing:0.06em;color:{{nav.color}};cursor:pointer;white-space:nowrap;" style-hover="opacity:0.65;">{{nav.label}}</button>
 </sc-for>
-<button onclick="{{goBooking}}" style="background:#1a1c1c;color:#fff;border:none;padding:9px 18px;font-family:Oswald,Arial,sans-serif;font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:0.05em;cursor:pointer;">Book Now</button>
+<button onclick="{{goBooking}}" style="background:#115cb9;color:#fff;border:none;padding:13px 26px;font-family:Oswald,Arial,sans-serif;font-size:13px;font-weight:700;text-transform:uppercase;letter-spacing:0.05em;cursor:pointer;white-space:nowrap;flex-shrink:0;" style-hover="background:#0d4791;">Book Now</button>
 </div>
 </div>
 </sc-if>
 </sc-if>
 
-<sc-if value="{{isCeramic}}" hint-placeholder-val="{{false}}">
+<sc-if value="{{isCeramicMobileHeader}}" hint-placeholder-val="{{false}}">
 <div style="padding:58px 20px 14px;display:flex;align-items:center;gap:12px;border-bottom:1px solid #c4c7c7;background:#fff;">
 <button onclick="{{goHome}}" style="width:36px;height:36px;border:1px solid #c4c7c7;background:#fff;display:flex;align-items:center;justify-content:center;cursor:pointer;padding:0;">
 <span style="font-family:'Material Symbols Outlined';font-size:20px;">arrow_back</span>
@@ -70,74 +70,131 @@
 
 <sc-if value="{{showBottomNav}}" hint-placeholder-val="{{true}}">
 <div style="padding:58px 20px 12px;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid #c4c7c7;background:#fff;">
-<div style="display:flex;align-items:center;gap:10px;">
+<div onclick="{{goHome}}" style="display:flex;align-items:center;gap:10px;cursor:pointer;">
 <img src="./assets/logo.png" alt="Honest Autos" style="width:32px;height:32px;object-fit:contain;border-radius:0;">
-<span style="font-family:Oswald,Arial,sans-serif;font-weight:700;font-size:15px;text-transform:uppercase;letter-spacing:0.03em;">Honest Autos</span>
+<span style="font-family:Oswald,Arial,sans-serif;font-weight:700;font-size:15px;text-transform:uppercase;letter-spacing:0.03em;">Honest-Autos</span>
 </div>
 <button onclick="{{goBooking}}" style="background:#1a1c1c;color:#fff;border:none;padding:9px 16px;font-family:Oswald,Arial,sans-serif;font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:0.05em;cursor:pointer;">Book Now</button>
 </div>
 </sc-if>
 
-<div style="flex:1;overflow-y:auto;">
+<div style="flex:1;overflow-y:auto;" id="honest-autos-content">
 
 <sc-if value="{{isHome}}" hint-placeholder-val="{{true}}">
 <div>
-<div style="height:340px;background:repeating-linear-gradient(135deg,#3a3a3a,#3a3a3a 10px,#2c2c2c 10px,#2c2c2c 20px);display:flex;align-items:flex-start;justify-content:center;position:relative;">
-<span style="font-family:monospace;color:#cfcfcf;font-size:11px;text-align:center;padding:40px 30px 0;">hero photo: detailer polishing a glossy black car</span>
-<div style="position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,0.1) 0%,rgba(0,0,0,0.1) 45%,rgba(0,0,0,0.85) 100%);"></div>
-<div style="position:absolute;bottom:0;left:0;right:0;padding:24px 20px 28px;">
-<h1 style="font-family:Oswald,Arial,sans-serif;font-weight:700;font-size:30px;line-height:1.1;text-transform:uppercase;color:#fff;margin:0 0 10px;">Honest Detailing.<br>Elite Results.</h1>
-<p style="font-family:'Roboto Flex',Arial,sans-serif;font-size:14px;color:#e5e5e5;line-height:1.5;margin:0 0 18px;max-width:280px;">Premium automotive detailing in Orewa. Generations of local trust, ceramic-technology results.</p>
-<button onclick="{{goServices}}" style="background:#fff;color:#1a1c1c;border:none;padding:12px 22px;font-family:Oswald,Arial,sans-serif;font-size:13px;font-weight:600;text-transform:uppercase;letter-spacing:0.04em;cursor:pointer;">Explore Services →</button>
+<div style="height:min(60vw,480px);position:relative;background:#0d0d0d;">
+<img src="./assets/hero-blue-m3-bonnet.jpg" alt="Blue BMW M3 bonnet finished with Fireball hydrophobic ceramic coating" style="width:100%;height:100%;object-fit:cover;object-position:80% top;display:block;">
+<div style="position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,0.15) 0%,rgba(0,0,0,0.3) 40%,rgba(0,0,0,0.93) 100%);"></div>
+<div style="position:absolute;bottom:0;left:0;right:0;padding:24px 40px 34px;">
+<h1 style="font-family:Oswald,Arial,sans-serif;font-weight:700;font-size:36px;line-height:1.05;text-transform:uppercase;color:#fff;margin:0 0 10px;">Honest Detailing.<br>Elite Results.</h1>
+<p style="font-family:'Roboto Flex',Arial,sans-serif;font-size:14px;color:#e5e5e5;line-height:1.5;margin:0 0 20px;max-width:480px;">Premium automotive detailing in Orewa, backed by Fireball's ceramic coating range.</p>
+<div style="display:flex;gap:14px;flex-wrap:wrap;">
+<button onclick="{{goBooking}}" style="background:#115cb9;color:#fff;border:none;padding:13px 26px;font-family:Oswald,Arial,sans-serif;font-size:13px;font-weight:600;text-transform:uppercase;letter-spacing:0.04em;cursor:pointer;" style-hover="background:#0d4791;">Book Your Detail</button>
+<button onclick="{{goServices}}" style="background:transparent;color:#fff;border:1.5px solid #fff;padding:13px 24px;font-family:Oswald,Arial,sans-serif;font-size:13px;font-weight:600;text-transform:uppercase;letter-spacing:0.04em;cursor:pointer;" style-hover="background:rgba(255,255,255,0.15);">Explore Services →</button>
 </div>
 </div>
-<div style="display:flex;border-bottom:1px solid #c4c7c7;">
+</div>
+<div style="display:flex;border-bottom:1px solid #c4c7c7;border-top:3px solid #115cb9;background:#fafafa;">
 <div style="flex:1;text-align:center;padding:18px 8px;border-right:1px solid #c4c7c7;">
-<div style="font-family:Oswald,Arial,sans-serif;font-size:20px;font-weight:700;">30 Years</div>
+<div style="font-family:Oswald,Arial,sans-serif;font-size:24px;font-weight:700;">30 Years</div>
 <div style="font-family:'Roboto Flex',Arial,sans-serif;font-size:10px;color:#444748;text-transform:uppercase;letter-spacing:0.04em;margin-top:4px;">Excellence</div>
 </div>
 <div style="flex:1;text-align:center;padding:18px 8px;border-right:1px solid #c4c7c7;">
-<div style="font-family:Oswald,Arial,sans-serif;font-size:20px;font-weight:700;">300+</div>
+<div style="font-family:Oswald,Arial,sans-serif;font-size:24px;font-weight:700;">300+</div>
 <div style="font-family:'Roboto Flex',Arial,sans-serif;font-size:10px;color:#444748;text-transform:uppercase;letter-spacing:0.04em;margin-top:4px;">Vehicles Coated</div>
 </div>
 <div style="flex:1;text-align:center;padding:18px 8px;">
-<div style="font-family:Oswald,Arial,sans-serif;font-size:20px;font-weight:700;">7 Gens</div>
+<div style="font-family:Oswald,Arial,sans-serif;font-size:24px;font-weight:700;">7 Gens</div>
 <div style="font-family:'Roboto Flex',Arial,sans-serif;font-size:10px;color:#444748;text-transform:uppercase;letter-spacing:0.04em;margin-top:4px;">Rooted in Orewa</div>
 </div>
 </div>
-<div style="padding:28px 20px;background:#f3f3f4;">
-<div style="display:flex;align-items:center;gap:10px;margin-bottom:18px;">
+<div style="padding:44px 20px;background:#f3f3f4;">
+<div style="max-width:1280px;margin:0 auto;">
+<div style="display:flex;align-items:center;gap:10px;margin-bottom:22px;">
 <div style="width:24px;height:3px;background:#115cb9;"></div>
 <h2 style="font-family:Oswald,Arial,sans-serif;font-size:15px;font-weight:600;text-transform:uppercase;letter-spacing:0.04em;margin:0;">Precision Services</h2>
 </div>
-<div onclick="{{goCeramic}}" style="background:#fff;border:1px solid #c4c7c7;margin-bottom:16px;cursor:pointer;">
-<div style="height:120px;background:repeating-linear-gradient(135deg,#4a4a4a,#4a4a4a 10px,#333 10px,#333 20px);display:flex;align-items:center;justify-content:center;">
-<span style="font-family:monospace;color:#ccc;font-size:10px;">product shot: ceramic bead close-up</span>
+<sc-if value="{{isPhoneView}}" hint-placeholder-val="{{true}}">
+<div style="display:flex;overflow-x:auto;scroll-snap-type:x mandatory;gap:16px;margin:0 -20px;padding:0 20px 4px;-webkit-overflow-scrolling:touch;">
+<div onclick="{{goCeramic}}" style="background:#fff;border:1px solid #c4c7c7;cursor:pointer;overflow:hidden;flex:0 0 85%;scroll-snap-align:center;">
+<div style="aspect-ratio:3/4;overflow:hidden;">
+<img src="./assets/ceramic-coating-product.jpg" alt="Ceramic-coated paintwork reflection detail" loading="lazy" style="width:100%;height:100%;object-fit:cover;display:block;">
 </div>
-<div style="padding:16px;">
-<h3 style="font-family:Oswald,Arial,sans-serif;font-size:16px;font-weight:600;text-transform:uppercase;margin:0 0 6px;">Ceramic Coating</h3>
-<p style="font-family:'Roboto Flex',Arial,sans-serif;font-size:13px;color:#444748;line-height:1.5;margin:0 0 8px;">Advanced hydrophobic protection. Small Vehicle from $399.</p>
+<div style="padding:18px;">
+<h3 style="font-family:Oswald,Arial,sans-serif;font-size:16px;font-weight:600;text-transform:uppercase;margin:0 0 6px;">Ceramic Coating Packages</h3>
+<p style="font-family:'Roboto Flex',Arial,sans-serif;font-size:13px;color:#444748;line-height:1.5;margin:0 0 8px;">Surface preparation, protection and shine from $399.</p>
 <span style="font-family:Oswald,Arial,sans-serif;font-size:12px;font-weight:600;color:#115cb9;text-transform:uppercase;">View Packages →</span>
 </div>
 </div>
-<div onclick="{{goServices}}" style="background:#fff;border:1px solid #c4c7c7;cursor:pointer;">
-<div style="height:120px;background:repeating-linear-gradient(135deg,#4a4a4a,#4a4a4a 10px,#333 10px,#333 20px);display:flex;align-items:center;justify-content:center;">
-<span style="font-family:monospace;color:#ccc;font-size:10px;">product shot: swirl removal detail</span>
+<div onclick="{{goPaintCorrection}}" style="background:#fff;border:1px solid #c4c7c7;cursor:pointer;overflow:hidden;flex:0 0 85%;scroll-snap-align:center;">
+<div style="aspect-ratio:3/4;overflow:hidden;">
+<img src="./assets/paint-correction-product.jpg" alt="Close-up of a corrected paint finish, red Ford Fiesta ST badge" loading="lazy" style="width:100%;height:100%;object-fit:cover;display:block;">
 </div>
-<div style="padding:16px;">
+<div style="padding:18px;">
 <h3 style="font-family:Oswald,Arial,sans-serif;font-size:16px;font-weight:600;text-transform:uppercase;margin:0 0 6px;">Paint Correction</h3>
-<p style="font-family:'Roboto Flex',Arial,sans-serif;font-size:13px;color:#444748;line-height:1.5;margin:0 0 8px;">Meticulous swirl and scratch removal. Medium Vehicle from $499.</p>
+<p style="font-family:'Roboto Flex',Arial,sans-serif;font-size:13px;color:#444748;line-height:1.5;margin:0 0 8px;">Swirl and scratch removal from $299.</p>
+<span style="font-family:Oswald,Arial,sans-serif;font-size:12px;font-weight:600;color:#115cb9;text-transform:uppercase;">View Details →</span>
+</div>
+</div>
+<div onclick="{{goDetailing}}" style="background:#fff;border:1px solid #c4c7c7;cursor:pointer;overflow:hidden;flex:0 0 85%;scroll-snap-align:center;">
+<div style="aspect-ratio:3/4;overflow:hidden;">
+<img src="./assets/detailing-product.jpg" alt="Freshly detailed Fiat 500 interior" loading="lazy" style="width:100%;height:100%;object-fit:cover;display:block;">
+</div>
+<div style="padding:18px;">
+<h3 style="font-family:Oswald,Arial,sans-serif;font-size:16px;font-weight:600;text-transform:uppercase;margin:0 0 6px;">Detailing Packages</h3>
+<p style="font-family:'Roboto Flex',Arial,sans-serif;font-size:13px;color:#444748;line-height:1.5;margin:0 0 8px;">Interior/Exterior/Engine Bay from $99.</p>
 <span style="font-family:Oswald,Arial,sans-serif;font-size:12px;font-weight:600;color:#115cb9;text-transform:uppercase;">Learn More →</span>
 </div>
 </div>
 </div>
-<div style="padding:24px 20px;text-align:center;border-top:1px solid #c4c7c7;">
-<div style="font-family:'Roboto Flex',Arial,sans-serif;font-size:10px;color:#444748;text-transform:uppercase;letter-spacing:0.06em;margin-bottom:10px;">Authorized Installers For</div>
-<div style="display:flex;justify-content:center;gap:18px;font-family:Oswald,Arial,sans-serif;font-size:12px;font-weight:600;text-transform:uppercase;">
-<span>Fireball</span><span>Autostolz</span><span>Gtechniq</span>
+</sc-if>
+<sc-if value="{{isNotPhoneView}}" hint-placeholder-val="{{false}}">
+<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:20px;">
+<div onclick="{{goCeramic}}" style="background:#fff;border:1px solid #c4c7c7;cursor:pointer;overflow:hidden;" style-hover="border-color:#115cb9;">
+<div style="aspect-ratio:3/4;overflow:hidden;">
+<img src="./assets/ceramic-coating-product.jpg" alt="Ceramic-coated paintwork reflection detail" loading="lazy" style="width:100%;height:100%;object-fit:cover;display:block;">
+</div>
+<div style="padding:18px;">
+<h3 style="font-family:Oswald,Arial,sans-serif;font-size:16px;font-weight:600;text-transform:uppercase;margin:0 0 6px;">Ceramic Coating Packages</h3>
+<p style="font-family:'Roboto Flex',Arial,sans-serif;font-size:13px;color:#444748;line-height:1.5;margin:0 0 8px;">Surface preparation, protection and shine from $399.</p>
+<span style="font-family:Oswald,Arial,sans-serif;font-size:12px;font-weight:600;color:#115cb9;text-transform:uppercase;">View Packages →</span>
 </div>
 </div>
-<div style="padding:32px 20px;background:#1a1c1c;text-align:center;">
+<div onclick="{{goPaintCorrection}}" style="background:#fff;border:1px solid #c4c7c7;cursor:pointer;overflow:hidden;" style-hover="border-color:#115cb9;">
+<div style="aspect-ratio:3/4;overflow:hidden;">
+<img src="./assets/paint-correction-product.jpg" alt="Close-up of a corrected paint finish, red Ford Fiesta ST badge" loading="lazy" style="width:100%;height:100%;object-fit:cover;display:block;">
+</div>
+<div style="padding:18px;">
+<h3 style="font-family:Oswald,Arial,sans-serif;font-size:16px;font-weight:600;text-transform:uppercase;margin:0 0 6px;">Paint Correction</h3>
+<p style="font-family:'Roboto Flex',Arial,sans-serif;font-size:13px;color:#444748;line-height:1.5;margin:0 0 8px;">Swirl and scratch removal from $299.</p>
+<span style="font-family:Oswald,Arial,sans-serif;font-size:12px;font-weight:600;color:#115cb9;text-transform:uppercase;">View Details →</span>
+</div>
+</div>
+<div onclick="{{goDetailing}}" style="background:#fff;border:1px solid #c4c7c7;cursor:pointer;overflow:hidden;" style-hover="border-color:#115cb9;">
+<div style="aspect-ratio:3/4;overflow:hidden;">
+<img src="./assets/detailing-product.jpg" alt="Freshly detailed Fiat 500 interior" loading="lazy" style="width:100%;height:100%;object-fit:cover;display:block;">
+</div>
+<div style="padding:18px;">
+<h3 style="font-family:Oswald,Arial,sans-serif;font-size:16px;font-weight:600;text-transform:uppercase;margin:0 0 6px;">Detailing Packages</h3>
+<p style="font-family:'Roboto Flex',Arial,sans-serif;font-size:13px;color:#444748;line-height:1.5;margin:0 0 8px;">Interior/Exterior/Engine Bay from $99.</p>
+<span style="font-family:Oswald,Arial,sans-serif;font-size:12px;font-weight:600;color:#115cb9;text-transform:uppercase;">Learn More →</span>
+</div>
+</div>
+</div>
+</sc-if>
+</div>
+</div>
+<div style="padding:64px 20px;text-align:center;background:#1a1c1c;">
+<div style="max-width:640px;margin:0 auto;">
+<div style="width:36px;height:3px;background:#115cb9;margin:0 auto 18px;"></div>
+<div style="font-family:'Roboto Flex',Arial,sans-serif;font-size:11px;color:#9a9d9d;text-transform:uppercase;letter-spacing:0.08em;margin-bottom:14px;">Fireball Partner</div>
+<img src="./assets/fireball-logo.png" alt="Fireball" style="height:52px;width:auto;object-fit:contain;display:block;margin:0 auto 18px;background:#fff;padding:10px 18px;">
+<div style="font-family:Oswald,Arial,sans-serif;font-size:28px;font-weight:700;color:#fff;text-transform:uppercase;letter-spacing:0.03em;margin-bottom:12px;">Fireball Ceramic Coatings</div>
+<p style="font-family:'Roboto Flex',Arial,sans-serif;font-size:13px;color:#c4c7c7;line-height:1.6;margin:0 auto 22px;">Partnering with Fireball to bring hydrophobic, high-gloss ceramic protection to Orewa, the industry benchmark for paint protection.</p>
+<button onclick="{{goCeramic}}" style="background:#115cb9;color:#fff;border:none;padding:13px 28px;font-family:Oswald,Arial,sans-serif;font-size:13px;font-weight:600;text-transform:uppercase;letter-spacing:0.04em;cursor:pointer;" style-hover="background:#0d4791;">View Ceramic Packages →</button>
+</div>
+</div>
+<div style="padding:32px 20px;background:#1a1c1c;text-align:center;border-top:1px solid #2e3030;">
 <h2 style="font-family:Oswald,Arial,sans-serif;font-size:22px;font-weight:700;color:#fff;text-transform:uppercase;margin:0 0 8px;">Ready for Perfection?</h2>
 <p style="font-family:'Roboto Flex',Arial,sans-serif;font-size:13px;color:#c4c7c7;margin:0 0 18px;">Secure your spot. Experience the honest difference.</p>
 <button onclick="{{goBooking}}" style="background:#115cb9;color:#fff;border:none;padding:13px 26px;font-family:Oswald,Arial,sans-serif;font-size:13px;font-weight:600;text-transform:uppercase;letter-spacing:0.04em;cursor:pointer;width:100%;">Book Your Detail</button>
@@ -146,27 +203,41 @@
 </sc-if>
 
 <sc-if value="{{isServices}}" hint-placeholder-val="{{false}}">
-<div style="padding:28px 20px 40px;">
+<div style="padding:36px 20px 48px;">
+<div style="max-width:1280px;margin:0 auto;">
 <h1 style="font-family:Oswald,Arial,sans-serif;font-size:26px;font-weight:700;text-transform:uppercase;margin:0 0 8px;">Our Services</h1>
-<p style="font-family:'Roboto Flex',Arial,sans-serif;font-size:13px;color:#444748;line-height:1.5;margin:0 0 24px;">Precision automotive detailing and restoration for those who demand showroom quality.</p>
-<sc-for list="{{services}}" as="svc" hint-placeholder-count="3">
-<div style="background:#fff;border:1px solid #c4c7c7;margin-bottom:16px;overflow:hidden;">
-<div style="height:150px;background:repeating-linear-gradient(135deg,#4a4a4a,#4a4a4a 10px,#333 10px,#333 20px);display:flex;align-items:center;justify-content:center;">
+<p style="font-family:'Roboto Flex',Arial,sans-serif;font-size:13px;color:#444748;line-height:1.5;margin:0 0 28px;">Precision automotive detailing and restoration for those who demand showroom quality.</p>
+<div style="{{servicesGridStyle}}">
+<sc-for list="{{services}}" as="svc" hint-placeholder-count="4">
+<div onclick="{{svc.onClick}}" style="{{servicesCardStyle}}" style-hover="border-color:#115cb9;">
+<div style="position:relative;">
+<sc-if value="{{svc.img}}" hint-placeholder-val="{{false}}">
+<div style="{{serviceImgWrapStyle}}">
+<img src="{{svc.img}}" alt="{{svc.title}}" loading="lazy" style="width:100%;height:100%;object-fit:cover;display:block;">
+</div>
+</sc-if>
+<sc-if value="{{svc.noImg}}" hint-placeholder-val="{{false}}">
+<div style="{{serviceImgWrapStyle}}background:repeating-linear-gradient(135deg,#4a4a4a,#4a4a4a 10px,#333 10px,#333 20px);display:flex;align-items:center;justify-content:center;">
 <span style="font-family:monospace;color:#ccc;font-size:10px;text-align:center;padding:0 20px;">{{svc.title}}: photo</span>
 </div>
-<div style="padding:18px;">
-<sc-if value="{{svc.tag}}" hint-placeholder-val="{{false}}">
-<span style="display:inline-block;background:#f3f3f4;padding:4px 10px;font-family:'Roboto Flex',Arial,sans-serif;font-size:10px;font-weight:600;text-transform:uppercase;letter-spacing:0.05em;margin-bottom:10px;">{{svc.tag}}</span>
 </sc-if>
+<sc-if value="{{svc.tag}}" hint-placeholder-val="{{false}}">
+<span style="position:absolute;top:14px;left:14px;background:#115cb9;color:#fff;padding:5px 12px;font-family:'Roboto Flex',Arial,sans-serif;font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:0.05em;">{{svc.tag}}</span>
+</sc-if>
+</div>
+<div style="padding:18px;overflow-y:auto;flex:1 1 auto;">
 <h3 style="font-family:Oswald,Arial,sans-serif;font-size:18px;font-weight:600;text-transform:uppercase;margin:0 0 8px;">{{svc.title}}</h3>
+<p style="font-family:'Roboto Flex',Arial,sans-serif;font-size:13px;font-weight:700;color:#1a1c1c;line-height:1.4;margin:0 0 6px;">{{svc.sub}}</p>
 <p style="font-family:'Roboto Flex',Arial,sans-serif;font-size:13px;color:#444748;line-height:1.5;margin:0 0 10px;">{{svc.desc}}</p>
 <sc-if value="{{svc.note}}" hint-placeholder-val="{{false}}">
 <p style="font-family:'Roboto Flex',Arial,sans-serif;font-size:13px;font-weight:700;margin:0 0 10px;">{{svc.note}}</p>
 </sc-if>
-<button onclick="{{goCeramic}}" style="background:transparent;border:none;color:#1a1c1c;font-family:Oswald,Arial,sans-serif;font-size:13px;font-weight:600;text-transform:uppercase;padding:0;cursor:pointer;">Learn More →</button>
+<button onclick="{{svc.onClick}}" style="background:transparent;border:none;color:#1a1c1c;font-family:Oswald,Arial,sans-serif;font-size:13px;font-weight:600;text-transform:uppercase;padding:0;cursor:pointer;">Learn More →</button>
 </div>
 </div>
 </sc-for>
+</div>
+</div>
 </div>
 </sc-if>
 
@@ -247,39 +318,370 @@
 
 <sc-if value="{{isCeramic}}" hint-placeholder-val="{{false}}">
 <div>
-<div style="height:200px;background:repeating-linear-gradient(135deg,#3a3a3a,#3a3a3a 10px,#2c2c2c 10px,#2c2c2c 20px);display:flex;align-items:center;justify-content:center;position:relative;">
-<span style="font-family:monospace;color:#cfcfcf;font-size:11px;">hero: coastal car, high gloss finish</span>
-<div style="position:absolute;bottom:0;left:0;right:0;padding:18px 20px;background:linear-gradient(180deg,transparent,rgba(0,0,0,0.7));">
-<h1 style="font-family:Oswald,Arial,sans-serif;font-size:22px;font-weight:700;color:#fff;text-transform:uppercase;margin:0;">Ultimate Paint Protection</h1>
+<div style="height:420px;position:relative;background:#0d0d0d;">
+<img src="./assets/ceramic-hero.jpg" alt="Yellow Fiat 500 finished with Fireball ceramic coating" style="width:100%;height:100%;object-fit:cover;object-position:center;display:block;">
+<div style="position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,0.15) 0%,rgba(0,0,0,0.3) 40%,rgba(0,0,0,0.9) 100%);"></div>
+<div style="position:absolute;bottom:0;left:0;right:0;padding:24px 20px 32px;max-width:1280px;margin:0 auto;">
+<h1 style="font-family:Oswald,Arial,sans-serif;font-weight:700;font-size:32px;line-height:1.05;text-transform:uppercase;color:#fff;margin:0 0 10px;">Fireball Ceramic Coating</h1>
+<p style="font-family:'Roboto Flex',Arial,sans-serif;font-size:14px;color:#e5e5e5;line-height:1.5;margin:0 0 18px;max-width:440px;">Mirror-like gloss and hydrophobic protection that keeps your paint cleaner for years.</p>
+<button onclick="{{goBooking}}" style="background:#115cb9;color:#fff;border:none;padding:13px 26px;font-family:Oswald,Arial,sans-serif;font-size:13px;font-weight:600;text-transform:uppercase;letter-spacing:0.04em;cursor:pointer;" style-hover="background:#0d4791;">Book Ceramic Coating</button>
 </div>
 </div>
-<div style="padding:26px 20px;">
-<h2 style="font-family:Oswald,Arial,sans-serif;font-size:17px;font-weight:600;text-transform:uppercase;margin:0 0 16px;">The Science of Protection</h2>
-<div style="border:1px solid #c4c7c7;padding:16px;margin-bottom:14px;">
-<div style="font-family:'Roboto Flex',Arial,sans-serif;font-size:10px;color:#115cb9;text-transform:uppercase;letter-spacing:0.05em;margin-bottom:6px;">Entry Protection</div>
-<h3 style="font-family:Oswald,Arial,sans-serif;font-size:15px;font-weight:600;margin:0 0 8px;">Nano Coating</h3>
-<p style="font-family:'Roboto Flex',Arial,sans-serif;font-size:13px;color:#444748;line-height:1.5;margin:0;">Our entry-level shield, ideal for smooth, hydrophobic surfaces that make maintenance effortless.</p>
+
+<div style="padding:44px 20px;">
+<div style="max-width:1280px;margin:0 auto;">
+<h2 style="font-family:Oswald,Arial,sans-serif;font-size:17px;font-weight:600;text-transform:uppercase;margin:0 0 20px;">Key Benefits</h2>
+<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:24px;">
+<div>
+<span style="font-family:'Material Symbols Outlined';font-size:28px;color:#115cb9;">shield</span>
+<div style="font-family:Oswald,Arial,sans-serif;font-size:14px;font-weight:600;text-transform:uppercase;margin-top:8px;margin-bottom:6px;">Lasting Protection</div>
+<p style="font-family:'Roboto Flex',Arial,sans-serif;font-size:13px;color:#444748;line-height:1.5;margin:0;">Up to 5 years of defence against the elements.</p>
 </div>
-<div style="border:1px solid #1a1c1c;padding:16px;margin-bottom:14px;">
-<div style="font-family:'Roboto Flex',Arial,sans-serif;font-size:10px;color:#115cb9;text-transform:uppercase;letter-spacing:0.05em;margin-bottom:6px;">Most Popular</div>
-<h3 style="font-family:Oswald,Arial,sans-serif;font-size:15px;font-weight:600;margin:0 0 8px;">Ceramic Coating</h3>
-<p style="font-family:'Roboto Flex',Arial,sans-serif;font-size:13px;color:#444748;line-height:1.5;margin:0;">The industry standard. 5-year protection, deep wet-look gloss and superior self-cleaning.</p>
+<div>
+<span style="font-family:'Material Symbols Outlined';font-size:28px;color:#115cb9;">auto_awesome</span>
+<div style="font-family:Oswald,Arial,sans-serif;font-size:14px;font-weight:600;text-transform:uppercase;margin-top:8px;margin-bottom:6px;">Stunning Gloss</div>
+<p style="font-family:'Roboto Flex',Arial,sans-serif;font-size:13px;color:#444748;line-height:1.5;margin:0;">Deeper colour and mirror-like shine that turns heads.</p>
 </div>
-<div style="border:1px solid #c4c7c7;padding:16px;">
-<div style="font-family:'Roboto Flex',Arial,sans-serif;font-size:10px;color:#115cb9;text-transform:uppercase;letter-spacing:0.05em;margin-bottom:6px;">Ultimate Protection</div>
-<h3 style="font-family:Oswald,Arial,sans-serif;font-size:15px;font-weight:600;margin:0 0 8px;">Graphene Coating</h3>
-<p style="font-family:'Roboto Flex',Arial,sans-serif;font-size:13px;color:#444748;line-height:1.5;margin:0;">The bleeding edge: superior heat dissipation, unmatched durability and stain resistance.</p>
+<div>
+<span style="font-family:'Material Symbols Outlined';font-size:28px;color:#115cb9;">water_drop</span>
+<div style="font-family:Oswald,Arial,sans-serif;font-size:14px;font-weight:600;text-transform:uppercase;margin-top:8px;margin-bottom:6px;">Effortless Cleaning</div>
+<p style="font-family:'Roboto Flex',Arial,sans-serif;font-size:13px;color:#444748;line-height:1.5;margin:0;">Wash less often and with less effort, as water and dirt bead right off.</p>
+</div>
+<div>
+<span style="font-family:'Material Symbols Outlined';font-size:28px;color:#115cb9;">wb_sunny</span>
+<div style="font-family:Oswald,Arial,sans-serif;font-size:14px;font-weight:600;text-transform:uppercase;margin-top:8px;margin-bottom:6px;">Everyday Defence</div>
+<p style="font-family:'Roboto Flex',Arial,sans-serif;font-size:13px;color:#444748;line-height:1.5;margin:0;">Strong resistance to UV, pollution, bird droppings and light scratches.</p>
 </div>
 </div>
-<div style="padding:0 20px 30px;">
-<h2 style="font-family:Oswald,Arial,sans-serif;font-size:17px;font-weight:600;text-transform:uppercase;margin:0 0 16px;">Our Application Process</h2>
-<div style="display:flex;gap:12px;margin-bottom:14px;"><div style="width:26px;height:26px;border-radius:50%;border:1px solid #1a1c1c;display:flex;align-items:center;justify-content:center;font-family:Oswald,Arial,sans-serif;font-size:12px;flex-shrink:0;">1</div><div><div style="font-family:Oswald,Arial,sans-serif;font-size:14px;font-weight:600;">Decontamination</div><div style="font-family:'Roboto Flex',Arial,sans-serif;font-size:12px;color:#444748;">Chemical decontamination strips off particles, tar and embedded soil.</div></div></div>
-<div style="display:flex;gap:12px;margin-bottom:14px;"><div style="width:26px;height:26px;border-radius:50%;border:1px solid #1a1c1c;display:flex;align-items:center;justify-content:center;font-family:Oswald,Arial,sans-serif;font-size:12px;flex-shrink:0;">2</div><div><div style="font-family:Oswald,Arial,sans-serif;font-size:14px;font-weight:600;">Paint Correction</div><div style="font-family:'Roboto Flex',Arial,sans-serif;font-size:12px;color:#444748;">Machine polishing removes swirls and imperfections to a flawless surface.</div></div></div>
-<div style="display:flex;gap:12px;"><div style="width:26px;height:26px;border-radius:50%;background:#1a1c1c;color:#fff;display:flex;align-items:center;justify-content:center;font-family:Oswald,Arial,sans-serif;font-size:12px;flex-shrink:0;">3</div><div><div style="font-family:Oswald,Arial,sans-serif;font-size:14px;font-weight:600;">Coating &amp; Curing</div><div style="font-family:'Roboto Flex',Arial,sans-serif;font-size:12px;color:#444748;">Precise application of the chosen coating, followed by controlled curing.</div></div></div>
 </div>
-<div style="padding:28px 20px;background:#1a1c1c;text-align:center;">
-<h2 style="font-family:Oswald,Arial,sans-serif;font-size:19px;font-weight:700;color:#fff;text-transform:uppercase;margin:0 0 16px;">Ready for Permanent Protection?</h2>
-<button onclick="{{goBooking}}" style="background:#115cb9;color:#fff;border:none;padding:13px 26px;font-family:Oswald,Arial,sans-serif;font-size:13px;font-weight:600;text-transform:uppercase;letter-spacing:0.04em;cursor:pointer;width:100%;">Book an Inspection</button>
+</div>
+
+<div style="padding:0 20px 44px;">
+<div style="max-width:1280px;margin:0 auto;">
+<h2 style="font-family:Oswald,Arial,sans-serif;font-size:17px;font-weight:600;text-transform:uppercase;margin:0 0 20px;">Our Application Process</h2>
+<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:20px;">
+<div style="display:flex;gap:12px;"><div style="width:26px;height:26px;border-radius:50%;border:1px solid #1a1c1c;display:flex;align-items:center;justify-content:center;font-family:Oswald,Arial,sans-serif;font-size:12px;flex-shrink:0;">1</div><div><div style="font-family:Oswald,Arial,sans-serif;font-size:14px;font-weight:600;">Decontamination</div><div style="font-family:'Roboto Flex',Arial,sans-serif;font-size:12px;color:#444748;">Chemical decontamination strips off particles, tar and embedded soil.</div></div></div>
+<div style="display:flex;gap:12px;"><div style="width:26px;height:26px;border-radius:50%;border:1px solid #1a1c1c;display:flex;align-items:center;justify-content:center;font-family:Oswald,Arial,sans-serif;font-size:12px;flex-shrink:0;">2</div><div><div style="font-family:Oswald,Arial,sans-serif;font-size:14px;font-weight:600;">Paint Correction</div><div style="font-family:'Roboto Flex',Arial,sans-serif;font-size:12px;color:#444748;">Machine polishing removes swirls and imperfections to a flawless surface.</div></div></div>
+<div style="display:flex;gap:12px;"><div style="width:26px;height:26px;border-radius:50%;background:#1a1c1c;color:#fff;display:flex;align-items:center;justify-content:center;font-family:Oswald,Arial,sans-serif;font-size:12px;flex-shrink:0;">3</div><div><div style="font-family:Oswald,Arial,sans-serif;font-size:14px;font-weight:600;">Coating &amp; Curing</div><div style="font-family:'Roboto Flex',Arial,sans-serif;font-size:12px;color:#444748;">Precise application of Fireball ceramic coating, followed by controlled curing.</div></div></div>
+<div style="display:flex;gap:12px;"><div style="width:26px;height:26px;border-radius:50%;border:1px solid #1a1c1c;display:flex;align-items:center;justify-content:center;font-family:Oswald,Arial,sans-serif;font-size:12px;flex-shrink:0;">4</div><div><div style="font-family:Oswald,Arial,sans-serif;font-size:14px;font-weight:600;">Final Inspection &amp; Handover</div><div style="font-family:'Roboto Flex',Arial,sans-serif;font-size:12px;color:#444748;">A thorough final check before your car is handed back, cured and protected.</div></div></div>
+</div>
+</div>
+</div>
+
+<div style="padding:52px 20px;text-align:center;background:#1a1c1c;">
+<div style="max-width:640px;margin:0 auto;">
+<div style="width:36px;height:3px;background:#115cb9;margin:0 auto 18px;"></div>
+<div style="font-family:'Roboto Flex',Arial,sans-serif;font-size:11px;color:#9a9d9d;text-transform:uppercase;letter-spacing:0.08em;margin-bottom:14px;">Fireball Partner</div>
+<img src="./assets/fireball-logo.png" alt="Fireball" style="height:46px;width:auto;object-fit:contain;display:block;margin:0 auto 18px;background:#fff;padding:9px 16px;">
+<p style="font-family:'Roboto Flex',Arial,sans-serif;font-size:13px;color:#c4c7c7;line-height:1.6;margin:0;">This coating is applied by a Fireball partner, using Fireball's ceramic range for lasting hydrophobic protection.</p>
+</div>
+</div>
+
+<div style="padding:44px 20px;background:#f3f3f4;">
+<div style="max-width:1280px;margin:0 auto;text-align:center;">
+<h2 style="font-family:Oswald,Arial,sans-serif;font-size:17px;font-weight:600;text-transform:uppercase;margin:0 0 22px;">Packages &amp; Pricing</h2>
+<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:16px;margin-bottom:22px;">
+<div onclick="{{goBooking}}" style="background:#fff;border:1px solid #c4c7c7;padding:20px;cursor:pointer;" style-hover="border-color:#115cb9;">
+<div style="font-family:'Roboto Flex',Arial,sans-serif;font-size:11px;color:#444748;text-transform:uppercase;letter-spacing:0.05em;margin-bottom:6px;">Small Vehicle</div>
+<div style="font-family:Oswald,Arial,sans-serif;font-size:22px;font-weight:700;margin-bottom:8px;">From $399</div>
+<span style="font-family:Oswald,Arial,sans-serif;font-size:11px;font-weight:600;color:#115cb9;text-transform:uppercase;">+ Book →</span>
+</div>
+<div onclick="{{goBooking}}" style="background:#fff;border:1px solid #c4c7c7;padding:20px;cursor:pointer;" style-hover="border-color:#115cb9;">
+<div style="font-family:'Roboto Flex',Arial,sans-serif;font-size:11px;color:#444748;text-transform:uppercase;letter-spacing:0.05em;margin-bottom:6px;">Medium Vehicle</div>
+<div style="font-family:Oswald,Arial,sans-serif;font-size:22px;font-weight:700;margin-bottom:8px;">From $499</div>
+<span style="font-family:Oswald,Arial,sans-serif;font-size:11px;font-weight:600;color:#115cb9;text-transform:uppercase;">+ Book →</span>
+</div>
+<div onclick="{{goBooking}}" style="background:#fff;border:1px solid #c4c7c7;padding:20px;cursor:pointer;" style-hover="border-color:#115cb9;">
+<div style="font-family:'Roboto Flex',Arial,sans-serif;font-size:11px;color:#444748;text-transform:uppercase;letter-spacing:0.05em;margin-bottom:6px;">Large Vehicle</div>
+<div style="font-family:Oswald,Arial,sans-serif;font-size:22px;font-weight:700;margin-bottom:8px;">From $799</div>
+<span style="font-family:Oswald,Arial,sans-serif;font-size:11px;font-weight:600;color:#115cb9;text-transform:uppercase;">+ Book →</span>
+</div>
+<div onclick="{{goBooking}}" style="background:#fff;border:1px solid #c4c7c7;padding:20px;cursor:pointer;" style-hover="border-color:#115cb9;">
+<div style="font-family:'Roboto Flex',Arial,sans-serif;font-size:11px;color:#444748;text-transform:uppercase;letter-spacing:0.05em;margin-bottom:6px;">Classic / Fleet</div>
+<div style="font-family:Oswald,Arial,sans-serif;font-size:18px;font-weight:700;margin-bottom:8px;">Enquire</div>
+<span style="font-family:Oswald,Arial,sans-serif;font-size:11px;font-weight:600;color:#115cb9;text-transform:uppercase;">+ Book →</span>
+</div>
+</div>
+<button onclick="{{goPricing}}" style="background:#115cb9;color:#fff;border:none;padding:16px 36px;font-family:Oswald,Arial,sans-serif;font-size:14px;font-weight:700;text-transform:uppercase;letter-spacing:0.05em;cursor:pointer;box-shadow:0 6px 18px rgba(17,92,185,0.35);" style-hover="background:#0d4791;">View Full Packages &amp; Pricing →</button>
+</div>
+</div>
+
+<div style="padding:32px 20px;background:#1a1c1c;text-align:center;border-top:1px solid #2e3030;">
+<h2 style="font-family:Oswald,Arial,sans-serif;font-size:22px;font-weight:700;color:#fff;text-transform:uppercase;margin:0 0 16px;">Ready to Protect Your Car?</h2>
+<button onclick="{{goBooking}}" style="background:#115cb9;color:#fff;border:none;padding:13px 26px;font-family:Oswald,Arial,sans-serif;font-size:13px;font-weight:600;text-transform:uppercase;letter-spacing:0.04em;cursor:pointer;" style-hover="background:#0d4791;">Book Now</button>
+</div>
+</div>
+</sc-if>
+
+<sc-if value="{{isPaintCorrection}}" hint-placeholder-val="{{false}}">
+<div>
+<div style="height:420px;position:relative;background:#0d0d0d;">
+<img src="./assets/paint-correction-hero.jpg" alt="Grey BMW 3 Series with corrected paintwork" style="width:100%;height:100%;object-fit:cover;object-position:center;display:block;">
+<div style="position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,0.15) 0%,rgba(0,0,0,0.3) 40%,rgba(0,0,0,0.9) 100%);"></div>
+<div style="position:absolute;inset:0;background:linear-gradient(90deg,rgba(0,0,0,0.55) 0%,rgba(0,0,0,0.15) 45%,rgba(0,0,0,0) 70%);"></div>
+<div style="position:absolute;bottom:0;left:0;right:0;padding:24px 20px 32px;max-width:1280px;margin:0 auto;">
+<h1 style="font-family:Oswald,Arial,sans-serif;font-weight:700;font-size:32px;line-height:1.05;text-transform:uppercase;color:#fff;margin:0 0 10px;">Paint Correction</h1>
+<p style="font-family:'Roboto Flex',Arial,sans-serif;font-size:14px;color:#e5e5e5;line-height:1.5;margin:0 0 18px;max-width:440px;">Restore true depth, clarity and gloss by removing swirls, scratches and oxidation.</p>
+<button onclick="{{goBooking}}" style="background:#115cb9;color:#fff;border:none;padding:13px 26px;font-family:Oswald,Arial,sans-serif;font-size:13px;font-weight:600;text-transform:uppercase;letter-spacing:0.04em;cursor:pointer;" style-hover="background:#0d4791;">Book Paint Correction</button>
+</div>
+</div>
+
+<div style="padding:44px 20px;">
+<div style="max-width:1280px;margin:0 auto;">
+<h2 style="font-family:Oswald,Arial,sans-serif;font-size:17px;font-weight:600;text-transform:uppercase;margin:0 0 20px;">Key Benefits</h2>
+<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:24px;">
+<div>
+<span style="font-family:'Material Symbols Outlined';font-size:28px;color:#115cb9;">auto_awesome</span>
+<div style="font-family:Oswald,Arial,sans-serif;font-size:14px;font-weight:600;text-transform:uppercase;margin-top:8px;margin-bottom:6px;">Restored Depth &amp; Clarity</div>
+<p style="font-family:'Roboto Flex',Arial,sans-serif;font-size:13px;color:#444748;line-height:1.5;margin:0;">Swirls, scratches and dull oxidation are removed so your paint looks richer, deeper and clearer.</p>
+</div>
+<div>
+<span style="font-family:'Material Symbols Outlined';font-size:28px;color:#115cb9;">directions_car</span>
+<div style="font-family:Oswald,Arial,sans-serif;font-size:14px;font-weight:600;text-transform:uppercase;margin-top:8px;margin-bottom:6px;">Showroom-Level Finish</div>
+<p style="font-family:'Roboto Flex',Arial,sans-serif;font-size:13px;color:#444748;line-height:1.5;margin:0;">Machine polishing brings back the sharp reflection and gloss your car had when it was new.</p>
+</div>
+<div>
+<span style="font-family:'Material Symbols Outlined';font-size:28px;color:#115cb9;">shield</span>
+<div style="font-family:Oswald,Arial,sans-serif;font-size:14px;font-weight:600;text-transform:uppercase;margin-top:8px;margin-bottom:6px;">Perfect Preparation</div>
+<p style="font-family:'Roboto Flex',Arial,sans-serif;font-size:13px;color:#444748;line-height:1.5;margin:0;">Creates the ideal foundation for ceramic coating, maximising adhesion, gloss and longevity.</p>
+</div>
+<div>
+<span style="font-family:'Material Symbols Outlined';font-size:28px;color:#115cb9;">schedule</span>
+<div style="font-family:Oswald,Arial,sans-serif;font-size:14px;font-weight:600;text-transform:uppercase;margin-top:8px;margin-bottom:6px;">Long-Lasting Visual Improvement</div>
+<p style="font-family:'Roboto Flex',Arial,sans-serif;font-size:13px;color:#444748;line-height:1.5;margin:0;">Properly corrected paint maintains its clarity and depth far longer than a standard polish.</p>
+</div>
+</div>
+</div>
+</div>
+
+<div style="padding:0 20px 44px;">
+<div style="max-width:1280px;margin:0 auto;">
+<h2 style="font-family:Oswald,Arial,sans-serif;font-size:17px;font-weight:600;text-transform:uppercase;margin:0 0 20px;">Our Application Process</h2>
+<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:20px;">
+<div style="display:flex;gap:12px;"><div style="width:26px;height:26px;border-radius:50%;border:1px solid #1a1c1c;display:flex;align-items:center;justify-content:center;font-family:Oswald,Arial,sans-serif;font-size:12px;flex-shrink:0;">1</div><div><div style="font-family:Oswald,Arial,sans-serif;font-size:14px;font-weight:600;">Assessment &amp; Wash</div><div style="font-family:'Roboto Flex',Arial,sans-serif;font-size:12px;color:#444748;">Thorough inspection and safe wash to identify all defects and prepare the surface.</div></div></div>
+<div style="display:flex;gap:12px;"><div style="width:26px;height:26px;border-radius:50%;border:1px solid #1a1c1c;display:flex;align-items:center;justify-content:center;font-family:Oswald,Arial,sans-serif;font-size:12px;flex-shrink:0;">2</div><div><div style="font-family:Oswald,Arial,sans-serif;font-size:14px;font-weight:600;">Decontamination</div><div style="font-family:'Roboto Flex',Arial,sans-serif;font-size:12px;color:#444748;">Chemical and mechanical decontamination removes bonded contaminants for a clean starting point.</div></div></div>
+<div style="display:flex;gap:12px;"><div style="width:26px;height:26px;border-radius:50%;background:#1a1c1c;color:#fff;display:flex;align-items:center;justify-content:center;font-family:Oswald,Arial,sans-serif;font-size:12px;flex-shrink:0;">3</div><div><div style="font-family:Oswald,Arial,sans-serif;font-size:14px;font-weight:600;">Machine Polishing</div><div style="font-family:'Roboto Flex',Arial,sans-serif;font-size:12px;color:#444748;">Multi-stage machine polishing carefully levels the clear coat, removing swirls, scratches and oxidation to a flawless finish.</div></div></div>
+<div style="display:flex;gap:12px;"><div style="width:26px;height:26px;border-radius:50%;border:1px solid #1a1c1c;display:flex;align-items:center;justify-content:center;font-family:Oswald,Arial,sans-serif;font-size:12px;flex-shrink:0;">4</div><div><div style="font-family:Oswald,Arial,sans-serif;font-size:14px;font-weight:600;">Protection Options</div><div style="font-family:'Roboto Flex',Arial,sans-serif;font-size:12px;color:#444748;">Optional sealant, wax, or Fireball ceramic coating applied to lock in the corrected finish and add lasting protection.</div></div></div>
+</div>
+</div>
+</div>
+
+<div style="padding:52px 20px;text-align:center;background:#1a1c1c;">
+<div style="max-width:640px;margin:0 auto;">
+<div style="width:36px;height:3px;background:#115cb9;margin:0 auto 18px;"></div>
+<div style="font-family:Oswald,Arial,sans-serif;font-size:22px;font-weight:700;color:#fff;text-transform:uppercase;letter-spacing:0.03em;margin-bottom:12px;">Precision Paint Correction</div>
+<p style="font-family:'Roboto Flex',Arial,sans-serif;font-size:13px;color:#c4c7c7;line-height:1.6;margin:0;">Performed with professional-grade machine polishers and premium compounds for controlled, high-quality results.</p>
+</div>
+</div>
+
+<div style="padding:44px 20px;background:#f3f3f4;">
+<div style="max-width:1280px;margin:0 auto;text-align:center;">
+<h2 style="font-family:Oswald,Arial,sans-serif;font-size:17px;font-weight:600;text-transform:uppercase;margin:0 0 22px;">Packages &amp; Pricing</h2>
+<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:16px;margin-bottom:22px;">
+<div onclick="{{goBooking}}" style="background:#fff;border:1px solid #c4c7c7;padding:20px;cursor:pointer;" style-hover="border-color:#115cb9;">
+<div style="font-family:'Roboto Flex',Arial,sans-serif;font-size:11px;color:#444748;text-transform:uppercase;letter-spacing:0.05em;margin-bottom:6px;">Small Vehicle</div>
+<div style="font-family:Oswald,Arial,sans-serif;font-size:22px;font-weight:700;margin-bottom:8px;">From $299</div>
+<span style="font-family:Oswald,Arial,sans-serif;font-size:11px;font-weight:600;color:#115cb9;text-transform:uppercase;">+ Book →</span>
+</div>
+<div onclick="{{goBooking}}" style="background:#fff;border:1px solid #c4c7c7;padding:20px;cursor:pointer;" style-hover="border-color:#115cb9;">
+<div style="font-family:'Roboto Flex',Arial,sans-serif;font-size:11px;color:#444748;text-transform:uppercase;letter-spacing:0.05em;margin-bottom:6px;">Medium Vehicle</div>
+<div style="font-family:Oswald,Arial,sans-serif;font-size:22px;font-weight:700;margin-bottom:8px;">From $399</div>
+<span style="font-family:Oswald,Arial,sans-serif;font-size:11px;font-weight:600;color:#115cb9;text-transform:uppercase;">+ Book →</span>
+</div>
+<div onclick="{{goBooking}}" style="background:#fff;border:1px solid #c4c7c7;padding:20px;cursor:pointer;" style-hover="border-color:#115cb9;">
+<div style="font-family:'Roboto Flex',Arial,sans-serif;font-size:11px;color:#444748;text-transform:uppercase;letter-spacing:0.05em;margin-bottom:6px;">Large Vehicle</div>
+<div style="font-family:Oswald,Arial,sans-serif;font-size:22px;font-weight:700;margin-bottom:8px;">From $499</div>
+<span style="font-family:Oswald,Arial,sans-serif;font-size:11px;font-weight:600;color:#115cb9;text-transform:uppercase;">+ Book →</span>
+</div>
+<div onclick="{{goBooking}}" style="background:#fff;border:1px solid #c4c7c7;padding:20px;cursor:pointer;" style-hover="border-color:#115cb9;">
+<div style="font-family:'Roboto Flex',Arial,sans-serif;font-size:11px;color:#444748;text-transform:uppercase;letter-spacing:0.05em;margin-bottom:6px;">Classic / Fleet</div>
+<div style="font-family:Oswald,Arial,sans-serif;font-size:18px;font-weight:700;margin-bottom:8px;">Enquire</div>
+<span style="font-family:Oswald,Arial,sans-serif;font-size:11px;font-weight:600;color:#115cb9;text-transform:uppercase;">+ Book →</span>
+</div>
+</div>
+<button onclick="{{goPricing}}" style="background:#115cb9;color:#fff;border:none;padding:16px 36px;font-family:Oswald,Arial,sans-serif;font-size:14px;font-weight:700;text-transform:uppercase;letter-spacing:0.05em;cursor:pointer;box-shadow:0 6px 18px rgba(17,92,185,0.35);" style-hover="background:#0d4791;">View Full Packages &amp; Pricing →</button>
+</div>
+</div>
+
+<div style="padding:32px 20px;background:#1a1c1c;text-align:center;border-top:1px solid #2e3030;">
+<h2 style="font-family:Oswald,Arial,sans-serif;font-size:22px;font-weight:700;color:#fff;text-transform:uppercase;margin:0 0 16px;">Ready to Restore Your Paint?</h2>
+<button onclick="{{goBooking}}" style="background:#115cb9;color:#fff;border:none;padding:13px 26px;font-family:Oswald,Arial,sans-serif;font-size:13px;font-weight:600;text-transform:uppercase;letter-spacing:0.04em;cursor:pointer;" style-hover="background:#0d4791;">Book Now</button>
+</div>
+</div>
+</sc-if>
+
+<sc-if value="{{isDetailing}}" hint-placeholder-val="{{false}}">
+<div>
+<div style="height:420px;position:relative;background:#0d0d0d;">
+<img src="./assets/detailing-hero.jpg" alt="Ford Falcon interior after professional detailing" style="width:100%;height:100%;object-fit:cover;object-position:center;display:block;">
+<div style="position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,0.15) 0%,rgba(0,0,0,0.3) 40%,rgba(0,0,0,0.9) 100%);"></div>
+<div style="position:absolute;inset:0;background:linear-gradient(90deg,rgba(0,0,0,0.55) 0%,rgba(0,0,0,0.15) 45%,rgba(0,0,0,0) 70%);"></div>
+<div style="position:absolute;bottom:0;left:0;right:0;padding:24px 20px 32px;max-width:1280px;margin:0 auto;">
+<h1 style="font-family:Oswald,Arial,sans-serif;font-weight:700;font-size:32px;line-height:1.05;text-transform:uppercase;color:#fff;margin:0 0 10px;">Professional Detailing</h1>
+<p style="font-family:'Roboto Flex',Arial,sans-serif;font-size:14px;color:#e5e5e5;line-height:1.5;margin:0 0 18px;max-width:440px;">Complete interior and exterior rejuvenation that makes your car look, feel and smell like new again.</p>
+<button onclick="{{goBooking}}" style="background:#115cb9;color:#fff;border:none;padding:13px 26px;font-family:Oswald,Arial,sans-serif;font-size:13px;font-weight:600;text-transform:uppercase;letter-spacing:0.04em;cursor:pointer;" style-hover="background:#0d4791;">Book Professional Detailing</button>
+</div>
+</div>
+
+<div style="padding:44px 20px;">
+<div style="max-width:1280px;margin:0 auto;">
+<h2 style="font-family:Oswald,Arial,sans-serif;font-size:17px;font-weight:600;text-transform:uppercase;margin:0 0 20px;">Key Benefits</h2>
+<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:24px;">
+<div>
+<span style="font-family:'Material Symbols Outlined';font-size:28px;color:#115cb9;">sync_alt</span>
+<div style="font-family:Oswald,Arial,sans-serif;font-size:14px;font-weight:600;text-transform:uppercase;margin-top:8px;margin-bottom:6px;">Complete Transformation</div>
+<p style="font-family:'Roboto Flex',Arial,sans-serif;font-size:13px;color:#444748;line-height:1.5;margin:0;">Deep interior cleaning and exterior refinement delivered in one comprehensive service.</p>
+</div>
+<div>
+<span style="font-family:'Material Symbols Outlined';font-size:28px;color:#115cb9;">chair</span>
+<div style="font-family:Oswald,Arial,sans-serif;font-size:14px;font-weight:600;text-transform:uppercase;margin-top:8px;margin-bottom:6px;">Fresh, Clean Interior</div>
+<p style="font-family:'Roboto Flex',Arial,sans-serif;font-size:13px;color:#444748;line-height:1.5;margin:0;">Upholstery extraction, surface restoration and odour elimination leave your cabin feeling brand new.</p>
+</div>
+<div>
+<span style="font-family:'Material Symbols Outlined';font-size:28px;color:#115cb9;">auto_awesome</span>
+<div style="font-family:Oswald,Arial,sans-serif;font-size:14px;font-weight:600;text-transform:uppercase;margin-top:8px;margin-bottom:6px;">Glossy, Refined Exterior</div>
+<p style="font-family:'Roboto Flex',Arial,sans-serif;font-size:13px;color:#444748;line-height:1.5;margin:0;">Paint is carefully cleaned, decontaminated and enhanced for a sharp, showroom-ready finish.</p>
+</div>
+<div>
+<span style="font-family:'Material Symbols Outlined';font-size:28px;color:#115cb9;">schedule</span>
+<div style="font-family:Oswald,Arial,sans-serif;font-size:14px;font-weight:600;text-transform:uppercase;margin-top:8px;margin-bottom:6px;">Time-Saving Results</div>
+<p style="font-family:'Roboto Flex',Arial,sans-serif;font-size:13px;color:#444748;line-height:1.5;margin:0;">One appointment restores both inside and outside, for maximum impact with minimum hassle.</p>
+</div>
+</div>
+</div>
+</div>
+
+<div style="padding:0 20px 44px;">
+<div style="max-width:1280px;margin:0 auto;">
+<h2 style="font-family:Oswald,Arial,sans-serif;font-size:17px;font-weight:600;text-transform:uppercase;margin:0 0 20px;">Our Application Process</h2>
+<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:20px;">
+<div style="display:flex;gap:12px;"><div style="width:26px;height:26px;border-radius:50%;border:1px solid #1a1c1c;display:flex;align-items:center;justify-content:center;font-family:Oswald,Arial,sans-serif;font-size:12px;flex-shrink:0;">1</div><div><div style="font-family:Oswald,Arial,sans-serif;font-size:14px;font-weight:600;">Thorough Assessment</div><div style="font-family:'Roboto Flex',Arial,sans-serif;font-size:12px;color:#444748;">Full inspection of interior and exterior condition to tailor the service to your vehicle.</div></div></div>
+<div style="display:flex;gap:12px;"><div style="width:26px;height:26px;border-radius:50%;border:1px solid #1a1c1c;display:flex;align-items:center;justify-content:center;font-family:Oswald,Arial,sans-serif;font-size:12px;flex-shrink:0;">2</div><div><div style="font-family:Oswald,Arial,sans-serif;font-size:14px;font-weight:600;">Interior Deep Clean</div><div style="font-family:'Roboto Flex',Arial,sans-serif;font-size:12px;color:#444748;">Vacuum, fabric/leather cleaning, deep extraction, plastics restored and protected, glass cleaned.</div></div></div>
+<div style="display:flex;gap:12px;"><div style="width:26px;height:26px;border-radius:50%;border:1px solid #1a1c1c;display:flex;align-items:center;justify-content:center;font-family:Oswald,Arial,sans-serif;font-size:12px;flex-shrink:0;">3</div><div><div style="font-family:Oswald,Arial,sans-serif;font-size:14px;font-weight:600;">Exterior Rejuvenation</div><div style="font-family:'Roboto Flex',Arial,sans-serif;font-size:12px;color:#444748;">Safe wash, decontamination, paint enhancement and protection applied for lasting gloss.</div></div></div>
+<div style="display:flex;gap:12px;"><div style="width:26px;height:26px;border-radius:50%;background:#1a1c1c;color:#fff;display:flex;align-items:center;justify-content:center;font-family:Oswald,Arial,sans-serif;font-size:12px;flex-shrink:0;">4</div><div><div style="font-family:Oswald,Arial,sans-serif;font-size:14px;font-weight:600;">Final Inspection &amp; Handover</div><div style="font-family:'Roboto Flex',Arial,sans-serif;font-size:12px;color:#444748;">Detailed quality check so your car leaves looking and feeling its absolute best.</div></div></div>
+</div>
+</div>
+</div>
+
+<div style="padding:52px 20px;text-align:center;background:#1a1c1c;">
+<div style="max-width:640px;margin:0 auto;">
+<div style="width:36px;height:3px;background:#115cb9;margin:0 auto 18px;"></div>
+<div style="font-family:Oswald,Arial,sans-serif;font-size:22px;font-weight:700;color:#fff;text-transform:uppercase;letter-spacing:0.03em;margin-bottom:12px;">Complete Care. Honest Results.</div>
+<p style="font-family:'Roboto Flex',Arial,sans-serif;font-size:13px;color:#c4c7c7;line-height:1.6;margin:0;">A full interior and exterior detail designed to rejuvenate your vehicle inside and out, using professional products and proven processes.</p>
+</div>
+</div>
+
+<div style="padding:44px 20px;background:#f3f3f4;">
+<div style="max-width:1280px;margin:0 auto;text-align:center;">
+<h2 style="font-family:Oswald,Arial,sans-serif;font-size:17px;font-weight:600;text-transform:uppercase;margin:0 0 22px;">Packages &amp; Pricing</h2>
+<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:16px;margin-bottom:22px;">
+<div onclick="{{goBooking}}" style="background:#fff;border:1px solid #c4c7c7;padding:20px;cursor:pointer;" style-hover="border-color:#115cb9;">
+<div style="font-family:'Roboto Flex',Arial,sans-serif;font-size:11px;color:#444748;text-transform:uppercase;letter-spacing:0.05em;margin-bottom:6px;">Small Vehicle</div>
+<div style="font-family:Oswald,Arial,sans-serif;font-size:22px;font-weight:700;margin-bottom:8px;">From $99</div>
+<span style="font-family:Oswald,Arial,sans-serif;font-size:11px;font-weight:600;color:#115cb9;text-transform:uppercase;">+ Book →</span>
+</div>
+<div onclick="{{goBooking}}" style="background:#fff;border:1px solid #c4c7c7;padding:20px;cursor:pointer;" style-hover="border-color:#115cb9;">
+<div style="font-family:'Roboto Flex',Arial,sans-serif;font-size:11px;color:#444748;text-transform:uppercase;letter-spacing:0.05em;margin-bottom:6px;">Medium Vehicle</div>
+<div style="font-family:Oswald,Arial,sans-serif;font-size:22px;font-weight:700;margin-bottom:8px;">From $149</div>
+<span style="font-family:Oswald,Arial,sans-serif;font-size:11px;font-weight:600;color:#115cb9;text-transform:uppercase;">+ Book →</span>
+</div>
+<div onclick="{{goBooking}}" style="background:#fff;border:1px solid #c4c7c7;padding:20px;cursor:pointer;" style-hover="border-color:#115cb9;">
+<div style="font-family:'Roboto Flex',Arial,sans-serif;font-size:11px;color:#444748;text-transform:uppercase;letter-spacing:0.05em;margin-bottom:6px;">Large Vehicle</div>
+<div style="font-family:Oswald,Arial,sans-serif;font-size:22px;font-weight:700;margin-bottom:8px;">From $199</div>
+<span style="font-family:Oswald,Arial,sans-serif;font-size:11px;font-weight:600;color:#115cb9;text-transform:uppercase;">+ Book →</span>
+</div>
+<div onclick="{{goBooking}}" style="background:#fff;border:1px solid #c4c7c7;padding:20px;cursor:pointer;" style-hover="border-color:#115cb9;">
+<div style="font-family:'Roboto Flex',Arial,sans-serif;font-size:11px;color:#444748;text-transform:uppercase;letter-spacing:0.05em;margin-bottom:6px;">Classic / Fleet</div>
+<div style="font-family:Oswald,Arial,sans-serif;font-size:18px;font-weight:700;margin-bottom:8px;">Enquire</div>
+<span style="font-family:Oswald,Arial,sans-serif;font-size:11px;font-weight:600;color:#115cb9;text-transform:uppercase;">+ Book →</span>
+</div>
+</div>
+<button onclick="{{goPricing}}" style="background:#115cb9;color:#fff;border:none;padding:16px 36px;font-family:Oswald,Arial,sans-serif;font-size:14px;font-weight:700;text-transform:uppercase;letter-spacing:0.05em;cursor:pointer;box-shadow:0 6px 18px rgba(17,92,185,0.35);" style-hover="background:#0d4791;">View Full Packages &amp; Pricing →</button>
+</div>
+</div>
+
+<div style="padding:32px 20px;background:#1a1c1c;text-align:center;border-top:1px solid #2e3030;">
+<h2 style="font-family:Oswald,Arial,sans-serif;font-size:22px;font-weight:700;color:#fff;text-transform:uppercase;margin:0 0 16px;">Ready for a Complete Refresh?</h2>
+<button onclick="{{goBooking}}" style="background:#115cb9;color:#fff;border:none;padding:13px 26px;font-family:Oswald,Arial,sans-serif;font-size:13px;font-weight:600;text-transform:uppercase;letter-spacing:0.04em;cursor:pointer;" style-hover="background:#0d4791;">Book Now</button>
+</div>
+</div>
+</sc-if>
+
+<sc-if value="{{isClassic}}" hint-placeholder-val="{{false}}">
+<div>
+<div style="height:420px;position:relative;background:#0d0d0d;">
+<img src="./assets/classic-restoration-hero.jpg" alt="Classic TVR convertible in the workshop" style="width:100%;height:100%;object-fit:cover;object-position:center;display:block;">
+<div style="position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,0.15) 0%,rgba(0,0,0,0.3) 40%,rgba(0,0,0,0.9) 100%);"></div>
+<div style="position:absolute;inset:0;background:linear-gradient(90deg,rgba(0,0,0,0.55) 0%,rgba(0,0,0,0.15) 45%,rgba(0,0,0,0) 70%);"></div>
+<div style="position:absolute;bottom:0;left:0;right:0;padding:24px 20px 32px;max-width:1280px;margin:0 auto;">
+<h1 style="font-family:Oswald,Arial,sans-serif;font-weight:700;font-size:32px;line-height:1.05;text-transform:uppercase;color:#fff;margin:0 0 10px;">Classic Restoration &amp; Rescue</h1>
+<p style="font-family:'Roboto Flex',Arial,sans-serif;font-size:14px;color:#e5e5e5;line-height:1.5;margin:0 0 18px;max-width:460px;">Respectful care for classic and vintage vehicles, from an honest weekend detail to a full show-stopping restoration, built around what you actually want.</p>
+<button onclick="{{goBooking}}" style="background:#115cb9;color:#fff;border:none;padding:13px 26px;font-family:Oswald,Arial,sans-serif;font-size:13px;font-weight:600;text-transform:uppercase;letter-spacing:0.04em;cursor:pointer;" style-hover="background:#0d4791;">Enquire About Your Classic</button>
+</div>
+</div>
+
+<div style="padding:44px 20px;">
+<div style="max-width:1280px;margin:0 auto;">
+<h2 style="font-family:Oswald,Arial,sans-serif;font-size:17px;font-weight:600;text-transform:uppercase;margin:0 0 20px;">Key Benefits</h2>
+<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:24px;">
+<div>
+<span style="font-family:'Material Symbols Outlined';font-size:28px;color:#115cb9;">history_edu</span>
+<div style="font-family:Oswald,Arial,sans-serif;font-size:14px;font-weight:600;text-transform:uppercase;margin-top:8px;margin-bottom:6px;">Respect for Originality</div>
+<p style="font-family:'Roboto Flex',Arial,sans-serif;font-size:13px;color:#444748;line-height:1.5;margin:0;">We back our own judgement, preserving character and original details rather than forcing modern perfection onto a car that doesn't need it.</p>
+</div>
+<div>
+<span style="font-family:'Material Symbols Outlined';font-size:28px;color:#115cb9;">directions_car</span>
+<div style="font-family:Oswald,Arial,sans-serif;font-size:14px;font-weight:600;text-transform:uppercase;margin-top:8px;margin-bottom:6px;">Built for the Road, or the Show</div>
+<p style="font-family:'Roboto Flex',Arial,sans-serif;font-size:13px;color:#444748;line-height:1.5;margin:0;">Want a reliable weekend driver? Done. Want a show-winning finish? Also done. We build the plan around your goal, not ours.</p>
+</div>
+<div>
+<span style="font-family:'Material Symbols Outlined';font-size:28px;color:#115cb9;">tune</span>
+<div style="font-family:Oswald,Arial,sans-serif;font-size:14px;font-weight:600;text-transform:uppercase;margin-top:8px;margin-bottom:6px;">Flexible Approach</div>
+<p style="font-family:'Roboto Flex',Arial,sans-serif;font-size:13px;color:#444748;line-height:1.5;margin:0;">From a careful clean and detail through to coordinated rust repair, full restorations and show-level finishes, we scale to the job.</p>
+</div>
+<div>
+<span style="font-family:'Material Symbols Outlined';font-size:28px;color:#115cb9;">groups</span>
+<div style="font-family:Oswald,Arial,sans-serif;font-size:14px;font-weight:600;text-transform:uppercase;margin-top:8px;margin-bottom:6px;">Trusted Network</div>
+<p style="font-family:'Roboto Flex',Arial,sans-serif;font-size:13px;color:#444748;line-height:1.5;margin:0;">A tight-knit crew of specialists we'd trust with our own classics (or happy to work alongside yours) for mechanical, rust and paint work.</p>
+</div>
+</div>
+</div>
+</div>
+
+<div style="padding:0 20px 44px;">
+<div style="max-width:1280px;margin:0 auto;">
+<h2 style="font-family:Oswald,Arial,sans-serif;font-size:17px;font-weight:600;text-transform:uppercase;margin:0 0 20px;">Our Approach</h2>
+<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:20px;">
+<div style="display:flex;gap:12px;"><div style="width:26px;height:26px;border-radius:50%;border:1px solid #1a1c1c;display:flex;align-items:center;justify-content:center;font-family:Oswald,Arial,sans-serif;font-size:12px;flex-shrink:0;">1</div><div><div style="font-family:Oswald,Arial,sans-serif;font-size:14px;font-weight:600;">Honest Conversation</div><div style="font-family:'Roboto Flex',Arial,sans-serif;font-size:12px;color:#444748;">A straight-up chat about your goals, budget and how far you want to take it, weekend driver or show-stopper.</div></div></div>
+<div style="display:flex;gap:12px;"><div style="width:26px;height:26px;border-radius:50%;border:1px solid #1a1c1c;display:flex;align-items:center;justify-content:center;font-family:Oswald,Arial,sans-serif;font-size:12px;flex-shrink:0;">2</div><div><div style="font-family:Oswald,Arial,sans-serif;font-size:14px;font-weight:600;">Assessment</div><div style="font-family:'Roboto Flex',Arial,sans-serif;font-size:12px;color:#444748;">A thorough, no-surprises look at the vehicle's real condition: body, underside, interior and mechanicals.</div></div></div>
+<div style="display:flex;gap:12px;"><div style="width:26px;height:26px;border-radius:50%;border:1px solid #1a1c1c;display:flex;align-items:center;justify-content:center;font-family:Oswald,Arial,sans-serif;font-size:12px;flex-shrink:0;">3</div><div><div style="font-family:Oswald,Arial,sans-serif;font-size:14px;font-weight:600;">Tailored Plan</div><div style="font-family:'Roboto Flex',Arial,sans-serif;font-size:12px;color:#444748;">An honestly-priced plan built around your goal, from a gentle detail to a full show-level rebuild.</div></div></div>
+<div style="display:flex;gap:12px;"><div style="width:26px;height:26px;border-radius:50%;background:#1a1c1c;color:#fff;display:flex;align-items:center;justify-content:center;font-family:Oswald,Arial,sans-serif;font-size:12px;flex-shrink:0;">4</div><div><div style="font-family:Oswald,Arial,sans-serif;font-size:14px;font-weight:600;">Careful Execution</div><div style="font-family:'Roboto Flex',Arial,sans-serif;font-size:12px;color:#444748;">The work gets done, or coordinated, with real respect for the car's history, using specialists we'd trust with our own classics.</div></div></div>
+</div>
+</div>
+</div>
+
+<div style="padding:52px 20px;text-align:center;background:#1a1c1c;">
+<div style="max-width:640px;margin:0 auto;">
+<div style="width:36px;height:3px;background:#115cb9;margin:0 auto 18px;"></div>
+<div style="font-family:Oswald,Arial,sans-serif;font-size:22px;font-weight:700;color:#fff;text-transform:uppercase;letter-spacing:0.03em;margin-bottom:12px;">Honest Work, Any Standard You Want</div>
+<p style="font-family:'Roboto Flex',Arial,sans-serif;font-size:13px;color:#c4c7c7;line-height:1.6;margin:0;">Practical, respectful work on classic and vintage cars, and yes, we can absolutely deliver a show-winning restoration when that's the brief. Most owners just want a reliable, presentable classic that keeps its character. Tell us which one you are, and we'll build to that standard.</p>
+</div>
+</div>
+
+<div style="padding:44px 20px;background:#f3f3f4;">
+<div style="max-width:640px;margin:0 auto;text-align:center;">
+<h2 style="font-family:Oswald,Arial,sans-serif;font-size:17px;font-weight:600;text-transform:uppercase;margin:0 0 14px;">Pricing</h2>
+<div style="background:#fff;border:1px solid #c4c7c7;padding:24px;margin-bottom:22px;">
+<div style="font-family:Oswald,Arial,sans-serif;font-size:18px;font-weight:700;text-transform:uppercase;margin-bottom:8px;">Classic Vehicle Projects</div>
+<p style="font-family:'Roboto Flex',Arial,sans-serif;font-size:13px;color:#444748;line-height:1.5;margin:0;">Every classic, and every ambition, is different. From a weekend detail to a full show-level rebuild, pricing is by honest assessment and quotation.</p>
+</div>
+<button onclick="{{goBooking}}" style="background:#115cb9;color:#fff;border:none;padding:16px 36px;font-family:Oswald,Arial,sans-serif;font-size:14px;font-weight:700;text-transform:uppercase;letter-spacing:0.05em;cursor:pointer;box-shadow:0 6px 18px rgba(17,92,185,0.35);" style-hover="background:#0d4791;">Enquire / Request Assessment →</button>
+</div>
+</div>
+
+<div style="padding:32px 20px;background:#1a1c1c;text-align:center;border-top:1px solid #2e3030;">
+<h2 style="font-family:Oswald,Arial,sans-serif;font-size:22px;font-weight:700;color:#fff;text-transform:uppercase;margin:0 0 16px;">Got a Classic That Deserves Some Love?</h2>
+<button onclick="{{goBooking}}" style="background:#115cb9;color:#fff;border:none;padding:13px 26px;font-family:Oswald,Arial,sans-serif;font-size:13px;font-weight:600;text-transform:uppercase;letter-spacing:0.04em;cursor:pointer;" style-hover="background:#0d4791;">Get in Touch</button>
 </div>
 </div>
 </sc-if>
@@ -309,11 +711,11 @@
 </div>
 
 <sc-if value="{{hasProjects}}" hint-placeholder-val="{{true}}">
-<div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(170px,1fr));gap:14px;">
+<div style="{{galleryGridStyle}}">
 <sc-for list="{{galleryCards}}" as="item" hint-placeholder-count="6">
-<div onclick="{{item.onClick}}" style="border:1px solid #c4c7c7;overflow:hidden;background:#fff;cursor:pointer;">
+<div onclick="{{item.onClick}}" style="{{galleryCardStyle}}">
 <div style="position:relative;">
-<img src="{{item.img}}" alt="{{item.title}}" style="width:100%;height:130px;object-fit:cover;display:block;">
+<img src="{{item.img}}" alt="{{item.title}}" loading="lazy" style="width:100%;height:130px;object-fit:cover;display:block;">
 <span style="position:absolute;top:8px;left:8px;background:rgba(17,92,185,0.92);color:#fff;font-family:'Roboto Flex',Arial,sans-serif;font-size:9px;font-weight:700;text-transform:uppercase;letter-spacing:0.04em;padding:3px 7px;">{{item.era}}</span>
 </div>
 <div style="padding:10px;">
@@ -337,7 +739,7 @@
 <div style="padding:16px 20px 0;">
 <button onclick="{{backToGallery}}" style="background:none;border:none;padding:0;font-family:'Roboto Flex',Arial,sans-serif;font-size:12px;font-weight:600;color:#115cb9;cursor:pointer;">&larr; Job Diary</button>
 </div>
-<img src="{{selectedProject.img}}" alt="{{selectedProject.title}}" style="width:100%;height:220px;object-fit:cover;display:block;margin-top:12px;">
+<img src="{{selectedProject.img}}" alt="{{selectedProject.title}}" loading="lazy" style="width:100%;height:220px;object-fit:cover;display:block;margin-top:12px;">
 <div style="padding:18px 20px 0;">
 <span style="font-family:'Roboto Flex',Arial,sans-serif;font-size:10px;font-weight:700;color:#115cb9;text-transform:uppercase;letter-spacing:0.06em;">{{selectedProject.era}}</span>
 <h1 style="font-family:Oswald,Arial,sans-serif;font-size:22px;font-weight:700;text-transform:uppercase;margin:6px 0 8px;line-height:1.15;">{{selectedProject.title}}</h1>
@@ -357,12 +759,12 @@
 <sc-if value="{{hasExteriorPhotos}}" hint-placeholder-val="{{false}}">
 <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:12px;margin-bottom:20px;">
 <sc-for list="{{exteriorPhotos}}" as="p" hint-placeholder-count="4">
-<img src="{{p.src}}" alt="{{p.alt}}" onclick="{{p.onOpen}}" style="width:100%;height:150px;object-fit:cover;display:block;cursor:pointer;">
+<img src="{{p.src}}" alt="{{p.alt}}" onclick="{{p.onOpen}}" loading="lazy" style="width:100%;height:150px;object-fit:cover;display:block;cursor:pointer;">
 </sc-for>
 </div>
 </sc-if>
 <sc-if value="{{noExteriorPhotos}}" hint-placeholder-val="{{true}}">
-<img src="{{selectedProject.img}}" alt="Exterior beauty shot" style="width:100%;height:220px;object-fit:cover;display:block;margin-bottom:10px;">
+<img src="{{selectedProject.img}}" alt="Exterior beauty shot" loading="lazy" style="width:100%;height:220px;object-fit:cover;display:block;margin-bottom:10px;">
 <div style="height:150px;background:repeating-linear-gradient(135deg,#3a3a3a,#3a3a3a 10px,#2c2c2c 10px,#2c2c2c 20px);display:flex;align-items:center;justify-content:center;margin-bottom:20px;">
 <span style="font-family:monospace;color:#cfcfcf;font-size:10px;">additional exterior angles: coming soon</span>
 </div>
@@ -373,7 +775,7 @@
 <sc-if value="{{hasInteriorPhotos}}" hint-placeholder-val="{{false}}">
 <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:12px;margin-bottom:20px;">
 <sc-for list="{{interiorPhotos}}" as="p" hint-placeholder-count="4">
-<img src="{{p.src}}" alt="{{p.alt}}" onclick="{{p.onOpen}}" style="width:100%;height:150px;object-fit:cover;display:block;cursor:pointer;">
+<img src="{{p.src}}" alt="{{p.alt}}" onclick="{{p.onOpen}}" loading="lazy" style="width:100%;height:150px;object-fit:cover;display:block;cursor:pointer;">
 </sc-for>
 </div>
 </sc-if>
@@ -388,7 +790,7 @@
 <sc-if value="{{hasEnginePhotos}}" hint-placeholder-val="{{false}}">
 <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:12px;margin-bottom:20px;">
 <sc-for list="{{enginePhotos}}" as="p" hint-placeholder-count="4">
-<img src="{{p.src}}" alt="{{p.alt}}" onclick="{{p.onOpen}}" style="width:100%;height:150px;object-fit:cover;display:block;cursor:pointer;">
+<img src="{{p.src}}" alt="{{p.alt}}" onclick="{{p.onOpen}}" loading="lazy" style="width:100%;height:150px;object-fit:cover;display:block;cursor:pointer;">
 </sc-for>
 </div>
 </sc-if>
@@ -408,28 +810,64 @@
 
 <sc-if value="{{isAbout}}" hint-placeholder-val="{{false}}">
 <div>
-<div style="padding:26px 20px 0;">
-<span style="font-family:'Roboto Flex',Arial,sans-serif;font-size:10px;font-weight:700;color:#115cb9;text-transform:uppercase;letter-spacing:0.06em;">Our Heritage</span>
-<h1 style="font-family:Oswald,Arial,sans-serif;font-size:26px;font-weight:700;text-transform:uppercase;margin:8px 0 14px;line-height:1.15;">7 Generations of Craftsmanship in Orewa.</h1>
-<p style="font-family:'Roboto Flex',Arial,sans-serif;font-size:13px;color:#444748;line-height:1.6;margin:0 0 20px;">A legacy built on precision, honesty, and an uncompromising dedication to preserving automotive history. We don't just detail cars; we protect investments.</p>
+<div style="height:420px;position:relative;background:#0d0d0d;">
+<img src="./assets/about-hero.jpg" alt="Blue BMW M3 outside the family homestead" style="width:100%;height:100%;object-fit:cover;object-position:center;display:block;">
+<div style="position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,0.15) 0%,rgba(0,0,0,0.3) 40%,rgba(0,0,0,0.9) 100%);"></div>
+<div style="position:absolute;inset:0;background:linear-gradient(90deg,rgba(0,0,0,0.55) 0%,rgba(0,0,0,0.15) 45%,rgba(0,0,0,0) 70%);"></div>
+<div style="position:absolute;bottom:0;left:0;right:0;padding:24px 20px 32px;max-width:1280px;margin:0 auto;">
+<h1 style="font-family:Oswald,Arial,sans-serif;font-weight:700;font-size:32px;line-height:1.05;text-transform:uppercase;color:#fff;margin:0 0 10px;">Honest Work. Local Roots.</h1>
+<p style="font-family:'Roboto Flex',Arial,sans-serif;font-size:14px;color:#e5e5e5;line-height:1.5;margin:0;max-width:460px;">What started with my father teaching me paint correction in the 1990s has grown into a detailing business built on the same values: honesty, quality and respect for the vehicle.</p>
 </div>
-<div style="height:220px;background:repeating-linear-gradient(135deg,#3a3a3a,#3a3a3a 10px,#2c2c2c 10px,#2c2c2c 20px);display:flex;align-items:center;justify-content:center;">
-<span style="font-family:monospace;color:#cfcfcf;font-size:11px;">workshop photo: hands-on detailing</span>
 </div>
-<div style="padding:26px 20px;">
-<h2 style="font-family:Oswald,Arial,sans-serif;font-size:17px;font-weight:600;text-transform:uppercase;margin:0 0 12px;">The Protection-First Philosophy</h2>
-<p style="font-family:'Roboto Flex',Arial,sans-serif;font-size:13px;color:#444748;line-height:1.6;margin:0 0 16px;">Every technique we use, every compound we select, is evaluated on its ability to protect the vehicle's integrity long-term. Technical clarity and refusal to cut corners is what separates showroom quality from a simple wash.</p>
-<div style="display:flex;gap:8px;margin-bottom:8px;"><span style="width:6px;height:6px;background:#1a1c1c;margin-top:6px;flex-shrink:0;"></span><span style="font-family:'Roboto Flex',Arial,sans-serif;font-size:13px;">Championship Standard Techniques</span></div>
-<div style="display:flex;gap:8px;margin-bottom:8px;"><span style="width:6px;height:6px;background:#1a1c1c;margin-top:6px;flex-shrink:0;"></span><span style="font-family:'Roboto Flex',Arial,sans-serif;font-size:13px;">Long-Term Substrate Protection</span></div>
-<div style="display:flex;gap:8px;"><span style="width:6px;height:6px;background:#1a1c1c;margin-top:6px;flex-shrink:0;"></span><span style="font-family:'Roboto Flex',Arial,sans-serif;font-size:13px;">Technical Precision Without Compromise</span></div>
+
+<div style="padding:44px 20px;">
+<div style="max-width:760px;margin:0 auto;">
+<span style="font-family:'Roboto Flex',Arial,sans-serif;font-size:10px;font-weight:700;color:#115cb9;text-transform:uppercase;letter-spacing:0.06em;">Our Story</span>
+<h2 style="font-family:Oswald,Arial,sans-serif;font-size:22px;font-weight:700;text-transform:uppercase;margin:10px 0 18px;line-height:1.2;">A Family Homestead. A Father's Standards.</h2>
+<p style="font-family:'Roboto Flex',Arial,sans-serif;font-size:14px;color:#444748;line-height:1.7;margin:0 0 16px;">My family built our homestead here on the North Shore around 160 years ago, and it's still where the family calls home today. It's the kind of place that teaches you to look after things properly, because the alternative is watching them fall apart.</p>
+<p style="font-family:'Roboto Flex',Arial,sans-serif;font-size:14px;color:#444748;line-height:1.7;margin:0 0 16px;">My father was a national award-winning painter, and back in the 1990s he started teaching me paint correction in the family workshop. Long hours, no shortcuts, and a standard for finish that most people never see up close. Those early lessons stuck. They're still the bar I hold every job to.</p>
+<p style="font-family:'Roboto Flex',Arial,sans-serif;font-size:14px;color:#444748;line-height:1.7;margin:0 0 16px;">Honest Autos grew out of that grounding: a decision to focus on honest, high-quality detailing and ceramic coating work for Orewa and the North Shore, rather than chase volume. Every car that comes through gets the same practical approach: real results, respect for the vehicle's originality (especially with classics), and the kind of relationship that has people coming back for years, not just once.</p>
 </div>
-<div style="padding:26px 20px;background:#f3f3f4;">
-<div style="margin-bottom:16px;"><div style="font-family:Oswald,Arial,sans-serif;font-size:13px;font-weight:600;text-transform:uppercase;margin-bottom:2px;">Local Heritage</div><div style="font-family:'Roboto Flex',Arial,sans-serif;font-size:12px;color:#444748;">Deeply rooted in Orewa, serving generations of enthusiasts.</div></div>
-<div><div style="font-family:Oswald,Arial,sans-serif;font-size:13px;font-weight:600;text-transform:uppercase;margin-bottom:2px;">Honest Craft</div><div style="font-family:'Roboto Flex',Arial,sans-serif;font-size:12px;color:#444748;">Transparent processes, premium materials, no shortcuts.</div></div>
 </div>
-<div style="padding:28px 20px;background:#1a1c1c;text-align:center;">
-<h2 style="font-family:Oswald,Arial,sans-serif;font-size:18px;font-weight:700;color:#fff;text-transform:uppercase;margin:0 0 14px;">Experience the Standard</h2>
-<button onclick="{{goBooking}}" style="background:#115cb9;color:#fff;border:none;padding:13px 26px;font-family:Oswald,Arial,sans-serif;font-size:13px;font-weight:600;text-transform:uppercase;letter-spacing:0.04em;cursor:pointer;width:100%;">Contact Us Today</button>
+
+<div style="padding:0 20px 44px;">
+<div style="max-width:1280px;margin:0 auto;">
+<h2 style="font-family:Oswald,Arial,sans-serif;font-size:17px;font-weight:600;text-transform:uppercase;margin:0 0 20px;">What Matters to Us</h2>
+<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:24px;">
+<div>
+<span style="font-family:'Material Symbols Outlined';font-size:28px;color:#115cb9;">verified</span>
+<div style="font-family:Oswald,Arial,sans-serif;font-size:14px;font-weight:600;text-transform:uppercase;margin-top:8px;margin-bottom:6px;">Honesty Over Hype</div>
+<p style="font-family:'Roboto Flex',Arial,sans-serif;font-size:13px;color:#444748;line-height:1.5;margin:0;">Straight advice on what your car actually needs, not the most expensive package on the menu.</p>
+</div>
+<div>
+<span style="font-family:'Material Symbols Outlined';font-size:28px;color:#115cb9;">history_edu</span>
+<div style="font-family:Oswald,Arial,sans-serif;font-size:14px;font-weight:600;text-transform:uppercase;margin-top:8px;margin-bottom:6px;">Respect for the Vehicle's History</div>
+<p style="font-family:'Roboto Flex',Arial,sans-serif;font-size:13px;color:#444748;line-height:1.5;margin:0;">Especially with classics, character matters as much as condition.</p>
+</div>
+<div>
+<span style="font-family:'Material Symbols Outlined';font-size:28px;color:#115cb9;">shield</span>
+<div style="font-family:Oswald,Arial,sans-serif;font-size:14px;font-weight:600;text-transform:uppercase;margin-top:8px;margin-bottom:6px;">Quality That Stands Up</div>
+<p style="font-family:'Roboto Flex',Arial,sans-serif;font-size:13px;color:#444748;line-height:1.5;margin:0;">Work that holds up to real-world driving, not just a photo on the day.</p>
+</div>
+<div>
+<span style="font-family:'Material Symbols Outlined';font-size:28px;color:#115cb9;">location_on</span>
+<div style="font-family:Oswald,Arial,sans-serif;font-size:14px;font-weight:600;text-transform:uppercase;margin-top:8px;margin-bottom:6px;">Local Knowledge, Personal Service</div>
+<p style="font-family:'Roboto Flex',Arial,sans-serif;font-size:13px;color:#444748;line-height:1.5;margin:0;">A local operator who knows the area, and knows your car by name, not job number.</p>
+</div>
+</div>
+</div>
+</div>
+
+<div style="padding:36px 20px;background:#f3f3f4;">
+<div style="max-width:640px;margin:0 auto;text-align:center;">
+<img src="./assets/fireball-logo.png" alt="Fireball" style="height:52px;width:auto;object-fit:contain;display:block;margin:0 auto 16px;background:#fff;padding:10px 18px;">
+<p style="font-family:'Roboto Flex',Arial,sans-serif;font-size:13px;color:#444748;line-height:1.6;margin:0;">We're proud to be partnering with Fireball, bringing their ceramic coating range to the same honest standard we apply to everything else.</p>
+</div>
+</div>
+
+<div style="padding:32px 20px;background:#1a1c1c;text-align:center;">
+<h2 style="font-family:Oswald,Arial,sans-serif;font-size:20px;font-weight:700;color:#fff;text-transform:uppercase;margin:0 0 14px;">Come and See Us</h2>
+<button onclick="{{goBooking}}" style="background:#115cb9;color:#fff;border:none;padding:13px 26px;font-family:Oswald,Arial,sans-serif;font-size:13px;font-weight:600;text-transform:uppercase;letter-spacing:0.04em;cursor:pointer;" style-hover="background:#0d4791;">Book a Service</button>
 </div>
 </div>
 </sc-if>
@@ -749,11 +1187,12 @@ Data © <a href="https://www.openstreetmap.org/copyright" target="_blank" style=
 </sc-if>
 
 <sc-if value="{{lightboxOpen}}" hint-placeholder-val="{{false}}">
-<div style="position:absolute;inset:0;background:#000;z-index:100;display:flex;align-items:center;justify-content:center;">
+<div ontouchstart="{{onLightboxTouchStart}}" ontouchend="{{onLightboxTouchEnd}}" style="position:absolute;inset:0;background:#000;z-index:100;display:flex;align-items:center;justify-content:center;">
 <button onclick="{{closeLightbox}}" style="position:absolute;top:14px;right:14px;width:38px;height:38px;border:none;background:rgba(255,255,255,0.18);color:#fff;display:flex;align-items:center;justify-content:center;cursor:pointer;z-index:2;">
 <span style="font-family:'Material Symbols Outlined';font-size:22px;">close</span>
 </button>
 <div style="position:absolute;top:16px;left:16px;color:#fff;font-family:'Roboto Flex',Arial,sans-serif;font-size:11px;font-weight:600;background:rgba(255,255,255,0.18);padding:5px 10px;z-index:2;">{{lightboxCounter}}</div>
+<sc-if value="{{lightboxShowArrows}}" hint-placeholder-val="{{true}}">
 <sc-if value="{{lightboxHasPrev}}" hint-placeholder-val="{{true}}">
 <button onclick="{{prevLightboxPhoto}}" style="position:absolute;left:10px;top:50%;transform:translateY(-50%);width:44px;height:44px;border:none;background:rgba(255,255,255,0.18);color:#fff;display:flex;align-items:center;justify-content:center;cursor:pointer;z-index:2;">
 <span style="font-family:'Material Symbols Outlined';font-size:24px;">chevron_left</span>
@@ -763,6 +1202,7 @@ Data © <a href="https://www.openstreetmap.org/copyright" target="_blank" style=
 <button onclick="{{nextLightboxPhoto}}" style="position:absolute;right:10px;top:50%;transform:translateY(-50%);width:44px;height:44px;border:none;background:rgba(255,255,255,0.18);color:#fff;display:flex;align-items:center;justify-content:center;cursor:pointer;z-index:2;">
 <span style="font-family:'Material Symbols Outlined';font-size:24px;">chevron_right</span>
 </button>
+</sc-if>
 </sc-if>
 <img src="{{lightboxSrc}}" alt="{{lightboxAlt}}" style="max-width:100%;max-height:100%;width:auto;height:auto;object-fit:contain;">
 </div>
@@ -806,7 +1246,14 @@ class Component extends DCLogic {
     bookingSubmitted: false,
   };
 
-  nav = (screen) => this.setState({ screen });
+  nav = (screen) => {
+    this.setState({ screen });
+    const content = document.getElementById('honest-autos-content');
+    if (content) content.scrollTop = 0;
+    const root = document.getElementById('honest-autos-root');
+    if (root) root.scrollTop = 0;
+    window.scrollTo(0, 0);
+  };
   setFilter = (f) => this.setState({ galleryFilter: f });
   setEraFilter = (e) => this.setState({ eraFilter: e });
   setSort = (v) => this.setState({ sortBy: v });
@@ -819,6 +1266,14 @@ class Component extends DCLogic {
   closeLightbox = () => this.setState({ lightbox: null });
   prevLightboxPhoto = () => this.setState((s) => ({ lightbox: s.lightbox && s.lightbox.index > 0 ? { ...s.lightbox, index: s.lightbox.index - 1 } : s.lightbox }));
   nextLightboxPhoto = () => this.setState((s) => ({ lightbox: s.lightbox && s.lightbox.index < s.lightbox.list.length - 1 ? { ...s.lightbox, index: s.lightbox.index + 1 } : s.lightbox }));
+  onLightboxTouchStart = (e) => { this._lbTouchX = e.changedTouches[0].clientX; };
+  onLightboxTouchEnd = (e) => {
+    if (this._lbTouchX == null) return;
+    const dx = e.changedTouches[0].clientX - this._lbTouchX;
+    if (dx > 50) this.prevLightboxPhoto();
+    else if (dx < -50) this.nextLightboxPhoto();
+    this._lbTouchX = null;
+  };
   setReg = (e) => this.setState({ reg: e.target.value });
   setVehicleSize = (size) => this.setState({ vehicleSize: size, vehicleModelQuery: '' });
 
@@ -919,9 +1374,11 @@ class Component extends DCLogic {
   componentDidMount() {
     const el = document.getElementById('honest-autos-root');
     if (el) {
-      this.setViewMode(this.computeViewMode(el.getBoundingClientRect().width));
+      this.setViewMode(this.computeViewMode(window.innerWidth));
+      this._onResize = () => this.setViewMode(this.computeViewMode(window.innerWidth));
+      window.addEventListener('resize', this._onResize);
       this._ro = new ResizeObserver((entries) => {
-        this.setViewMode(this.computeViewMode(entries[0].contentRect.width));
+        this.setViewMode(this.computeViewMode(window.innerWidth));
       });
       this._ro.observe(el);
     }
@@ -995,6 +1452,14 @@ class Component extends DCLogic {
     const slk200Base = './assets/gallery/2014-mercedes-slk200/2014-mercedes-slk200-';
     const fiestaBase = './assets/gallery/2013-ford-fiesta-st/2013-ford-fiesta-st-';
     const falconBase = './assets/gallery/2005-ford-ba-falcon-xr8/2005-ford-ba-falcon-xr8-';
+    const ttsBase = './assets/gallery/2010-audi-tts/2010-audi-tts-';
+    const fairmontBase = './assets/gallery/1987-ford-fairmont/1987-ford-fairmont-';
+    const cimaBase = './assets/gallery/1996-nissan-cima-turbo/1996-nissan-cima-turbo-';
+    const clubman75Base = './assets/gallery/1975-mini-clubman/1975-mini-clubman-';
+    const panameraBase = './assets/gallery/2010-porsche-panamera-turbo/2010-porsche-panamera-turbo-';
+    const panameraSBase = './assets/gallery/2011-porsche-panamera-s/2011-porsche-panamera-s-';
+    const countrymanBase = './assets/gallery/2013-mini-cooper-s-countryman/2013-mini-cooper-s-countryman-';
+    const srtBase = './assets/gallery/2018-chrysler-300c-srt-core/2018-chrysler-300c-srt-core-';
     const galleryAll = [
       { id: 7, img: m3EvoBase + 'rear-3-4-ceramic-coating-orewa.jpg', title: '1998 BMW M3 Evolution SMG', era: 'Modern Classic', services: ['Detailing', 'Paint Correction', 'Engine Bay', 'Ceramic Coating'], caption: 'Full detail incl. engine bay + multi-layer ceramic coating', description: "Goal: Keep her completely original for years to come.\n\nThe owner wanted a full paint correction to preserve the factory paint, combined with long-term ceramic protection to safeguard both appearance and value. Interior and engine bay were to be thoroughly cleaned and preserved using only gentle, non-harsh products.\n\nKey work performed:\n• Full exterior decontamination and multi-stage paint correction\n• Interior deep clean and leather treatment\n• Engine bay detail\n• Multi-layer ceramic protection\n\nResult: Deep, mirror-like gloss with strong, long-term protection. The car retains its original character while staying easier to maintain and more attractive to future buyers.", popularity: 88, order: 7,
         photos: {
@@ -1336,6 +1801,232 @@ class Component extends DCLogic {
           ],
         },
       },
+      { id: 18, img: ttsBase + 'exterior-1.jpg', title: '2010 Audi TTS', era: 'Contemporary / Modern', services: ['Detailing', 'Paint Correction', 'Interior', 'Engine Bay', 'Ceramic Coating'], caption: 'Wheel refinish, basic paint correction & 2-stage Fireball ceramic coating', description: "Goal: Deliver classic, stock TTS show-car presentation.\n\nThe client wanted a clean, original show example, not a modified look. At 15 years old the paint was in good shape and only needed a basic correction. Curbed wheels were repaired and refinished to factory spec, and heavy water staining was polished out of the glass before a 2-stage Fireball ceramic coating locked everything in. The engine bay was steam cleaned with trims restored and coated, and the interior received a deep clean including the leather, followed by protective coatings on all trims, leather and carpets. Headlights and taillights were also restored.\n\nKey work performed:\n\u2022 Wheel repair and factory-finish refinish\n\u2022 Basic paint correction\n\u2022 Water-stain removal from glass, sealed with ceramic coating\n\u2022 2-stage Fireball ceramic coating\n\u2022 Engine bay steam clean, trim restoration and coating\n\u2022 Interior deep clean with protective coatings (leather, carpets & trims)\n\u2022 Headlight and taillight restoration\n\nResult: Clean, stock show-car presentation with lasting protection.", popularity: 78, order: 18,
+        photos: {
+          exterior: [
+            { src: ttsBase + 'exterior-1.jpg', alt: '2010 Audi TTS rear three-quarter on lawn, hill country backdrop' },
+            { src: ttsBase + 'exterior-2.jpg', alt: '2010 Audi TTS front view close-up, license plate visible' },
+            { src: ttsBase + 'exterior-3.jpg', alt: '2010 Audi TTS side profile, hill country backdrop' },
+            { src: ttsBase + 'exterior-4.jpg', alt: '2010 Audi TTS rear three-quarter after detail' },
+            { src: ttsBase + 'exterior-5.jpg', alt: '2010 Audi TTS rear view straight-on' },
+            { src: ttsBase + 'exterior-6.jpg', alt: '2010 Audi TTS rear three-quarter, low angle' },
+            { src: ttsBase + 'exterior-7.jpg', alt: '2010 Audi TTS side profile, house backdrop' },
+            { src: ttsBase + 'exterior-8.jpg', alt: '2010 Audi TTS front three-quarter, evening light' },
+          ],
+          interior: [
+            { src: ttsBase + 'interior-3.jpg', alt: '2010 Audi TTS cabin, wide forward view after detail' },
+            { src: ttsBase + 'interior-4.jpg', alt: '2010 Audi TTS door open, sill and door card close-up' },
+            { src: ttsBase + 'interior-1.jpg', alt: '2010 Audi TTS quattro badge and dashboard close-up' },
+            { src: ttsBase + 'interior-2.jpg', alt: '2010 Audi TTS boot open, wide angle after detail' },
+          ],
+          engine: [
+            { src: ttsBase + 'engine-1.jpg', alt: '2010 Audi TTS engine bay overview, bonnet open, top-down view' },
+            { src: ttsBase + 'engine-2.jpg', alt: '2010 Audi TTS engine bay overview after detail, rural backdrop' },
+            { src: ttsBase + 'engine-3.jpg', alt: '2010 Audi TTS engine bay wide angle, bonnet open' },
+            { src: ttsBase + 'engine-4.jpg', alt: '2010 Audi TTS engine bay close-up, coolant reservoir' },
+          ],
+        },
+      },
+      { id: 19, img: fairmontBase + 'exterior-9.jpg', title: '1987 Ford Fairmont', era: 'True Classic', services: ['Detailing', 'Paint Correction', 'Engine Bay'], caption: 'Citrus decontamination, basic cut & polish and a natural wax finish', description: "Goal: Keep it fully original, a basic paint correction and a natural wax finish only, no harsh chemicals, no rust treatment.\n\nAn older couple selling their pride and joy were clear on the approach: keep the car exactly as it was. We used only citrus-based cleaners, hybrid compounds and natural wax across the whole vehicle. A citrus decontamination lifted years of old tar, bugs and wax, followed by a straightforward cut and polish, panel rub and natural wax finish. The interior and engine bay received a gentle, natural steam clean. Everything stayed original, finished with an honest patina throughout. Old-school detailing, exactly as requested.\n\nKey work performed:\n\u2022 Citrus-based decontamination\n\u2022 Basic cut and polish with hybrid compounds\n\u2022 Natural wax finish\n\u2022 Gentle interior steam clean\n\u2022 Gentle engine bay steam clean\n\nResult: The Fairmont sold soon after. Its new owner has since fitted an 800 hp ATW Barra turbo setup.", popularity: 76, order: 19,
+        photos: {
+          exterior: [
+            { src: fairmontBase + 'exterior-9.jpg', alt: '1987 Ford Fairmont side profile, warehouse interior' },
+            { src: fairmontBase + 'exterior-1.jpg', alt: '1987 Ford Fairmont side profile, warehouse backdrop' },
+            { src: fairmontBase + 'exterior-2.jpg', alt: '1987 Ford Fairmont side profile after detail, warehouse' },
+            { src: fairmontBase + 'exterior-3.jpg', alt: '1987 Ford Fairmont rear three-quarter, low angle' },
+            { src: fairmontBase + 'exterior-4.jpg', alt: '1987 Ford Fairmont rear view straight-on, badge close-up' },
+            { src: fairmontBase + 'exterior-5.jpg', alt: '1987 Ford Fairmont side profile, warehouse, low angle' },
+            { src: fairmontBase + 'exterior-6.jpg', alt: '1987 Ford Fairmont rear three-quarter after detail' },
+            { src: fairmontBase + 'exterior-7.jpg', alt: '1987 Ford Fairmont front three-quarter, low angle' },
+            { src: fairmontBase + 'exterior-8.jpg', alt: '1987 Ford Fairmont front view straight-on' },
+            { src: fairmontBase + 'exterior-10.jpg', alt: '1987 Ford Fairmont side profile, warehouse floor wide shot' },
+          ],
+          interior: [
+            { src: fairmontBase + 'interior-6.jpg', alt: '1987 Ford Fairmont dashboard, steering wheel and gear shift, forward view' },
+            { src: fairmontBase + 'interior-7.jpg', alt: '1987 Ford Fairmont steering wheel and gauge cluster close-up' },
+            { src: fairmontBase + 'interior-1.jpg', alt: '1987 Ford Fairmont dashboard and centre console, wide view' },
+            { src: fairmontBase + 'interior-2.jpg', alt: '1987 Ford Fairmont front interior, door open, steering wheel and dash' },
+            { src: fairmontBase + 'interior-3.jpg', alt: '1987 Ford Fairmont rear seats, wide view after detail' },
+            { src: fairmontBase + 'interior-4.jpg', alt: '1987 Ford Fairmont rear seat, door open, side view' },
+            { src: fairmontBase + 'interior-5.jpg', alt: '1987 Ford Fairmont front seats, door open, side view' },
+            { src: fairmontBase + 'interior-8.jpg', alt: '1987 Ford Fairmont door card close-up after detail' },
+            { src: fairmontBase + 'interior-9.jpg', alt: '1987 Ford Fairmont side profile, door open, full cabin view' },
+            { src: fairmontBase + 'interior-10.jpg', alt: '1987 Ford Fairmont side profile, rear door open, full cabin view' },
+            { src: fairmontBase + 'interior-11.jpg', alt: '1987 Ford Fairmont boot open, wide angle after detail' },
+            { src: fairmontBase + 'interior-12.jpg', alt: '1987 Ford Fairmont boot open, rear view after detail' },
+          ],
+          engine: [
+            { src: fairmontBase + 'engine-1.jpg', alt: '1987 Ford Fairmont engine bay overview, bonnet open, front view' },
+            { src: fairmontBase + 'engine-2.jpg', alt: '1987 Ford Fairmont engine bay wide angle, bonnet open' },
+            { src: fairmontBase + 'engine-3.jpg', alt: '1987 Ford Fairmont engine bay close-up, air filter and carburettor' },
+            { src: fairmontBase + 'engine-4.jpg', alt: '1987 Ford Fairmont engine bay close-up, battery and coolant reservoir' },
+          ],
+        },
+      },
+      { id: 20, img: cimaBase + 'exterior-1.jpg', title: '1996 Nissan Cima Turbo', era: 'Modern Classic', services: ['Ceramic Coating', 'Detailing', 'Interior'], caption: '$599 medium-vehicle Fireball Ceramic Coating with a basic interior detail', description: "Goal: Quick pre-sale prep using our $599 medium-vehicle Fireball Ceramic Coating package.\n\nA clean example of what the $599 package delivers. We gave it a thorough pre-sale wash and decontamination, the medium-vehicle Fireball Ceramic Coating, and a basic interior detail with a steam clean.\n\nKey work performed:\n\u2022 Pre-sale wash and decontamination\n\u2022 $599 medium-vehicle Fireball Ceramic Coating\n\u2022 Basic interior detail and steam clean\n\nResult: Clean, protected and ready for its next owner, sold shortly after.", popularity: 74, order: 20,
+        photos: {
+          exterior: [
+            { src: cimaBase + 'exterior-1.jpg', alt: '1996 Nissan Cima Turbo side profile, beachfront' },
+            { src: cimaBase + 'exterior-2.jpg', alt: '1996 Nissan Cima Turbo front three-quarter, low angle, beachfront' },
+            { src: cimaBase + 'exterior-3.jpg', alt: '1996 Nissan Cima Turbo front view straight-on, beachfront' },
+            { src: cimaBase + 'exterior-4.jpg', alt: '1996 Nissan Cima Turbo front three-quarter, low angle, sunset' },
+            { src: cimaBase + 'exterior-5.jpg', alt: '1996 Nissan Cima Turbo side profile, beachfront, sunset' },
+            { src: cimaBase + 'exterior-6.jpg', alt: '1996 Nissan Cima Turbo rear three-quarter, low angle, sunset' },
+            { src: cimaBase + 'exterior-7.jpg', alt: '1996 Nissan Cima Turbo rear view straight-on, beachfront' },
+            { src: cimaBase + 'exterior-8.jpg', alt: '1996 Nissan Cima Turbo rear three-quarter close-up, sunset' },
+            { src: cimaBase + 'exterior-9.jpg', alt: '1996 Nissan Cima Turbo wheel and rear quarter panel close-up' },
+            { src: cimaBase + 'exterior-10.jpg', alt: '1996 Nissan Cima Turbo side profile, beachfront, wide shot' },
+          ],
+          interior: [
+            { src: cimaBase + 'interior-1.jpg', alt: '1996 Nissan Cima Turbo cabin, wide forward view, beachfront sunset' },
+            { src: cimaBase + 'interior-2.jpg', alt: '1996 Nissan Cima Turbo dashboard and boost gauge close-up' },
+          ],
+          engine: [
+            { src: cimaBase + 'engine-1.jpg', alt: '1996 Nissan Cima Turbo engine bay close-up, V6 3000 Turbo cover, beachfront' },
+            { src: cimaBase + 'engine-2.jpg', alt: '1996 Nissan Cima Turbo engine bay close-up, twin cam cover, beachfront' },
+          ],
+        },
+      },
+      { id: 21, img: clubman75Base + 'exterior-1.jpg', title: '1975 MINI Clubman', era: 'True Classic', services: ['Ceramic Coating', 'Paint Correction', 'Interior'], caption: '$499 small-vehicle Fireball Ceramic Coating with optional interior deep clean', description: "Goal: Bring a tired barn-find Mini back to life with our basic small-vehicle Fireball package.\n\nThe Clubman rolled in looking every bit like it had spent years tucked away in a barn, because it had. A bright, cheerful project that needed a touch of paint correction before the straightforward $499 Fireball Ceramic Coating package, plus the optional interior deep clean, went to work. The results were huge.\n\nKey work performed:\n\u2022 Paint correction\n\u2022 $499 small-vehicle Fireball Ceramic Coating\n\u2022 Interior deep clean\n\nResult: A basic package, standout results. The finished Mini was well worth the effort.", popularity: 80, order: 21,
+        photos: {
+          exterior: [
+            { src: clubman75Base + 'exterior-1.jpg', alt: '1975 MINI Clubman side profile, warehouse backdrop' },
+            { src: clubman75Base + 'exterior-2.jpg', alt: '1975 MINI Clubman front three-quarter, warehouse' },
+            { src: clubman75Base + 'exterior-3.jpg', alt: '1975 MINI Clubman side profile after detail, warehouse' },
+            { src: clubman75Base + 'exterior-4.jpg', alt: '1975 MINI Clubman front three-quarter, low angle' },
+            { src: clubman75Base + 'exterior-5.jpg', alt: '1975 MINI Clubman front view straight-on' },
+            { src: clubman75Base + 'exterior-6.jpg', alt: '1975 MINI Clubman side profile, warehouse, wide shot' },
+            { src: clubman75Base + 'exterior-7.jpg', alt: '1975 MINI Clubman rear three-quarter after detail' },
+            { src: clubman75Base + 'exterior-8.jpg', alt: '1975 MINI Clubman rear view straight-on' },
+            { src: clubman75Base + 'exterior-9.jpg', alt: '1975 MINI Clubman rear three-quarter, warehouse doorway' },
+            { src: clubman75Base + 'exterior-10.jpg', alt: '1975 MINI Clubman rear three-quarter, low angle, warehouse' },
+          ],
+          interior: [
+            { src: clubman75Base + 'interior-1.jpg', alt: '1975 MINI Clubman dashboard and cabin, forward view after detail' },
+            { src: clubman75Base + 'interior-2.jpg', alt: '1975 MINI Clubman front seat and door card, door open' },
+            { src: clubman75Base + 'interior-3.jpg', alt: '1975 MINI Clubman dashboard and steering wheel, door open' },
+            { src: clubman75Base + 'interior-4.jpg', alt: '1975 MINI Clubman front seat and cabin, door open, wide angle' },
+            { src: clubman75Base + 'interior-5.jpg', alt: '1975 MINI Clubman rear seat, door open, side view' },
+            { src: clubman75Base + 'interior-6.jpg', alt: '1975 MINI Clubman rear seat close-up after detail' },
+          ],
+          engine: [
+            { src: clubman75Base + 'engine-1.jpg', alt: '1975 MINI Clubman engine bay overview, bonnet open, warehouse' },
+          ],
+        },
+      },
+      { id: 22, img: panameraBase + 'exterior-1.jpg', title: '2010 Porsche Panamera Turbo', era: 'Contemporary / Modern', services: ['Ceramic Coating', 'Detailing', 'Interior', 'Engine Bay'], caption: '$599 medium-vehicle Fireball Ceramic Coating with full interior clean & engine bay steam clean', description: "Goal: Refresh and protect a well-maintained daily driver showing early signs of paint age.\n\nThe Panamera had been a carefully looked-after daily driver, but the paint was starting to show its years. Perfect timing for the $599 medium-vehicle Fireball Ceramic Coating package. The paint was fully decontaminated and corrected, then finished with Fireball, the star of the show. The client also added a full interior clean and protection (including leather) plus an engine bay steam clean.\n\nKey work performed:\n\u2022 Paint decontamination and correction\n\u2022 $599 medium-vehicle Fireball Ceramic Coating\n\u2022 Full interior clean and protection (including leather)\n\u2022 Engine bay steam clean\n\nResult: The Panamera now looks like new, protected for years to come.", popularity: 88, order: 22,
+        photos: {
+          exterior: [
+            { src: panameraBase + 'exterior-1.jpg', alt: '2010 Porsche Panamera Turbo front three-quarter on lawn' },
+            { src: panameraBase + 'exterior-2.jpg', alt: '2010 Porsche Panamera Turbo front view straight-on' },
+            { src: panameraBase + 'exterior-3.jpg', alt: '2010 Porsche Panamera Turbo front three-quarter, low angle' },
+            { src: panameraBase + 'exterior-4.jpg', alt: '2010 Porsche Panamera Turbo side profile, house backdrop' },
+            { src: panameraBase + 'exterior-5.jpg', alt: '2010 Porsche Panamera Turbo rear three-quarter after detail' },
+            { src: panameraBase + 'exterior-6.jpg', alt: '2010 Porsche Panamera Turbo rear view straight-on' },
+            { src: panameraBase + 'exterior-7.jpg', alt: '2010 Porsche Panamera Turbo side profile, hill country backdrop' },
+            { src: panameraBase + 'exterior-8.jpg', alt: '2010 Porsche Panamera Turbo front three-quarter after detail' },
+            { src: panameraBase + 'exterior-9.jpg', alt: '2010 Porsche Panamera Turbo side profile, wide shot' },
+            { src: panameraBase + 'exterior-10.jpg', alt: '2010 Porsche Panamera Turbo side profile, evening light' },
+          ],
+          interior: [
+            { src: panameraBase + 'interior-1.jpg', alt: '2010 Porsche Panamera Turbo cabin, wide forward view after detail' },
+            { src: panameraBase + 'interior-2.jpg', alt: '2010 Porsche Panamera Turbo rear seats, wide view after detail' },
+            { src: panameraBase + 'interior-3.jpg', alt: '2010 Porsche Panamera Turbo boot open, wide angle after detail' },
+            { src: panameraBase + 'interior-4.jpg', alt: '2010 Porsche Panamera Turbo dashboard and centre console, driver view' },
+            { src: panameraBase + 'interior-5.jpg', alt: '2010 Porsche Panamera Turbo rear centre console close-up' },
+            { src: panameraBase + 'interior-6.jpg', alt: '2010 Porsche Panamera Turbo front footwell and door sill, door open' },
+            { src: panameraBase + 'interior-7.jpg', alt: '2010 Porsche Panamera Turbo cabin, wide forward view, second angle' },
+            { src: panameraBase + 'interior-8.jpg', alt: '2010 Porsche Panamera Turbo front seat and door sill, door open' },
+            { src: panameraBase + 'interior-9.jpg', alt: '2010 Porsche Panamera Turbo front seat and dashboard, door open' },
+            { src: panameraBase + 'interior-10.jpg', alt: '2010 Porsche Panamera Turbo front seat, door open, wide angle' },
+          ],
+          engine: [
+            { src: panameraBase + 'engine-1.jpg', alt: '2010 Porsche Panamera Turbo engine bay overview, bonnet open, front view' },
+            { src: panameraBase + 'engine-2.jpg', alt: '2010 Porsche Panamera Turbo engine bay close-up, V8 turbo cover' },
+            { src: panameraBase + 'engine-3.jpg', alt: '2010 Porsche Panamera Turbo engine bay close-up, top-down view' },
+            { src: panameraBase + 'engine-4.jpg', alt: '2010 Porsche Panamera Turbo engine bay close-up, coolant caps' },
+          ],
+        },
+      },
+      { id: 24, img: countrymanBase + 'exterior-1.jpg', title: '2013 MINI Cooper S Countryman', era: 'Contemporary / Modern', services: ['Ceramic Coating', 'Paint Correction', 'Interior', 'Engine Bay'], caption: '$499 small-vehicle Fireball Ceramic Coating with paint correction, interior and engine bay deep clean', description: "Goal: Restore oxidised paint and a stained, abused interior on a daily-driven gravel-road commuter.\n\nThis Countryman earns its keep on gravel roads every day, and the paint and interior were both showing it: oxidised, faded paintwork and an interior that had seen better days. It was a big job, but exactly the kind we like. Paint correction brought the finish back before the $499 small-vehicle Fireball Ceramic Coating package went on to protect it going forward. The interior got a full deep clean and steam clean, and the engine bay was cleaned up to match.\n\nKey work performed:\n\u2022 Paint correction\n\u2022 $499 small-vehicle Fireball Ceramic Coating\n\u2022 Interior deep clean and steam clean\n\u2022 Engine bay deep clean\n\nResult: A daily driver that looks new again, and is set up to handle the gravel for years to come.", popularity: 85, order: 24,
+        photos: {
+          exterior: [
+            { src: countrymanBase + 'exterior-1.jpg', alt: '2013 MINI Cooper S Countryman front three-quarter outside the homestead' },
+            { src: countrymanBase + 'exterior-2.jpg', alt: '2013 MINI Cooper S Countryman side profile on the lawn' },
+            { src: countrymanBase + 'exterior-3.jpg', alt: '2013 MINI Cooper S Countryman front straight-on, sunrise' },
+            { src: countrymanBase + 'exterior-4.jpg', alt: '2013 MINI Cooper S Countryman front three-quarter, morning light' },
+            { src: countrymanBase + 'exterior-5.jpg', alt: '2013 MINI Cooper S Countryman side profile, hillside backdrop' },
+            { src: countrymanBase + 'exterior-6.jpg', alt: '2013 MINI Cooper S Countryman rear three-quarter on the lawn' },
+            { src: countrymanBase + 'exterior-7.jpg', alt: '2013 MINI Cooper S Countryman rear straight-on' },
+            { src: countrymanBase + 'exterior-8.jpg', alt: '2013 MINI Cooper S Countryman rear three-quarter, evening light' },
+          ],
+          interior: [
+            { src: countrymanBase + 'interior-1.jpg', alt: '2013 MINI Cooper S Countryman rear seats after interior detail' },
+            { src: countrymanBase + 'interior-2.jpg', alt: '2013 MINI Cooper S Countryman open boot after clean' },
+            { src: countrymanBase + 'interior-3.jpg', alt: '2013 MINI Cooper S Countryman front seat and dash, door open' },
+            { src: countrymanBase + 'interior-4.jpg', alt: '2013 MINI Cooper S Countryman driver seat and door open' },
+            { src: countrymanBase + 'interior-5.jpg', alt: '2013 MINI Cooper S Countryman dashboard and steering wheel' },
+            { src: countrymanBase + 'interior-6.jpg', alt: '2013 MINI Cooper S Countryman full cabin, front to back' },
+          ],
+          engine: [
+            { src: countrymanBase + 'engine-1.jpg', alt: '2013 MINI Cooper S Countryman engine bay after deep clean' },
+            { src: countrymanBase + 'engine-2.jpg', alt: '2013 MINI Cooper S Countryman engine bay, bonnet open, wide angle' },
+            { src: countrymanBase + 'engine-3.jpg', alt: '2013 MINI Cooper S Countryman front three-quarter, bonnet open' },
+            { src: countrymanBase + 'engine-4.jpg', alt: '2013 MINI Cooper S Countryman bonnet open, front view' },
+          ],
+        },
+      },
+      { id: 25, img: srtBase + 'exterior-1.jpg', title: '2018 Chrysler 300C SRT Core', era: 'Contemporary / Modern', services: ['Ceramic Coating', 'Detailing', 'Engine Bay'], caption: '$1199 Top Dollar large-vehicle package: 2-stage correction, ceramic in and out', description: "Goal: Restore shine and protect a high-kilometre daily commuter, chauffeuring young children in the back seat every day.\n\nThis SRT had racked up the kilometres as a family daily, and it showed. The client went straight for our Top Dollar large-vehicle package: two-stage cut and polish, full exterior paint ceramic coating, glass, headlight and trim ceramic coating, plus wheel and tyre protection. Inside, it got the full treatment too: wet vacuum, detail brushing on all plastics and leathers, dry-wash and stain removal on the seats, fabric guard and leather protection, and a ceramic-coated dash. The engine bay got a full wash, steam clean and ceramic coating of its own, and all the chrome and metal trim was polished back to a shine.\n\nKey work performed:\n\u2022 $1199 Top Dollar package: two-stage correction, full exterior and glass ceramic coating\n\u2022 Full interior deep clean, fabric guard/leather protection and ceramic-coated dash\n\u2022 Full engine bay wash, steam clean and ceramic coating\n\u2022 Chrome and metal polish\n\nResult: A lot of man hours and product went into this one, but the SRT came out showroom restored.", popularity: 90, order: 25,
+        photos: {
+          exterior: [
+            { src: srtBase + 'exterior-1.jpg', alt: '2018 Chrysler 300C SRT Core side profile, tree backdrop' },
+            { src: srtBase + 'exterior-2.jpg', alt: '2018 Chrysler 300C SRT Core side profile on the lawn' },
+            { src: srtBase + 'exterior-3.jpg', alt: '2018 Chrysler 300C SRT Core front three-quarter, park setting' },
+            { src: srtBase + 'exterior-4.jpg', alt: '2018 Chrysler 300C SRT Core front straight-on' },
+            { src: srtBase + 'exterior-5.jpg', alt: '2018 Chrysler 300C SRT Core front three-quarter, low angle, park setting' },
+            { src: srtBase + 'exterior-6.jpg', alt: '2018 Chrysler 300C SRT Core side profile, evening light' },
+            { src: srtBase + 'exterior-7.jpg', alt: '2018 Chrysler 300C SRT Core rear three-quarter on the lawn' },
+            { src: srtBase + 'exterior-8.jpg', alt: '2018 Chrysler 300C SRT Core rear straight-on' },
+            { src: srtBase + 'exterior-9.jpg', alt: '2018 Chrysler 300C SRT Core rear three-quarter, low angle' },
+          ],
+          interior: [
+            { src: srtBase + 'interior-1.jpg', alt: '2018 Chrysler 300C SRT Core dashboard and cabin, forward view after detail' },
+          ],
+          engine: [
+            { src: srtBase + 'engine-1.jpg', alt: '2018 Chrysler 300C SRT Core engine bay overview, bonnet open' },
+            { src: srtBase + 'engine-2.jpg', alt: '2018 Chrysler 300C SRT Core 6.4L HEMI close-up, bonnet open' },
+          ],
+        },
+      },
+      { id: 23, img: panameraSBase + 'exterior-1.jpg', title: '2011 Porsche Panamera S', era: 'Contemporary / Modern', services: ['Detailing', 'Interior', 'Engine Bay'], caption: 'Full top-to-bottom wash, wax and steam clean, no ceramic coatings', description: "Goal: Deep clean the entire car top to bottom, inside and out, no ceramic coatings, just a proper wash and wax.\n\nThe owner wanted a thorough, no-frills refresh. We went through the whole vehicle: exterior wash and wax, a full steam clean of the engine bay and interior, then protective treatments on both. Simple, honest work that left every surface properly clean and cared for.\n\nKey work performed:\n\u2022 Complete exterior wash and wax\n\u2022 Engine bay steam clean and protection\n\u2022 Interior steam clean and protection\n\nResult: A properly deep-cleaned Panamera, fresh from top to bottom and ready to enjoy.", popularity: 79, order: 23,
+        photos: {
+          exterior: [
+            { src: panameraSBase + 'exterior-1.jpg', alt: '2011 Porsche Panamera S side profile, warehouse' },
+            { src: panameraSBase + 'exterior-2.jpg', alt: '2011 Porsche Panamera S front three-quarter, warehouse' },
+            { src: panameraSBase + 'exterior-3.jpg', alt: '2011 Porsche Panamera S side profile after detail, warehouse' },
+            { src: panameraSBase + 'exterior-4.jpg', alt: '2011 Porsche Panamera S rear three-quarter after detail' },
+            { src: panameraSBase + 'exterior-5.jpg', alt: '2011 Porsche Panamera S rear view straight-on' },
+            { src: panameraSBase + 'exterior-6.jpg', alt: '2011 Porsche Panamera S rear three-quarter, low angle' },
+            { src: panameraSBase + 'exterior-7.jpg', alt: '2011 Porsche Panamera S side profile, wide shot' },
+            { src: panameraSBase + 'exterior-8.jpg', alt: '2011 Porsche Panamera S front three-quarter, low angle' },
+          ],
+          interior: [
+            { src: panameraSBase + 'interior-1.jpg', alt: '2011 Porsche Panamera S dashboard and cabin, forward view after detail' },
+            { src: panameraSBase + 'interior-2.jpg', alt: '2011 Porsche Panamera S dashboard, wide angle after detail' },
+            { src: panameraSBase + 'interior-3.jpg', alt: '2011 Porsche Panamera S rear seats, door open, after detail' },
+            { src: panameraSBase + 'interior-4.jpg', alt: '2011 Porsche Panamera S boot open, wide angle after detail' },
+            { src: panameraSBase + 'interior-5.jpg', alt: '2011 Porsche Panamera S cabin, wide forward view after detail' },
+            { src: panameraSBase + 'interior-6.jpg', alt: '2011 Porsche Panamera S dashboard and cabin, forward view, second angle' },
+          ],
+          engine: [
+            { src: panameraSBase + 'engine-5.jpg', alt: '2011 Porsche Panamera S engine bay overview after detail' },
+            { src: panameraSBase + 'engine-1.jpg', alt: '2011 Porsche Panamera S engine bay overview, bonnet open, front view' },
+            { src: panameraSBase + 'engine-3.jpg', alt: '2011 Porsche Panamera S engine bay wide angle, top-down view' },
+            { src: panameraSBase + 'engine-4.jpg', alt: '2011 Porsche Panamera S engine bay close-up, V8 cover' },
+            { src: panameraSBase + 'engine-2.jpg', alt: '2011 Porsche Panamera S engine bay close-up, top-down view' },
+          ],
+        },
+      },
     ];
 
     const serviceLabels = ['All', 'Ceramic Coating', 'Detailing', 'Paint Correction', 'Full Restoration', 'Interior', 'Engine Bay'];
@@ -1439,9 +2130,10 @@ class Component extends DCLogic {
     });
 
     const services = [
-      { title: 'Ceramic Coating', tag: 'Flagship Service', desc: "Ultimate protection and unyielding gloss. Bonds with your vehicle's clear coat for years of resistance against UV, contaminants and minor scratches.", note: 'Starting from $399 (Small Vehicles)' },
-      { title: 'Professional Detailing', tag: null, desc: 'Comprehensive interior and exterior rejuvenation: from deep extraction upholstery cleaning to multi-stage paint correction.', note: null },
-      { title: 'Classic Restoration & Rescue', tag: null, desc: 'Specialized care for vintage and classic automobiles, treating automotive history with reverence.', note: 'Classic Vehicle Pricing: Enquire' },
+      { title: 'Fireball Ceramic Coating', tag: 'Flagship Service', sub: 'Ultimate protection with mirror-like gloss.', desc: 'Your paint stays cleaner, glossier and better protected from UV, contaminants and light scratches for years, so you spend less time washing and more time admiring it.', note: 'Starting from $399 (Small Vehicles)', img: './assets/ceramic-coating-product.jpg', noImg: false, onClick: () => this.nav('ceramic') },
+      { title: 'Paint Correction', tag: null, sub: 'Restore paint depth and clarity.', desc: 'We remove swirls, scratches and dull oxidation so your car looks richer, deeper and ready for lasting protection.', note: 'Starting from $299', img: './assets/paint-correction-product.jpg', noImg: false, onClick: () => this.nav('paintCorrection') },
+      { title: 'Professional Detailing', tag: null, sub: 'Complete interior & exterior transformation.', desc: 'Deep-cleaned upholstery, steam cleaning and refreshed surfaces leave your car feeling new again, inside and out.', note: 'Starting from $99', img: './assets/detailing-product.jpg', noImg: false, onClick: () => this.nav('detailing') },
+      { title: 'Classic Restoration & Rescue', tag: null, sub: 'Respectful car care, regardless of era.', desc: 'We treat automotive history with the patience and precision it deserves, bringing back original beauty without compromising character.', note: 'Classic Vehicle Pricing: Enquire', img: './assets/classic-restoration-product.jpg', noImg: false, onClick: () => this.nav('classicRestoration') },
     ];
 
     const weekdayFmt = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
@@ -1581,14 +2273,27 @@ class Component extends DCLogic {
     ];
     const navItems = navDefs.map((n) => {
       const active = s.screen === n.key || (n.key === 'gallery' && s.screen === 'projectDetail');
-      return { ...n, onClick: () => this.nav(n.key), color: active ? '#1a1c1c' : '#767676', iconWeight: active ? "'FILL' 1" : "'FILL' 0" };
+      return { ...n, onClick: () => this.nav(n.key), color: active ? '#1a1c1c' : '#767676', iconWeight: active ? "'FILL' 1" : "'FILL' 0", borderBottom: active ? '2px solid #115cb9' : '2px solid transparent' };
     });
 
     return {
       isHome: s.screen === 'home',
       isServices: s.screen === 'services',
+      servicesGridStyle: s.viewMode === 'mobile'
+        ? 'display:flex;overflow-x:auto;scroll-snap-type:x mandatory;gap:16px;margin:0 -20px;padding:0 20px 4px;-webkit-overflow-scrolling:touch;'
+        : 'display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:20px;',
+      servicesCardStyle: s.viewMode === 'mobile'
+        ? 'background:#fff;border:1px solid #c4c7c7;overflow:hidden;flex:0 0 85%;scroll-snap-align:center;display:flex;flex-direction:column;max-height:calc(100vh - 220px);'
+        : 'background:#fff;border:1px solid #c4c7c7;overflow:hidden;',
+      serviceImgWrapStyle: s.viewMode === 'mobile'
+        ? 'overflow:hidden;flex:0 0 auto;height:38vh;'
+        : 'aspect-ratio:3/4;overflow:hidden;',
       isPricing: s.screen === 'pricing',
       isCeramic: s.screen === 'ceramic',
+      isCeramicMobileHeader: s.screen === 'ceramic' && s.viewMode === 'mobile',
+      isPaintCorrection: s.screen === 'paintCorrection',
+      isDetailing: s.screen === 'detailing',
+      isClassic: s.screen === 'classicRestoration',
       isGallery: s.screen === 'gallery',
       isProjectDetail: s.screen === 'projectDetail',
       isAbout: s.screen === 'about',
@@ -1600,7 +2305,7 @@ class Component extends DCLogic {
       isBookingModal: s.viewMode !== 'mobile' && s.screen === 'booking',
       isNotBookingModal: !(s.viewMode !== 'mobile' && s.screen === 'booking'),
       frameWidth: (s.viewMode !== 'mobile' && s.screen === 'booking') ? '430px' : '100%',
-      frameHeight: (s.viewMode !== 'mobile' && s.screen === 'booking') ? '844px' : '100vh',
+      frameHeight: (s.viewMode !== 'mobile' && s.screen === 'booking') ? '844px' : '100dvh',
       frameRadius: (s.viewMode !== 'mobile' && s.screen === 'booking') ? '20px' : '0px',
       frameShadow: (s.viewMode !== 'mobile' && s.screen === 'booking') ? '0 30px 80px rgba(0,0,0,0.4)' : 'none',
       framePosition: (s.viewMode !== 'mobile' && s.screen === 'booking') ? 'fixed' : 'static',
@@ -1611,6 +2316,10 @@ class Component extends DCLogic {
       goHome: () => this.nav('home'),
       goServices: () => this.nav('services'),
       goCeramic: () => this.nav('ceramic'),
+      goPaintCorrection: () => this.nav('paintCorrection'),
+      goDetailing: () => this.nav('detailing'),
+      goClassic: () => this.nav('classicRestoration'),
+      goPricing: () => this.nav('pricing'),
       goBooking: () => this.nav('booking'),
 
       serviceFilterItems,
@@ -1641,9 +2350,16 @@ class Component extends DCLogic {
       lightboxCounter: lb ? `${lb.index + 1} / ${lb.list.length}` : '',
       lightboxHasPrev: lb ? lb.index > 0 : false,
       lightboxHasNext: lb ? lb.index < lb.list.length - 1 : false,
+      lightboxShowArrows: s.viewMode !== 'mobile',
+      galleryGridStyle: s.viewMode === 'mobile'
+        ? 'display:flex;flex-direction:column;gap:14px;'
+        : 'display:grid;grid-template-columns:repeat(3,1fr);gap:14px;',
+      galleryCardStyle: 'border:1px solid #c4c7c7;overflow:hidden;background:#fff;cursor:pointer;',
       closeLightbox: this.closeLightbox,
       prevLightboxPhoto: this.prevLightboxPhoto,
       nextLightboxPhoto: this.nextLightboxPhoto,
+      onLightboxTouchStart: this.onLightboxTouchStart,
+      onLightboxTouchEnd: this.onLightboxTouchEnd,
       backToGallery: this.backToGallery,
 
       pricingTiers,
